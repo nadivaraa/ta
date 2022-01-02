@@ -52,3 +52,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// USER
+// REGISTER
+$route['register'] = 'authcontroller/register';
+
+// BERANDA
+$route['beranda'] = 'berandacontroller/beranda';
+
+// BERKAS
+$route['keldok'] = 'berkascontroller/keldok';
+$route['kemba'] = 'berkascontroller/kemba';
+$route['slik'] = 'berkascontroller/slik';
+$route['jaminan'] = 'berkascontroller/jaminan';
+
+// REKOMENDASI
+$route['rekomendasi'] = 'rekomendasicontroller/rekomendasi';
+
+
+//ADMIN
+// ALOGIN
+$route['admin/login'] = 'aauthcontroller/alogin';
+
+// ABERANDA
+$route['admin/beranda'] = 'aberandacontroller/aberanda';
+
+//ANASABAH
+$route['admin/nasabah'] = 'anasabahcontroller/anasabah';
+
+//AVERIFIKASI BERKAS
+$route['admin/keldok'] = 'averberkascontroller/akeldok';
+$route['admin/kemba'] = 'averberkascontroller/akemba';
+$route['admin/slik'] = 'averberkascontroller/aslik';
+$route['admin/jaminan'] = 'averberkascontroller/ajaminan';
+
+//AKRITERIA
+$route['admin/krikeldok'] = 'akriteriacontroller/akrikeldok';
+$route['admin/krikemba'] = 'akriteriacontroller/akrikemba';
+$route['admin/krislik'] = 'akriteriacontroller/akrislik';
+$route['admin/krijaminan'] = 'akriteriacontroller/akrijaminan';
+
+//APENILAIAN
+$route['admin/apenilaian'] = 'apenilaiancontroller/apenilaian';
+
+//AREKOMENDASI
+$route['admin/arekomendasi'] = 'arekomendasicontroller/arekomendasi';
