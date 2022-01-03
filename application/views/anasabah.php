@@ -14,10 +14,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url()?>/assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/extensions/toastr.min.css">
+   <!-- BEGIN: Vendor CSS-->
+   <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -338,10 +341,10 @@
                                     <h4 class="card-title">Daftar Nasabah</h4>
                                 </div>
                                 <div class="card-datatable">
-                                    <table class="dt-complex-header table table-bordered table-responsive">
+                                    <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
                                         <thead>
                                             <tr>
-                                            <th>Email</th>
+                                                <th>Email</th>
                                                 <th>Nama</th>
                                                 <th>Tanggal Lahir</th>
                                                 <th>Alamat</th>
@@ -349,6 +352,21 @@
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
+                                            <tbody>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>Nama</td>
+                                                <td>Tanggal Lahir</td>
+                                                <td>Alamat</td>
+                                                <td>Pekerjaan</td>
+                                                <td>Status</td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
+                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
+                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
                                         </thead>
                                     </table>
                                 </div>
@@ -370,7 +388,23 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script> -->
     <script src="<?= base_url()?>/assets/vendors/js/extensions/toastr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
@@ -380,7 +414,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="<?= base_url()?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <!-- <script src="<?= base_url()?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
     <!-- END: Page JS-->
 
     <script>
@@ -391,6 +425,9 @@
                     height: 14
                 });
             }
+        })
+        $(document).ready(function(){
+            $('#tbl').DataTable()
         })
     </script>
 </body>

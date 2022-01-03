@@ -358,6 +358,27 @@
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
+                                            <tbody>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>KTP</td>
+                                                <td>KTP Pasangan</td>
+                                                <td>Akta Nikah</td>
+                                                <td>Akta Pisah Harta</td>
+                                                <td>Kartu Keluarga</td>
+                                                <td>NPWP</td>
+                                                <td>Slip Gaji</td>
+                                                <td>Surat Pemesanan</td>
+                                                <td>Surat Pernyataan</td>
+                                                <td>Bukti Pembayaran</td>
+                                                <td class="cell-fit">Status</td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
+                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
+                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
                                         </thead>
                                     </table>
                                 </div>
