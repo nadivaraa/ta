@@ -296,10 +296,21 @@
                     <!-- Bootstrap Validation -->
                     <div class="col-md-12 col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Jaminan</h4>
+                                <div class="row ps-2 pt-2">
+                                    <div class="col-6 col-md-6">
+                                        <h4 class="card-title">Jaminan</h4>        
+                                    </div>
+                                    <div class="col-6 col-md-6 pe-3" style="text-align: right;">
+                                        <span class="badge badge-light-danger">Gagal</span>
+                                    </div>
                                 </div>
                                 <div class="card-body">
+                                    <div class="alert alert-danger" role="alert">
+                                        <h4 class="alert-heading">Gagal</h4>
+                                        <div class="alert-body">
+                                            Gagal karena rumah anda masih tergolong kurang layak.
+                                        </div>
+                                    </div>
                                     <form class="needs-validation" novalidate>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Name</label>
@@ -373,7 +384,10 @@
                                                 <div class="invalid-feedback">You must agree before submitting.</div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div style="float: right;">
+                                            <button type="button" class="btn btn-info">Simpan</button>
+                                            <button type="button" class="btn btn-success">Kirim</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

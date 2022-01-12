@@ -296,8 +296,13 @@
                     <!-- Bootstrap Validation -->
                     <div class="col-md-12 col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Kemampuan Bayar</h4>
+                                <div class="row ps-2 pt-2">
+                                    <div class="col-6 col-md-6">
+                                        <h4 class="card-title">Kemampuan Bayar</h4>        
+                                    </div>
+                                    <div class="col-6 col-md-6 pe-3" style="text-align: right;">
+                                        <span class="badge badge-light-warning">Proses</span>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate>
@@ -373,7 +378,10 @@
                                                 <div class="invalid-feedback">You must agree before submitting.</div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div style="float: right;">
+                                            <button type="button" class="btn btn-info">Simpan</button>
+                                            <button type="button" class="btn btn-success">Kirim</button>
+                                        </div>s
                                     </form>
                                 </div>
                             </div>

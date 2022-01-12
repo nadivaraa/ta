@@ -296,11 +296,32 @@
                     <!-- Bootstrap Validation -->
                     <div class="col-md-12 col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Kelengkapan Dokumen</h4>
+                                <!-- <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-6 col-md-6">
+                                            <h4 class="card-title">Kelengkapan Dokumen</h4>        
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="row ps-2 pt-2">
+                                    <div class="col-6 col-md-6">
+                                        <h4 class="card-title">Kelengkapan Dokumen</h4>        
+                                    </div>
+                                    <div class="col-6 col-md-6 pe-3" style="text-align: right;">
+                                        <span class="badge badge-light-success">Terverifikasi</span>
+                                    </div>
                                 </div>
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    <select class="form-select" id="basicSelect">
+                                        <option disabled selected>Pilih Pekerjaan</option>
+                                        <option>Professional</option>
+                                        <option>Karyawan</option>
+                                        <option>Wiraswasta</option>
+                                    </select>
+                                    <form class="pt-3 needs-validation" novalidate>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Name</label>
 
@@ -373,7 +394,10 @@
                                                 <div class="invalid-feedback">You must agree before submitting.</div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div style="float: right;">
+                                            <button type="button" class="btn btn-info">Simpan</button>
+                                            <button type="button" class="btn btn-success">Kirim</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
