@@ -281,52 +281,52 @@
                                     <div class="row">
                                         <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-primary me-2">
+                                                <div class="avatar bg-light-success me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="trending-up" class="avatar-icon"></i>
+                                                        <i data-feather="check" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Lengkap</h4>
+                                                    <h4 class="fw-bolder mb-0">Terverifikasi</h4>
                                                     <p class="card-text font-small-3 mb-0">Kelengkapan Dokumen</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-info me-2">
+                                                <div class="avatar bg-light-warning me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="user" class="avatar-icon"></i>
+                                                        <i data-feather="clock" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Diproses</h4>
+                                                    <h4 class="fw-bolder mb-0">Proses</h4>
                                                     <p class="card-text font-small-3 mb-0">Kemampuan Bayar</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-danger me-2">
+                                                <div class="avatar bg-light-info me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="box" class="avatar-icon"></i>
+                                                        <i data-feather="pocket" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Menunggu</h4>
+                                                    <h4 class="fw-bolder mb-0">Draft</h4>
                                                     <p class="card-text font-small-3 mb-0">Pengecekkan SLIK</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-12">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-success me-2">
+                                                <div class="avatar bg-light-danger me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="dollar-sign" class="avatar-icon"></i>
+                                                        <i data-feather="x" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Draft</h4>
+                                                    <h4 class="fw-bolder mb-0">Gagal</h4>
                                                     <p class="card-text font-small-3 mb-0">Jaminan</p>
                                                 </div>
                                             </div>
@@ -339,7 +339,7 @@
 
                         <!--/ Statistics Card -->
                          <!-- Medal Card -->
-                         <div class="col-xl-4 col-md-6 col-12">
+                         <!-- <div class="col-xl-4 col-md-6 col-12">
                             <div class="card card-congratulation-medal">
                                 <div class="card-body">
                                     <h5>Congratulations 🎉 John!</h5>
@@ -350,10 +350,45 @@
                                     <img src="<?= base_url()?>/assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!--/ Medal Card -->
                     </div>
-            </div>
+            
+                </div>
+                <div class="row match-height">
+                       <!-- Statistics Card -->
+                        <div class="col-xl-12 col-md-6 col-12">
+                            <div class="card card-statistics">
+                                <div class="card-header">
+                                    <h4 class="card-title">Pesan Masuk</h4>
+                                </div>
+                                <div class="card-body statistics-body">
+                                    <div class="row">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--/ Statistics Card -->
+                         <!-- Medal Card -->
+                         <!-- <div class="col-xl-4 col-md-6 col-12">
+                            <div class="card card-congratulation-medal">
+                                <div class="card-body">
+                                    <h5>Congratulations 🎉 John!</h5>
+                                    <p class="card-text font-small-3">Pengajuan Kreditmu Diterima</p>
+                                    <h3 class="mb-75 mt-2 pt-50">
+                                    </h3>
+                                    <button type="button" class="btn btn-primary">Lihat Rekomendasi</button>
+                                    <img src="<?= base_url()?>/assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
+                                </div>
+                            </div>
+                        </div> -->
+                        <!--/ Medal Card -->
+                    </div>
+            
+                </div>
         </div>
     </div>
     <!-- END: Content-->
