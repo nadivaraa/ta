@@ -293,90 +293,84 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <select class="form-select" id="basicSelect">
-                                        <option disabled selected>Pilih Pekerjaan</option>
-                                        <option>Professional</option>
-                                        <option>Karyawan</option>
-                                        <option>Wiraswasta</option>
+                                    <label class="form-label" for="basic-addon-name">Pilih Pekerjaan</label>
+                                    <select class="form-select" id="slct_pilKerja">
+                                        <option value="1">Professional</option>
+                                        <option value="2">Karyawan</option>
+                                        <option value="3">Wiraswasta</option>
                                     </select>
-                                    <form class="pt-3 needs-validation" novalidate>
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basic-addon-name">Name</label>
+                                    <button type="button" id="btn_pilKerja" class="btn btn-sm btn-primary mt-1">Simpan</button>
+                                    <div id="boxProfessional">
 
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please enter your name.</div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basic-default-email1">Email</label>
-                                            <input type="email" id="basic-default-email1" class="form-control" placeholder="john.doe@email.com" aria-label="john.doe@email.com" required />
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please enter a valid email</div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basic-default-password1">Password</label>
-                                            <input type="password" id="basic-default-password1" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please enter your password.</div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" for="bsDob">DOB</label>
-                                            <input type="text" class="form-control picker" name="dob" id="bsDob" required />
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please enter your date of birth.</div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" for="select-country1">Country</label>
-                                            <select class="form-select" id="select-country1" required>
-                                                <option value="">Select Country</option>
-                                                <option value="usa">USA</option>
-                                                <option value="uk">UK</option>
-                                                <option value="france">France</option>
-                                                <option value="australia">Australia</option>
-                                                <option value="spain">Spain</option>
-                                            </select>
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please select your country</div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label for="customFile1" class="form-label">Profile pic</label>
-                                            <input class="form-control" type="file" id="customFile1" required />
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">Gender</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="validationRadioBootstrap" class="form-check-input" required />
-                                                <label class="form-check-label" for="validationRadio3">Male</label>
+                                    </div>
+                                    <div class="text-center mt-3" id="box_prof" hidden="true">
+                                        <h3>Professional</h3>
+                                        <form class="pt-3 needs-validation" novalidate>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basic-addon-name">Name</label>
+
+                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter your name.</div>
                                             </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="validationRadioBootstrap" class="form-check-input" required />
-                                                <label class="form-check-label" for="validationRadio4">Female</label>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basic-default-email1">Email</label>
+                                                <input type="email" id="basic-default-email1" class="form-control" placeholder="john.doe@email.com" aria-label="john.doe@email.com" required />
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter a valid email</div>
                                             </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label for="validationCustomUsername" class="form-label">Username</label>
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required />
-                                                <div class="invalid-feedback">Please choose a username.</div>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basic-default-password1">Password</label>
+                                                <input type="password" id="basic-default-password1" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter your password.</div>
                                             </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="d-block form-label" for="validationBioBootstrap">Bio</label>
-                                            <textarea class="form-control" id="validationBioBootstrap" name="validationBioBootstrap" rows="3" required></textarea>
-                                        </div>
-                                        <div class="mb-1">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="validationCheckBootstrap" required />
-                                                <label class="form-check-label" for="validationCheckBootstrap">Agree to our terms and conditions</label>
-                                                <div class="invalid-feedback">You must agree before submitting.</div>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="bsDob">DOB</label>
+                                                <input type="text" class="form-control picker" name="dob" id="bsDob" required />
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter your date of birth.</div>
                                             </div>
-                                        </div>
-                                        <div style="float: right;">
-                                            <button type="button" class="btn btn-info">Simpan</button>
-                                            <button type="button" class="btn btn-success">Kirim</button>
-                                        </div>
-                                    </form>
+                                            <div style="float: right;">
+                                                <button type="button" class="btn btn-info">Simpan</button>
+                                                <button type="button" class="btn btn-success">Kirim</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="text-center mt-3" id="box_kar" hidden="true">
+                                        <h3>Karyawan</h3>
+                                        <form class="pt-3 needs-validation" novalidate>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basic-addon-name">Name</label>
+
+                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter your name.</div>
+                                            </div>
+                                            
+                                            <div style="float: right;">
+                                                <button type="button" class="btn btn-info">Simpan</button>
+                                                <button type="button" class="btn btn-success">Kirim</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="text-center mt-3" id="box_swas" hidden="true">
+                                        <h3>Swasta</h3>
+                                        <form class="pt-3 needs-validation" novalidate>
+                                            <div class="mb-1">
+                                                <label class="form-label" for="basic-addon-name">Name</label>
+
+                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                <div class="valid-feedback">Looks good!</div>
+                                                <div class="invalid-feedback">Please enter your name.</div>
+                                            </div>
+                                            
+                                            <div style="float: right;">
+                                                <button type="button" class="btn btn-info">Simpan</button>
+                                                <button type="button" class="btn btn-success">Kirim</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -415,6 +409,20 @@
                     width: 14,
                     height: 14
                 });
+            }
+        })
+        $('#btn_pilKerja').click(function(){
+            const val = $('#slct_pilKerja').val();
+
+            $('#box_prof').attr('hidden', true);
+            $('#box_kar').attr('hidden', true);
+            $('#box_swas').attr('hidden', true);
+            if(val == "1"){
+                $('#box_prof').attr('hidden', false);
+            }else if(val == "2"){
+                $('#box_kar').attr('hidden', false);
+            }else if(val == "3"){
+                $('#box_swas').attr('hidden', false);
             }
         })
     </script>
