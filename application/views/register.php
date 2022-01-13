@@ -76,17 +76,12 @@
                                         <input class="form-control" id="register-nama" type="text" name="register-nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="register-pekerjaan">Pekerjaan</label>
-                                        <select class="form-select" id="basicSelect">
-                                            <option>Pilih pekerjaan</option>
-                                            <option>Karyawan</option>
-                                            <option>Wiraswasta</option>
-                                            <option>Profesional</option>
-                                        </select>
+                                        <label class="form-label" for="register-alamat">Alamat</label>
+                                        <textarea name="" class="form-control" id="" cols="30" rows="4"></textarea>
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="register-alamat">Alamat</label>
-                                        <input class="form-control" id="register-alamat" type="text" name="register-alamat" placeholder="johndoe" aria-describedby="register-alamat" tabindex="4" />
+                                        <label class="form-label" for="register-nama">No Telp</label>
+                                        <input class="form-control" id="register-nama" type="telp" name="register-nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-password">Password</label>
