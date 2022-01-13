@@ -286,43 +286,44 @@
             <div class="content-header row">
             </div>
             <div class="content-body">
-                <!-- Dashboard Ecommerce Starts -->
-                <section id="dashboard-ecommerce">
+                
+            <section id="dashboard-ecommerce">
                     <div class="row match-height">
                         <section id="complex-header-datatable">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header border-bottom">
-                                    <h4 class="card-title">Data Kriteria SLIK</h4>
-                                </div>
-                                <div class="card-datatable">
-                                    <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Kriteria</th>
-                                                <th>Bobot</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Nama Kriteria</td>
-                                                <td>Bobot</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                    <a class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="trash"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <h4 class="card-title">Data Kriteria Pengecekkan SLIK</h4>
+                                            <button class="btn btn-sm btn-success"><i data-feather="plus"></i>Tambah</button>
+                                        </div>
+                                        <div class="card-datatable">
+                                            <table class="dt-complex-header table table-bordered table-responsive dataTable no-footer" id="tbl" role="grid" aria-describedby="DataTables_Table_1_info" style="width: 1018px;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Jenis Kriteria</th>
+                                                        <th>Bobot</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Layak</td>
+                                                        <td>4</td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
+                                                            <a class="btn btn-sm btn-danger"><i data-feather="trash"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
                 </section>
-                    </div>
             </div>
         </div>
     </div>
