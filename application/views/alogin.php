@@ -59,8 +59,8 @@
                                    <img width="85px" src="<?= base_url('assets/images/logo/logogramkpr.svg')?>" alt="">
                                 </a>
 
-                                <h4 class="card-title mb-1">Welcome to Vuexy! 👋</h4>
-                                <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
+                                <h4 class="card-title mb-1">Welcome to Kredir Pemilikan Rumah! 👋</h4>
+                                <p class="card-text mb-2">Please sign-in to your account</p>
 
                                 <form class="auth-login-form mt-2" action="<?= site_url('admin/beranda')?>" method="POST">
                                     <div class="mb-1">

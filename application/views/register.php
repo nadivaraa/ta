@@ -66,27 +66,27 @@
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <h2 class="card-title fw-bold mb-1">Adventure starts here 🚀</h2>
                                 <p class="card-text mb-2">Make your app management easy and fun!</p>
-                                <form class="auth-register-form mt-2" action="index.html" method="POST">
+                                <form class="auth-register-form mt-2" action="<?php echo base_url('proses_register') ?>" method="POST">
                                     <div class="mb-1">
                                         <label class="form-label" for="register-email">Email</label>
-                                        <input class="form-control" id="register-email" type="text" name="register-email" placeholder="john@example.com" aria-describedby="register-email" autofocus="" tabindex="1" />
+                                        <input class="form-control" id="register-email" type="text" name="register_email" placeholder="john@example.com" aria-describedby="register-email" autofocus="" tabindex="1" />
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-nama">Nama</label>
-                                        <input class="form-control" id="register-nama" type="text" name="register-nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
+                                        <input class="form-control" id="register-nama" type="text" name="register_nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-alamat">Alamat</label>
-                                        <textarea name="" class="form-control" id="" cols="30" rows="4"></textarea>
+                                        <textarea name="register_alamat" class="form-control" id="" cols="30" rows="4"></textarea>
                                     </div>
                                     <div class="mb-1">
-                                        <label class="form-label" for="register-nama">No Telp</label>
-                                        <input class="form-control" id="register-nama" type="telp" name="register-nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
+                                        <label class="form-label" for="registernama">No Telp</label>
+                                        <input class="form-control" id="register-nama" type="telp" name="register_notlp" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-password">Password</label>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="register-password" type="text" name="register-password" placeholder="············" aria-describedby="register-password" tabindex="5" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            <input class="form-control form-control-merge" id="register-password" type="text" name="register_password" placeholder="············" aria-describedby="register-password" tabindex="5" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
                                     <div class="mb-1">

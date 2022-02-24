@@ -56,6 +56,10 @@ $route['translate_uri_dashes'] = FALSE;
 // USER
 // REGISTER
 $route['register'] = 'authcontroller/register';
+$route['proses_register'] = 'authcontroller/proses_register';
+
+//LOGIN
+$route['proses_login'] = 'authcontroller/proses_login';
 
 // BERANDA
 $route['beranda'] = 'berandacontroller/beranda';
@@ -97,3 +101,4 @@ $route['admin/apenilaian'] = 'apenilaiancontroller/apenilaian';
 
 //AREKOMENDASI
 $route['admin/arekomendasi'] = 'arekomendasicontroller/arekomendasi';
+

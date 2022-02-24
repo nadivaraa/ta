@@ -320,13 +320,13 @@
                                         </div>
                                         <div class="col-xl-3 col-sm-6 col-12">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-danger me-2">
+                                                <div class="avatar bg-light-info me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="x" class="avatar-icon"></i>
+                                                        <i data-feather="pocket" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Gagal</h4>
+                                                    <h4 class="fw-bolder mb-0">Draft</h4>
                                                     <p class="card-text font-small-3 mb-0">Jaminan</p>
                                                 </div>
                                             </div>

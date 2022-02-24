@@ -299,18 +299,27 @@
                                 <div class="card-datatable">
                                     <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
                                         <thead>
-                                            <tr>
-                                                <th rowspan="2">Name</th>
-                                                <th colspan="2">Contact</th>
-                                                <th colspan="3">HR Information</th>
-                                                <th rowspan="2">Action</th>
-                                            </tr>
-                                            <tr>
-                                                <th>E-mail</th>
-                                                <th>City</th>
-                                                <th>Position</th>
-                                                <th>Salary</th>
+                                        <tr>
+                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Kelengkapan dokumen</th>
+                                                <th>Kemampuan bayar</th>
+                                                <th>Pengecekkan SLIK</th>
+                                                <th>Jaminan</th>
+                                                <th>Nilai</th>
                                                 <th class="cell-fit">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>Nama</td>
+                                                <td>Kelengkapan dokumen</td>
+                                                <td>Kemampuan bayar</td>
+                                                <td>Pengecekkan SLIK</td>
+                                                <td>Jaminan</td>
+                                                <td>Nilai</td>
+                                                <td>Status</td>
                                             </tr>
                                         </thead>
                                     </table>

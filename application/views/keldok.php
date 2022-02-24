@@ -307,29 +307,52 @@
                                         <h3>Professional</h3>
                                         <form class="pt-3 needs-validation" novalidate>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">Name</label>
-
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                <label for="customFile1" class="form-label">KTP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-default-email1">Email</label>
-                                                <input type="email" id="basic-default-email1" class="form-control" placeholder="john.doe@email.com" aria-label="john.doe@email.com" required />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter a valid email</div>
+                                                <label for="customFile1" class="form-label">KTP PASANGAN</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-default-password1">Password</label>
-                                                <input type="password" id="basic-default-password1" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter your password.</div>
+                                                <label for="customFile1" class="form-label">AKTA NIKAH</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="bsDob">DOB</label>
-                                                <input type="text" class="form-control picker" name="dob" id="bsDob" required />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter your date of birth.</div>
+                                                <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">KARTU KELUARGA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">NPWP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">NPWP USAHA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">IZIN PRAKTEK</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">REKENING KORAN 3 BULAN TERAKHIR</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             <div style="float: right;">
                                                 <button type="button" class="btn btn-info">Simpan</button>
@@ -341,13 +364,42 @@
                                         <h3>Karyawan</h3>
                                         <form class="pt-3 needs-validation" novalidate>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">Name</label>
-
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                <label for="customFile1" class="form-label">KTP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
                                             </div>
-                                            
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">KTP PASANGAN</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">AKTA NIKAH</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">KARTU KELUARGA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SLIP GAJI</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+
                                             <div style="float: right;">
                                                 <button type="button" class="btn btn-info">Simpan</button>
                                                 <button type="button" class="btn btn-success">Kirim</button>
@@ -355,14 +407,63 @@
                                         </form>
                                     </div>
                                     <div class="text-center mt-3" id="box_swas" hidden="true">
-                                        <h3>Swasta</h3>
+                                        <h3>wiraswasta</h3>
                                         <form class="pt-3 needs-validation" novalidate>
+                                        <div class="mb-1">
+                                                <label for="customFile1" class="form-label">KTP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">Name</label>
-
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
-                                                <div class="valid-feedback">Looks good!</div>
-                                                <div class="invalid-feedback">Please enter your name.</div>
+                                                <label for="customFile1" class="form-label">KTP PASANGAN</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">AKTA NIKAH</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">KARTU KELUARGA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">NPWP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">NPWP USAHA</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SIUP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">TDP</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">AKTA PENDIRIAN</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">REKENING KORAN 3 BULAN TERAKHIR</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
+                                            </div>
+                                            <div class="mb-1">
+                                                <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
+                                                <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             
                                             <div style="float: right;">
