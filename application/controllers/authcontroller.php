@@ -44,11 +44,13 @@ class authcontroller extends CI_Controller {
 	{
 		$data = array(
 			'EMAIL_NAS' => $_POST['login_email'],
-			'PASS_NAS' => $_POST['login_password']
+			'PASS_NAS' => md5($_POST['login_password'])
 		);
 		$nasabah = $this->mnasabah->get($data);
 		if ($nasabah == null) {
+			$this->session->set_flashdata('msg','Email atau Password Salah');
 			redirect('/');
+			
 		}else {
 			$dataSession = array(
 				'email' => $nasabah[0]->EMAIL_NAS,

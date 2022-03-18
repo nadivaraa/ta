@@ -46,8 +46,8 @@
 
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-    <!-- BEGIN: Header-->
-    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+   <!-- BEGIN: Header-->
+   <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
         <div class="navbar-container d-flex content">
             <ul class="nav navbar-nav align-items-center ms-auto">
                 
@@ -56,7 +56,7 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">Notifications</h4>
+                                <h4 class="notification-title mb-0 me-auto">Notifikasi</h4>
                                 <div class="badge rounded-pill badge-light-primary">6 New</div>
                             </div>
                         </li>
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="list-item d-flex align-items-center">
+                            <!-- <div class="list-item d-flex align-items-center">
                                 <h6 class="fw-bolder me-auto mb-0">System Notifications</h6>
                                 <div class="form-check form-check-primary form-switch">
                                     <input class="form-check-input" id="systemNotification" type="checkbox" checked="">
@@ -129,16 +129,15 @@
                                         <p class="media-heading"><span class="fw-bolder">High memory</span>&nbsp;usage</p><small class="notification-text"> BLR Server using high memory</small>
                                     </div>
                                 </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Read all notifications</a></li>
+                            </a> -->
+                        <!-- </li> -->
+                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Baca Semua Notifikasi</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Logout</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                 </li>
             </ul>
@@ -252,7 +251,7 @@
                         <li><a class="d-flex align-items-center" href="<?= site_url('jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>  
                     </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Hasil</span></a>
                 </li>
                 </li>
             </ul>

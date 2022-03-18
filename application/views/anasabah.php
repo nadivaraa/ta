@@ -283,54 +283,58 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-            <div class="content-header row">
-            </div>
+            <div class="content-header row"></div>
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
                 <section id="dashboard-ecommerce">
                     <div class="row match-height">
                         <section id="complex-header-datatable">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header border-bottom">
-                                    <h4 class="card-title">Daftar Nasabah</h4>
-                                </div>
-                                <div class="card-datatable">
-                                    <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
-                                        <thead>
-                                            <tr>
-                                                <th>Email</th>
-                                                <th>Nama</th>
-                                                <th>Tanggal Lahir</th>
-                                                <th>Alamat</th>
-                                                <th>Pekerjaan</th>
-                                                <th class="cell-fit">Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            <tbody>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>Nama</td>
-                                                <td>Tanggal Lahir</td>
-                                                <td>Alamat</td>
-                                                <td>Pekerjaan</td>
-                                                <td>Status</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        </thead>
-                                    </table>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header border-bottom">
+                                            <h4 class="card-title">Daftar Nasabah</h4>
+                                        </div>
+                                        <div class="card-datatable">
+                                            <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <th>Nama</th>
+                                                        <th>No Telepon</th>
+                                                        <th>Alamat</th>
+                                                        <th class="cell-fit">Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                    <tbody>
+                                                        <?php 
+                                                            foreach ($nasabah as $item){
+                                                                echo '
+                                                                    <tr>
+                                                                        <td>'.$item->EMAIL_NAS.'</td>
+                                                                        <td>'.$item->NAMA_NAS.'</td>
+                                                                        <th>'.$item->NOTLP_NAS.'</th>
+                                                                        <td>'.$item->ALAMAT_NAS.'</td>
+                                                                        <td>Status</td>
+                                                                        <td>
+                                                                            <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
+                                                                            <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
+                                                                            <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
+                                                                        </td>
+                                                                    </tr>                                                      
+                                                                ';
+                                                            } 
+                                                        ?>
+                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
                 </section>
-                    </div>
             </div>
         </div>
     </div>

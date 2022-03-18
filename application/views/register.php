@@ -64,8 +64,8 @@
                         <!-- Register-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title fw-bold mb-1">Adventure starts here 🚀</h2>
-                                <p class="card-text mb-2">Make your app management easy and fun!</p>
+                                <h2 class="card-title fw-bold mb-1">Dapatkan Rumah Impian Anda Disini 🚀</h2>
+                                <p class="card-text mb-2">Lakukan Pendaftaran Terlebih Dahulu !</p>
                                 <form class="auth-register-form mt-2" action="<?php echo base_url('proses_register') ?>" method="POST">
                                     <div class="mb-1">
                                         <label class="form-label" for="register-email">Email</label>
@@ -75,13 +75,13 @@
                                         <label class="form-label" for="register-nama">Nama</label>
                                         <input class="form-control" id="register-nama" type="text" name="register_nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
                                     </div>
-                                    <div class="mb-1">
+                                    <!-- <div class="mb-1">
                                         <label class="form-label" for="register-alamat">Alamat</label>
                                         <textarea name="register_alamat" class="form-control" id="" cols="30" rows="4"></textarea>
-                                    </div>
+                                    </div> -->
                                     <div class="mb-1">
                                         <label class="form-label" for="registernama">No Telp</label>
-                                        <input class="form-control" id="register-nama" type="telp" name="register_notlp" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
+                                        <input class="form-control" id="register-nama" type="telp" name="register_notlp" placeholder="08XXXXXXXXXX" aria-describedby="register-nama" tabindex="2" />
                                     </div>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-password">Password</label>
@@ -90,14 +90,14 @@
                                         </div>
                                     </div>
                                     <div class="mb-1">
-                                        <div class="form-check">
+                                        <!-- <div class="form-check">
                                             <input class="form-check-input" id="register-privacy-policy" type="checkbox" tabindex="4" />
                                             <label class="form-check-label" for="register-privacy-policy">I agree to<a href="#">&nbsp;privacy policy & terms</a></label>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="5">Sign up</button>
+                                    <button class="btn btn-primary w-100" tabindex="5">Daftar</button>
                                 </form>
-                                <p class="text-center mt-2"><span>Already have an account?</span><a href="auth-login-cover.html"><span>&nbsp;Sign in instead</span></a></p>
+                                <p class="text-center mt-2"><span>Sudah Punya Akun?</span><a href="welcome"><span>&nbsp;Masuk</span></a></p>
                         <!-- /Register-->
                     </div>
                 </div>

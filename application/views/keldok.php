@@ -38,7 +38,52 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
+<style>
+    .custom-file-input {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+}
 
+.custom-file-input:focus ~ .custom-file-label {
+  border-color: #80bdff;
+  box-shadow: none;
+}
+
+.custom-file-input[disabled] ~ .custom-file-label,
+.custom-file-input:disabled ~ .custom-file-label {
+  background-color: #e9ecef;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+  content: "Browse";
+}
+
+.custom-file-input ~ .custom-file-label[data-browse]::after {
+  content: attr(data-browse);
+}
+    .custom-file-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  overflow: hidden;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  box-shadow: none;
+}
+</style>
 </head>
 <!-- END: Head-->
 
@@ -56,7 +101,7 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">Notifications</h4>
+                                <h4 class="notification-title mb-0 me-auto">Notifikasi</h4>
                                 <div class="badge rounded-pill badge-light-primary">6 New</div>
                             </div>
                         </li>
@@ -90,7 +135,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="list-item d-flex align-items-center">
+                            <!-- <div class="list-item d-flex align-items-center">
                                 <h6 class="fw-bolder me-auto mb-0">System Notifications</h6>
                                 <div class="form-check form-check-primary form-switch">
                                     <input class="form-check-input" id="systemNotification" type="checkbox" checked="">
@@ -129,16 +174,15 @@
                                         <p class="media-heading"><span class="fw-bolder">High memory</span>&nbsp;usage</p><small class="notification-text"> BLR Server using high memory</small>
                                     </div>
                                 </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Read all notifications</a></li>
+                            </a> -->
+                        <!-- </li> -->
+                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Baca Semua Notifikasi</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Logout</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                 </li>
             </ul>
@@ -252,7 +296,7 @@
                         <li><a class="d-flex align-items-center" href="<?= site_url('jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>  
                     </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Hasil</span></a>
                 </li>
                 </li>
             </ul>
@@ -303,8 +347,113 @@
                                     <div id="boxProfessional">
 
                                     </div>
-                                    <div class="text-center mt-3" id="box_prof" hidden="true">
+                                    <div class="text mt-3" id="box_prof" hidden="true">
                                         <h3>Professional</h3>
+                                        <form class="pt-3 needs-validation" enctype="multipart/form-data" action="<?php echo base_url('proses_keldok_prof') ?>" method="POST" novalidate> 
+                                        
+                                            <label for="customFile1" class="form-label">KTP</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_ktp" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+                                        
+                                            <label for="customFile1" class="form-label">KTP PASANGAN</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_ktppas" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+                                            
+                                            <label for="customFile1" class="form-label">AKTA NIKAH</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_aktanik" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_aktapis" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+                            
+                                            <label for="customFile1" class="form-label">KARTU KELUARGA</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_kk" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">NPWP</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_npwp" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">NPWP USAHA</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_npwpush" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">IZIN PRAKTEK</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_izinprak" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">REKENING KORAN 3 BULAN TERAKHIR</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_rekkor" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_spkredit" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+
+                                            <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_sprumah" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+                                            
+                                            <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
+                                        <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250"/>
+
+                                            <div class="input-group mb-1">
+                                                <input type="file" class="form-control" placeholder="Button on right" name="prof_bukti" required aria-describedby="button-addon2" onchange="ShowPoster(event);"/>
+                                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                                            </div>
+                                            <div style="float: right;">
+                                                <button type="submit" class="btn btn-info">Simpan</button>
+                                                <button type="button" class="btn btn-success">Kirim</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="text mt-3" id="box_kar" hidden="true">
+                                        <h3>Karyawan</h3>
                                         <form class="pt-3 needs-validation" novalidate>
                                             <div class="mb-1">
                                                 <label for="customFile1" class="form-label">KTP</label>
@@ -331,59 +480,6 @@
                                                 <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             <div class="mb-1">
-                                                <label for="customFile1" class="form-label">NPWP USAHA</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">IZIN PRAKTEK</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">REKENING KORAN 3 BULAN TERAKHIR</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div style="float: right;">
-                                                <button type="button" class="btn btn-info">Simpan</button>
-                                                <button type="button" class="btn btn-success">Kirim</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="text-center mt-3" id="box_kar" hidden="true">
-                                        <h3>Karyawan</h3>
-                                        <form class="pt-3 needs-validation" novalidate>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">KTP</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">KTP PASANGAN</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">AKTA NIKAH</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">KARTU KELUARGA</label>
-                                                <input class="form-control" type="file" id="customFile1" required />
-                                            </div>
-                                            <div class="mb-1">
                                                 <label for="customFile1" class="form-label">SLIP GAJI</label>
                                                 <input class="form-control" type="file" id="customFile1" required />
                                             </div>
@@ -401,16 +497,16 @@
                                             </div>
 
                                             <div style="float: right;">
-                                                <button type="button" class="btn btn-info">Simpan</button>
+                                                <button type="submit" class="btn btn-info">Simpan</button>
                                                 <button type="button" class="btn btn-success">Kirim</button>
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="text-center mt-3" id="box_swas" hidden="true">
-                                        <h3>wiraswasta</h3>
+                                    <div class="text mt-3" id="box_swas" hidden="true">
+                                        <h3>Wiraswasta</h3>
                                         <form class="pt-3 needs-validation" novalidate>
                                         <div class="mb-1">
-                                                <label for="customFile1" class="form-label">KTP</label>
+                                                <label for="customFile1" class="form-labelz">KTP</label>
                                                 <input class="form-control" type="file" id="customFile1" required />
                                             </div>
                                             <div class="mb-1">
@@ -467,7 +563,7 @@
                                             </div>
                                             
                                             <div style="float: right;">
-                                                <button type="button" class="btn btn-info">Simpan</button>
+                                                <button type="submit" class="btn btn-info">Simpan</button>
                                                 <button type="button" class="btn btn-success">Kirim</button>
                                             </div>
                                         </form>
@@ -526,6 +622,17 @@
                 $('#box_swas').attr('hidden', false);
             }
         })
+    </script>
+
+    <script>
+    function ShowPoster(event){
+        if(event.target.files.length > 0){
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("image");
+        preview.src = src;
+        preview.style.display = "block";
+  }
+};
     </script>
 </body>
 <!-- END: Body-->

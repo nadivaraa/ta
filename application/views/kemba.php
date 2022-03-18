@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/charts/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/extensions/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/pickers/pickadate/pickadate.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -56,7 +58,7 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">Notifications</h4>
+                                <h4 class="notification-title mb-0 me-auto">Notifikasi</h4>
                                 <div class="badge rounded-pill badge-light-primary">6 New</div>
                             </div>
                         </li>
@@ -90,7 +92,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="list-item d-flex align-items-center">
+                            <!-- <div class="list-item d-flex align-items-center">
                                 <h6 class="fw-bolder me-auto mb-0">System Notifications</h6>
                                 <div class="form-check form-check-primary form-switch">
                                     <input class="form-check-input" id="systemNotification" type="checkbox" checked="">
@@ -129,16 +131,15 @@
                                         <p class="media-heading"><span class="fw-bolder">High memory</span>&nbsp;usage</p><small class="notification-text"> BLR Server using high memory</small>
                                     </div>
                                 </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Read all notifications</a></li>
+                            </a> -->
+                        <!-- </li> -->
+                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100" href="#">Baca Semua Notifikasi</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Logout</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                 </li>
             </ul>
@@ -252,7 +253,7 @@
                         <li><a class="d-flex align-items-center" href="<?= site_url('jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>  
                     </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Hasil</span></a>
                 </li>
                 </li>
             </ul>
@@ -285,21 +286,49 @@
                                 <div class="card-body">
                                     <form class="needs-validation" novalidate>
                                         <div class="mb-1">
-                                            <label class="form-label" for="basic-addon-name">Gaji</label>
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please enter your name.</div>
+                                            <label class="form-label" for="basicSelect">Pekerjaan</label>
+                                            <select class="form-select" id="basicSelect">
+                                                <option>Karyawan</option>
+                                                <option>Profesional</option>
+                                                <option>Wiraswasta</option>
+                                            </select>
                                         </div>
                                         <div class="mb-1">
-                                            <label for="customFile1" class="form-label">SLIP GAJI</label>
+                                            <label class="form-label" for="fp-default">Tanggal Lahir</label>
+                                            <input type="text" id="fp-default" class="form-control flatpickr-basic" placeholder="YYYY-MM-DD" />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Usia</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Usia" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Gaji</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label for="customFile1" class="form-label">Slip Gaji</label>
                                             <input class="form-control" type="file" id="customFile1" required />
                                         </div>
                                         <div class="mb-1">
-                                            <label class="form-label" for="basic-addon-name">Lama Angsuran</label>
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon-name" required />
-                                            <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Please enter your name.</div>
+                                            <label class="form-label" for="basic-addon-name">33% Gaji</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="33% Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Harga Rumah</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Down Payment</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Down Payment" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                        </div>
+                                        
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Lama Angsuran</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Lama Angsuran" aria-label="Lama Angsuran" aria-describedby="basic-addon-name" required />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Angsuran Perbulan</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Angsuran Perbulan" aria-label="Lama Angsuran" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div style="float: right;">
                                             <button type="button" class="btn btn-info">Simpan</button>
@@ -326,6 +355,7 @@
     <!-- BEGIN: Page Vendor JS-->
     <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script>
     <script src="<?= base_url()?>/assets/vendors/js/extensions/toastr.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -338,6 +368,9 @@
     <!-- END: Page JS-->
 
     <script>
+        $(document).ready(function(){
+            $('.flatpickr-basic').flatpickr();
+        })
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({

@@ -18,8 +18,35 @@ class aauthcontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('madmin');
+	}
+
     public function alogin()
 	{
 		$this->load->view('alogin');
+	}
+
+	public function aproseslogin()
+	{
+		$data = array(
+			'EMAIL_ADM' => $_POST['login_email'],
+			'PASS_ADM' => $_POST['login_password']
+		);
+		$admin = $this->madmin->get($data);
+		if ($admin == null) {
+			redirect('admin/login');
+		}else {
+			$dataSession = array(
+				'email' => $admin[0]->EMAIL_ADM,
+				'nama' => $admin[0]->NAMA_ADM,
+				'is_login' => true,
+				'role' => '1'
+			);
+			$this->session->set_userdata($dataSession);
+			redirect('admin/beranda');
+		}
 	}
 }

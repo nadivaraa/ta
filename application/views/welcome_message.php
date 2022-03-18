@@ -64,9 +64,24 @@
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title fw-bold mb-1">Welcome to Kredit Pemilikan Rumah! 👋</h2>
-                                <p class="card-text mb-2">Please sign-in to your account</p>
+                                <h2 class="card-title fw-bold mb-1">Selamat Datang di Kredit Pemilikan Rumah! 👋</h2>
+                                <br>
+                                <p class="card-text mb-2">Silahkan Masuk ke Akun Anda</p>
                                 <form class="auth-login-form mt-2" action="<?= site_url('proses_login')?>" method="POST">
+                                        <?php
+                                            if ($this->session->flashdata('msg')){
+                                                echo '
+                                                    <div class="mb-1">
+                                                        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                            <div class="alert-body d-flex align-items-center">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                                                <span>'.$this->session->flashdata('msg').'</span>
+                                                            </div>
+                                                        </div>    
+                                                    </div>
+                                                ';
+                                            }
+                                        ?>
                                     <div class="mb-1">
                                         <label class="form-label" for="login-email">Email</label>
                                         <input class="form-control" id="login-email" type="text" name="login_email" placeholder="john@example.com" aria-describedby="login-email" autofocus="" tabindex="1" />
@@ -79,9 +94,9 @@
                                             <input class="form-control form-control-merge" id="login-password" type="password" name="login_password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
+                                    <button class="btn btn-primary w-100" tabindex="4">Masuk</button>
                                 </form>
-                                <p class="text-center mt-2"><span>Dont have an account?</span><a href="<?= site_url('register') ?>"><span>&nbsp;Create an account</span></a></p>
+                                <p class="text-center mt-2"><span>Belum Punya Akun?</span><a href="<?= site_url('register') ?>"><span>&nbsp;Buat Akun</span></a></p>
                         </div>
                         <!-- /Login-->
                     </div>
