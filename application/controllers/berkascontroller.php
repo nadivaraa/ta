@@ -22,144 +22,45 @@ class berkascontroller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('mberkasprof');
 		$this->load->model('mjaminan');
+		$this->load->model('mverifdokumen');
 	}
 	
 	 public function keldok()
 	{
-		$this->load->view('keldok');
+		$data['verifDokumen'] = $this->mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$this->load->view('keldok', $data);
 	}
 
-	public function proses_keldok_prof()
-	{
-		// $linkprofktp = '';
-		// if($_FILES['prof_ktp'] != null){
-		// 	$uploadprofktp = $this->upload_file('uploads/dok_ktp/', 'prof_ktp');
-		// 	if($uploadprofktp['status'] == true){
-		// 		$linkprofktp = $uploadprofktp['link'];
-		// 	}
-		// }
 
-		// $linkprofktppas = '';
-		// if($_FILES['prof_ktppas'] != null){
-		// 	$uploadprofktppas = $this->upload_file('uploads/dok_ktppas/', 'prof_ktppas');
-		// 	if($uploadprofktppas['status'] == true){
-		// 		$linkprofktppas = $uploadprofktppas['link'];
-		// 	}
-		// }
 
-		$linkprofaktanik = '';
-		if($_FILES['prof_aktanik'] != null){
-			$uploadprofaktanik = $this->upload_file('uploads/dok_aktanik/', 'prof_aktanik');
-			if($uploadprofaktanik['status'] == true){
-				$linkprofaktanik = $uploadprofaktanik['link'];
-			}
+	public function proses_keldok(){
+		$uploadFile = $this->upload_file('uploads/'.$_POST['dir'].'/', 'file');
+		if($uploadFile['status'] == false){
+			$this->session->set_flashdata('err_msg', $uploadFile['msg']);
+			redirect('keldok');
 		}
 
-		$linkprofaktapis = '';
-		if($_FILES['prof_aktapis'] != null){
-			$uploadprofaktapis = $this->upload_file('uploads/dok_aktapis/', 'prof_aktapis');
-			if($uploadprofaktapis['status'] == true){
-				$linkprofaktapis = $uploadprofaktapis['link'];
-			}
+		// set table berdasarkan jenis pekerjaan
+		if($_POST['pekerjaan'] == '1'){
+			$table = 'dokumen_profesional';
+		}else if($_POST['pekerjaan'] == '2'){
+			$table = 'dokumen_karyawan';
+		}else{
+			$table = 'dokumen_wiraswasta';
 		}
 
-		$linkprofkk = '';
-		if($_FILES['prof_kk'] != null){
-			$uploadprofkk = $this->upload_file('uploads/dok_kk/', 'prof_kk');
-			if($uploadprofkk['status'] == true){
-				$linkprofkk = $uploadprofkk['link'];
-			}
+		// cek di dalam tabel pekerjaan tersebut sudah ada apa belum. Kalo belum ada atau null maka insert kalo sudah maka update
+		$verifDokumen 	= $this->mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$dokumen 		= $this->db->get_where($table, ['ID_VD' => $verifDokumen[0]->ID_VD])->result();
+		if($dokumen == null){
+			$this->db->insert($table, ['ID_VD' => $verifDokumen[0]->ID_VD, $_POST['col'] => $uploadFile['link']]);
+		}else{
+			$this->db->where('ID_VD', $verifDokumen[0]->ID_VD)->update($table, [$_POST['col'] => $uploadFile['link']]);
 		}
-
-		$linkprofnpwp = '';
-		if($_FILES['prof_npwp'] != null){
-			$uploadprofnpwp = $this->upload_file('uploads/dok_npwp/', 'prof_npwp');
-			if($uploadprofnpwp['status'] == true){
-				$linkprofnpwp = $uploadprofnpwp['link'];
-			}
-		}
-
-		$linkprofnpwpush = '';
-		if($_FILES['prof_npwpush'] != null){
-			$uploadprofnpwpush = $this->upload_file('uploads/dok_npwpush/', 'prof_npwpush');
-			if($uploadprofnpwpush['status'] == true){
-				$linkprofnpwpush = $uploadprofnpwpush['link'];
-			}
-		}
-
-		$linkprofizinprak = '';
-		if($_FILES['prof_izinprak'] != null){
-			$uploadprofizinprak = $this->upload_file('uploads/dok_izinprak/', 'prof_izinprak');
-			if($uploadprofizinprak['status'] == true){
-				$linkprofizinprak = $uploadprofizinprak['link'];
-			}
-		}
-
-		$linkprofspkredit = '';
-		if($_FILES['prof_spkredit'] != null){
-			$uploadprofspkredit = $this->upload_file('uploads/dok_spkredit/', 'prof_spkredit');
-			if($uploadprofspkredit['status'] == true){
-				$linkprofspkredit = $uploadprofspkredit['link'];
-			}
-		}
-
-		$linkprofrekkor = '';
-		if($_FILES['prof_rekkor'] != null){
-			$uploadprofrekkor = $this->upload_file('uploads/dok_rekkor/', 'prof_rekkor');
-			if($uploadprofrekkor['status'] == true){
-				$linkprofrekkor = $uploadprofrekkor['link'];
-			}
-		}
-
-		$linkprofsprumah = '';
-		if($_FILES['prof_sprumah'] != null){
-			$uploadprofsprumah = $this->upload_file('uploads/dok_sprumah/', 'prof_sprumah');
-			if($uploadprofsprumah['status'] == true){
-				$linkprofsprumah = $uploadprofsprumah['link'];
-			}
-		}
-
-		$linkprofbukti = '';
-		if($_FILES['prof_bukti'] != null){
-			$uploadprofbukti = $this->upload_file('uploads/dok_bukti/', 'prof_bukti');
-			if($uploadprofbukti['status'] == true){
-				$linkprofbukti = $uploadprofbukti['link'];
-			}
-		}
-
-		// $data = array(
-		// 	'KTP_DP' => $_POST['prof_ktp'],
-		// 	'KTPPAS_DP' => $_POST['prof_ktppas'],
-		// 	'AKTANIK_DP' => $_POST['prof_aktanik'],
-		// 	'AKTAPIS_DP' => $_POST['prof_aktapis'],
-		// 	'KK_DP' => $_POST['prof_kk'],
-		// 	'NPWP_DP' => $_POST['prof_npwp'],
-		// 	'NPWPUSH_DP' => $_POST['prof_npwpush'],
-		// 	'IZINPRAK_DP' => $_POST['prof_izinprak'],
-		// 	'SPERNYATAAN_DP' => $_POST['prof_spkredit'],
-		// 	'REKKOR_DP' => $_POST['prof_rekening'],
-		// 	'SPEMESANAN_DP' => $_POST['prof_sprumah'],
-		// 	'BPEMBAYARAN_DP' => $_POST['prof_bukti']
-		// );
-
-		$data = array(
-			// 'KTP_DP' => $linkprofktp,
-			// 'KTPPAS_DP' => $linkprofktppas,
-			'AKTANIK_DP' => $linkprofaktanik,
-			'AKTAPIS_DP' => $linkprofaktapis,
-			'KK_DP' => $linkprofkk,
-			'NPWP_DP' => $linkprofnpwp,
-			'NPWPUSH_DP' => $linkprofnpwpush,
-			'IZINPRAK_DP' => $linkprofizinprak,
-			'SPERNYATAAN_DP' => $linkprofspkredit,
-			'REKKOR_DP' => $linkprofrekkor,
-			'SPEMESANAN_DP' => $linkprofsprumah,
-			'BPEMBAYARAN_DP' => $linkprofbukti,
-		);
-
-		print_r($data);
-		// $this->mberkasprof->insert($data);
-		// redirect('keldok');
+		
+		$this->mverifdokumen->update(['ID_VD' => $verifDokumen[0]->ID_VD, 'STATUS_VD' => '1', 'JENIS_VD' => $_POST['pekerjaan']]);
+		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
+		redirect('keldok');
 	}
 
 	public function kemba()
