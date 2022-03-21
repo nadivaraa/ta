@@ -21,6 +21,7 @@ class authcontroller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('mnasabah');
+		$this->load->model('mverifdokumen');
 	}
 	 public function register()
 	{
@@ -37,6 +38,8 @@ class authcontroller extends CI_Controller {
 			'PASS_NAS' => md5($_POST['register_password']),
 		);
 		$this->mnasabah->insert($data);
+
+		$this->mverifdokumen->insert(['EMAIL_NAS' => $_POST['register_email']]);
 		redirect('/');
 	}
 
