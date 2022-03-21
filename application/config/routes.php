@@ -56,15 +56,25 @@ $route['translate_uri_dashes'] = FALSE;
 // USER
 // REGISTER
 $route['register'] = 'authcontroller/register';
+$route['proses_register'] = 'authcontroller/proses_register';
+
+//LOGIN
+$route['proses_login'] = 'authcontroller/proses_login';
 
 // BERANDA
 $route['beranda'] = 'berandacontroller/beranda';
 
 // BERKAS
 $route['keldok'] = 'berkascontroller/keldok';
+$route['proses_keldok_prof'] = 'berkascontroller/proses_keldok_prof';
+
 $route['kemba'] = 'berkascontroller/kemba';
+
+
 $route['slik'] = 'berkascontroller/slik';
+
 $route['jaminan'] = 'berkascontroller/jaminan';
+$route['proses_jaminan'] = 'berkascontroller/proses_jaminan';
 
 // REKOMENDASI
 $route['rekomendasi'] = 'rekomendasicontroller/rekomendasi';
@@ -73,6 +83,7 @@ $route['rekomendasi'] = 'rekomendasicontroller/rekomendasi';
 //ADMIN
 // ALOGIN
 $route['admin/login'] = 'aauthcontroller/alogin';
+$route['admin/aproseslogin'] = 'aauthcontroller/aproseslogin';
 
 // ABERANDA
 $route['admin/beranda'] = 'aberandacontroller/aberanda';
@@ -97,3 +108,4 @@ $route['admin/apenilaian'] = 'apenilaiancontroller/apenilaian';
 
 //AREKOMENDASI
 $route['admin/arekomendasi'] = 'arekomendasicontroller/arekomendasi';
+

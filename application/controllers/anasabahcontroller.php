@@ -18,8 +18,19 @@ class anasabahcontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('mnasabah');
+	}
+
 		public function anasabah()
 	{
-		$this->load->view('anasabah');
+		$data = array(
+			'nasabah' => $this->mnasabah->getAll()
+		);
+
+		$this->load->view('anasabah', $data);
+
 	}
+
 }
