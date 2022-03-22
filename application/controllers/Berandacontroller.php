@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class arekomendasicontroller extends CI_Controller {
+class Berandacontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,8 +18,16 @@ class arekomendasicontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function arekomendasi()
+	public function __construct(){
+		parent::__construct();
+		if($this->session->userdata('is_login') == false){
+			if($this->session->userdata('role') != "2"){
+				redirect('/');
+			}
+		}
+	}
+	public function beranda()
 	{
-		$this->load->view('arekomendasi');
+		$this->load->view('beranda');
 	}
 }

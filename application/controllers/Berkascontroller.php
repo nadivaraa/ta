@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class berkascontroller extends CI_Controller {
+class Berkascontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,18 +20,17 @@ class berkascontroller extends CI_Controller {
 	 */
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('mberkasprof');
-		$this->load->model('mjaminan');
-		$this->load->model('mverifdokumen');
+		$this->load->model('Mberkasprof');
+		$this->load->model('Mjaminan');
+		$this->load->model('Mverifdokumen');
 	}
 	
 	 public function keldok()
 	{
-		$data['verifDokumen'] = $this->mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['verifDokumen'] = $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['dokProf'] 	  = $this->db->get_where('dokumen_profesional', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
 		$this->load->view('keldok', $data);
 	}
-
-
 
 	public function proses_keldok(){
 		$uploadFile = $this->upload_file('uploads/'.$_POST['dir'].'/', 'file');
@@ -50,7 +49,7 @@ class berkascontroller extends CI_Controller {
 		}
 
 		// cek di dalam tabel pekerjaan tersebut sudah ada apa belum. Kalo belum ada atau null maka insert kalo sudah maka update
-		$verifDokumen 	= $this->mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$verifDokumen 	= $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$dokumen 		= $this->db->get_where($table, ['ID_VD' => $verifDokumen[0]->ID_VD])->result();
 		if($dokumen == null){
 			$this->db->insert($table, ['ID_VD' => $verifDokumen[0]->ID_VD, $_POST['col'] => $uploadFile['link']]);
@@ -58,7 +57,7 @@ class berkascontroller extends CI_Controller {
 			$this->db->where('ID_VD', $verifDokumen[0]->ID_VD)->update($table, [$_POST['col'] => $uploadFile['link']]);
 		}
 		
-		$this->mverifdokumen->update(['ID_VD' => $verifDokumen[0]->ID_VD, 'STATUS_VD' => '1', 'JENIS_VD' => $_POST['pekerjaan']]);
+		$this->Mverifdokumen->update(['ID_VD' => $verifDokumen[0]->ID_VD, 'STATUS_VD' => '1', 'JENIS_VD' => $_POST['pekerjaan']]);
 		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
 		redirect('keldok');
 	}
@@ -130,7 +129,7 @@ class berkascontroller extends CI_Controller {
 			'PBB_DJ' => $linkJampbb,
 			'AJB_DJ' => $linkJamakta,
 		);
-		$this->mjaminan->insert($data);
+		$this->Mjaminan->insert($data);
 		redirect('jaminan');
 	}
 

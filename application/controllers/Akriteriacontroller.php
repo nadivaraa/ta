@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class berandacontroller extends CI_Controller {
+class Akriteriacontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,16 +18,23 @@ class berandacontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function __construct(){
-		parent::__construct();
-		if($this->session->userdata('is_login') == false){
-			if($this->session->userdata('role') != "2"){
-				redirect('/');
-			}
-		}
-	}
-	public function beranda()
+	public function akrikeldok()
 	{
-		$this->load->view('beranda');
+		$this->load->view('akrikeldok');
+	}
+
+	public function akrikemba()
+	{
+		$this->load->view('akrikemba');
+	}
+
+	public function akrislik()
+	{
+		$this->load->view('akrislik');
+	}
+
+	public function akrijaminan()
+	{
+		$this->load->view('akrijaminan');
 	}
 }

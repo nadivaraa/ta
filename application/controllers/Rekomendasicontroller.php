@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class apenilaiancontroller extends CI_Controller {
+class Rekomendasicontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,8 +18,8 @@ class apenilaiancontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function apenilaian()
+	public function rekomendasi()
 	{
-		$this->load->view('apenilaian');
+		$this->load->view('rekomendasi');
 	}
 }

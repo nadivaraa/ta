@@ -1,6 +1,6 @@
 <?php
 
-class mverifdokumen extends CI_Model{
+class Mverifdokumen extends CI_Model{
     public function __construct(){
         parent::__construct();
     }

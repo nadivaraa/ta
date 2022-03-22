@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class authcontroller extends CI_Controller {
+class Authcontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,8 +20,8 @@ class authcontroller extends CI_Controller {
 	 */
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('mnasabah');
-		$this->load->model('mverifdokumen');
+		$this->load->model('Mnasabah');
+		$this->load->model('Mverifdokumen');
 	}
 	 public function register()
 	{
@@ -37,9 +37,9 @@ class authcontroller extends CI_Controller {
 			'NOTLP_NAS' => $_POST['register_notlp'],
 			'PASS_NAS' => md5($_POST['register_password']),
 		);
-		$this->mnasabah->insert($data);
+		$this->Mnasabah->insert($data);
 
-		$this->mverifdokumen->insert(['EMAIL_NAS' => $_POST['register_email']]);
+		$this->Mverifdokumen->insert(['EMAIL_NAS' => $_POST['register_email']]);
 		redirect('/');
 	}
 
@@ -49,7 +49,7 @@ class authcontroller extends CI_Controller {
 			'EMAIL_NAS' => $_POST['login_email'],
 			'PASS_NAS' => md5($_POST['login_password'])
 		);
-		$nasabah = $this->mnasabah->get($data);
+		$nasabah = $this->Mnasabah->get($data);
 		if ($nasabah == null) {
 			$this->session->set_flashdata('msg','Email atau Password Salah');
 			redirect('/');
