@@ -66,7 +66,7 @@ $route['beranda'] = 'berandacontroller/beranda';
 
 // BERKAS
 $route['keldok'] = 'berkascontroller/keldok';
-$route['proses_keldok_prof'] = 'berkascontroller/proses_keldok_prof';
+$route['proses_keldok'] = 'berkascontroller/proses_keldok';
 
 $route['kemba'] = 'berkascontroller/kemba';
 
