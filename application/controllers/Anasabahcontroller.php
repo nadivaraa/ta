@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class averberkascontroller extends CI_Controller {
+class Anasabahcontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,23 +18,19 @@ class averberkascontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function akeldok()
-	{
-		$this->load->view('akeldok');
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('Mnasabah');
 	}
 
-	public function akemba()
+		public function anasabah()
 	{
-		$this->load->view('akemba');
+		$data = array(
+			'nasabah' => $this->Mnasabah->getAll()
+		);
+
+		$this->load->view('anasabah', $data);
+
 	}
 
-	public function aslik()
-	{
-		$this->load->view('aslik');
-	}
-
-	public function ajaminan()
-	{
-		$this->load->view('ajaminan');
-	}
 }

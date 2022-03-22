@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class akriteriacontroller extends CI_Controller {
+class Arekomendasicontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,23 +18,8 @@ class akriteriacontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function akrikeldok()
+	public function arekomendasi()
 	{
-		$this->load->view('akrikeldok');
-	}
-
-	public function akrikemba()
-	{
-		$this->load->view('akrikemba');
-	}
-
-	public function akrislik()
-	{
-		$this->load->view('akrislik');
-	}
-
-	public function akrijaminan()
-	{
-		$this->load->view('akrijaminan');
+		$this->load->view('arekomendasi');
 	}
 }

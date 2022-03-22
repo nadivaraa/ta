@@ -1,6 +1,6 @@
 <?php
 
-class mberkasprof extends CI_Model{
+class Mberkasprof extends CI_Model{
     public function __construct(){
         parent::__construct();
     }

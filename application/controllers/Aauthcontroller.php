@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class aauthcontroller extends CI_Controller {
+class Aauthcontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,7 +21,7 @@ class aauthcontroller extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('madmin');
+		$this->load->model('Madmin');
 	}
 
     public function alogin()
@@ -35,7 +35,7 @@ class aauthcontroller extends CI_Controller {
 			'EMAIL_ADM' => $_POST['login_email'],
 			'PASS_ADM' => $_POST['login_password']
 		);
-		$admin = $this->madmin->get($data);
+		$admin = $this->Madmin->get($data);
 		if ($admin == null) {
 			redirect('admin/login');
 		}else {

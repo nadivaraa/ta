@@ -1,6 +1,6 @@
 <?php
 
-class madmin extends CI_Model{
+class Madmin extends CI_Model{
     public function __construct(){
         parent::__construct();
     }

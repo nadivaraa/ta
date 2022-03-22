@@ -1,6 +1,6 @@
 <?php
 
-class mnasabah extends CI_Model{
+class Mnasabah extends CI_Model{
     public function __construct(){
         parent::__construct();
     }

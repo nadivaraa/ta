@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class aberandacontroller extends CI_Controller {
+class Apenilaiancontroller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,17 +18,8 @@ class aberandacontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
-	public function __construct(){
-		parent::__construct();
-		if($this->session->userdata('is_login') == false){
-			if($this->session->userdata('role') != "1"){
-				redirect('/');
-			}
-		}
-	}
-	
-		public function aberanda(){
-		$this->load->view('aberanda');
+	public function apenilaian()
+	{
+		$this->load->view('apenilaian');
 	}
 }
