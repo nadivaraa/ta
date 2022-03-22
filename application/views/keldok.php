@@ -374,7 +374,15 @@
                                         <h3>Professional</h3>
                                         <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
-                                            <img style=" display:none; text-indent:-9999px;" id="image" src="#" alt="poster image" width="200" height="250" />
+                                                <?php
+                                                    if($dokProf != null){
+                                                        echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a href="'.$dokProf->KTP_DP.'">'.$dokProf->KTP_DP.'</a><br>
+                                                        ';
+                                                    }
+                                                ?>  
                                             <div class="input-group mb-1">
                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">

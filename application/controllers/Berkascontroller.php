@@ -28,10 +28,9 @@ class Berkascontroller extends CI_Controller {
 	 public function keldok()
 	{
 		$data['verifDokumen'] = $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['dokProf'] 	  = $this->db->get_where('dokumen_profesional', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
 		$this->load->view('keldok', $data);
 	}
-
-
 
 	public function proses_keldok(){
 		$uploadFile = $this->upload_file('uploads/'.$_POST['dir'].'/', 'file');
