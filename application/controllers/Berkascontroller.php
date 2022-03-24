@@ -21,6 +21,8 @@ class Berkascontroller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Mberkasprof');
+		$this->load->model('Mberkaskary');
+		$this->load->model('Mberkaswira');
 		$this->load->model('Mjaminan');
 		$this->load->model('Mverifdokumen');
 	}
@@ -29,6 +31,9 @@ class Berkascontroller extends CI_Controller {
 	{
 		$data['verifDokumen'] = $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$data['dokProf'] 	  = $this->db->get_where('dokumen_profesional', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
+		$data['dokKary'] 	  = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
+		$data['dokWira'] 	  = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
+		
 		$this->load->view('keldok', $data);
 	}
 
@@ -59,6 +64,33 @@ class Berkascontroller extends CI_Controller {
 		
 		$this->Mverifdokumen->update(['ID_VD' => $verifDokumen[0]->ID_VD, 'STATUS_VD' => '1', 'JENIS_VD' => $_POST['pekerjaan']]);
 		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
+		redirect('keldok');
+	}
+
+	public function kirim_keldok(){
+		$verifDokumen = $this->Mverifdokumen->getById($_POST['idVD']);
+
+		//cek jika di dalam tabel berkas dokumen ada salah satu yang kosong maka akan dikembalikan
+		if($verifDokumen->JENIS_VD == "1"){
+			$dataDokumen = $this->db->get_where('dokumen_profesional', ['ID_VD' => $verifDokumen->ID_VD])->row();
+		}else if($verifDokumen->JENIS_VD == "2"){
+			$dataDokumen = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $verifDokumen->ID_VD])->row();
+		}else if($verifDokumen->JENIS_VD == "3"){
+			$dataDokumen = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $verifDokumen->ID_VD])->row();
+		}else if($verifDokumen->JENIS_VD == "0"){
+			$this->session->set_flashdata('err_msg', 'Lengkapi dokumen terlebih dahulu!');
+			redirect('keldok');
+		}
+
+		foreach ($dataDokumen as $key) {
+			if($key == null || $key == ''){
+				$this->session->set_flashdata('err_msg', 'Lengkapi dokumen terlebih dahulu!');
+				redirect('keldok');
+			}
+		}
+		
+		$this->session->set_flashdata('succ_msg', 'Dokumen berhasil diunggah, silahkan tunggu verifikasi!');
+		$this->Mverifdokumen->update(['ID_VD' => $verifDokumen->ID_VD, 'STATUS_VD' => '2']);
 		redirect('keldok');
 	}
 
@@ -129,8 +161,8 @@ class Berkascontroller extends CI_Controller {
 			'PBB_DJ' => $linkJampbb,
 			'AJB_DJ' => $linkJamakta,
 		);
-		$this->Mjaminan->insert($data);
-		redirect('jaminan');
+		// $this->Mjaminan->insert($data);
+		// redirect('jaminan');
 	}
 
 	public function upload_file($path,$file){

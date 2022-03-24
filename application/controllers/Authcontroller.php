@@ -33,7 +33,6 @@ class Authcontroller extends CI_Controller {
 		$data = array(
 			'EMAIL_NAS' => $_POST['register_email'],
 			'NAMA_NAS' => $_POST['register_nama'],
-			'ALAMAT_NAS' => $_POST['register_alamat'],
 			'NOTLP_NAS' => $_POST['register_notlp'],
 			'PASS_NAS' => md5($_POST['register_password']),
 		);

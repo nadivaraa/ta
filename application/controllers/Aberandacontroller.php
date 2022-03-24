@@ -21,14 +21,18 @@ class Aberandacontroller extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('Mnasabah');
+
 		if($this->session->userdata('is_login') == false){
 			if($this->session->userdata('role') != "1"){
 				redirect('/');
 			}
 		}
 	}
-	
 		public function aberanda(){
+		
 		$this->load->view('aberanda');
 	}
+
+
 }

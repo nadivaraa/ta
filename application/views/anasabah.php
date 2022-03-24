@@ -293,7 +293,7 @@
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-header border-bottom">
-                                            <h4 class="card-title">Daftar Nasabah</h4>
+                                            <h4 class="card-title">Data Nasabah</h4>
                                         </div>
                                         <div class="card-datatable">
                                             <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
@@ -302,9 +302,6 @@
                                                         <th>Email</th>
                                                         <th>Nama</th>
                                                         <th>No Telepon</th>
-                                                        <th>Alamat</th>
-                                                        <th class="cell-fit">Status</th>
-                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                     <tbody>
@@ -315,13 +312,6 @@
                                                                         <td>'.$item->EMAIL_NAS.'</td>
                                                                         <td>'.$item->NAMA_NAS.'</td>
                                                                         <th>'.$item->NOTLP_NAS.'</th>
-                                                                        <td>'.$item->ALAMAT_NAS.'</td>
-                                                                        <td>Status</td>
-                                                                        <td>
-                                                                            <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                                            <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                                            <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
-                                                                        </td>
                                                                     </tr>                                                      
                                                                 ';
                                                             } 

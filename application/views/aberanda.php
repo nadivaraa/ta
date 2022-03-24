@@ -357,7 +357,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title">Daftar Pengajuan Baru</h4>
+                                    <h4 class="card-title">Data Nasabah</h4>
                                 </div>
                                 <div class="card-datatable">
                                     <table id="tbl" class="dt-complex-header table table-bordered table-responsive">

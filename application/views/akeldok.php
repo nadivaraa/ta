@@ -301,35 +301,19 @@
                                         <thead>
                                             <tr>
                                                 <th>Email</th>
-                                                <th>KTP</th>
-                                                <th>KTP Pasangan</th>
-                                                <th>Akta Nikah</th>
-                                                <th>Akta Pisah Harta</th>
-                                                <th>Kartu Keluarga</th>
-                                                <th>NPWP</th>
-                                                <th>Slip Gaji</th>
-                                                <th>Surat Pemesanan</th>
-                                                <th>Surat Pernyataan</th>
-                                                <th>Bukti Pembayaran</th>
+                                                <th>Nama</th>
+                                                <th>Pekerjaan</th>
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
                                             <tbody>
                                             <tr>
                                                 <td>Email</td>
-                                                <td>KTP</td>
-                                                <td>KTP Pasangan</td>
-                                                <td>Akta Nikah</td>
-                                                <td>Akta Pisah Harta</td>
-                                                <td>Kartu Keluarga</td>
-                                                <td>NPWP</td>
-                                                <td>Slip Gaji</td>
-                                                <td>Surat Pemesanan</td>
-                                                <td>Surat Pernyataan</td>
-                                                <td>Bukti Pembayaran</td>
+                                                <td>Nama</td>
+                                                <td>Pekerjaan</td>
                                                 <td class="cell-fit">Status</td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
+                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i><a href="<?= site_url('averifkeldok') ?>"></a>
                                                     <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
                                                     <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
                                                 </td>
