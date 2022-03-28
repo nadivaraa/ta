@@ -1378,24 +1378,14 @@
                                                 ?>
                                         </form>
                                     </div>
-                                    <form action="" method="POST" class="mt-3">
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="" style="float: right;">
-                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i> Verif</a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i> Tolak</a>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="" style="float: right;">
+                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
+                                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="">
-                                                    <label for="">Komentar</label>
-                                                    <textarea name="komen" id="" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1405,7 +1395,60 @@
         </div>
     </div>
     <!-- END: Content-->
-
+<!-- Modal -->
+<div class="modal fade text-start" id="mdlVerif" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel1">Verif Kelengkapan Dokumen</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                        <div class="form-group">
+                            <label for="">Catatan</label>
+                            <textarea name="komentar" class="form-control"></textarea>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                        <input type="hidden" name="status" value="3">
+                        <input type="hidden" name="idVD" value="<?= $verifDokumen[0]->ID_VD?>">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-success">Verif</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Basic trigger modal end -->
+<!-- Modal -->
+<div class="modal fade text-start" id="mdlTolak" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel1">Tolak Kelengkapan Dokumen</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                        <div class="form-group">
+                            <label for="">Catatan</label>
+                            <textarea name="komentar" class="form-control"></textarea>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                        <input type="hidden" name="status" value="4">
+                        <input type="hidden" name="idVD" value="<?= $verifDokumen[0]->ID_VD?>">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Tolak</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Basic trigger modal end -->
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 

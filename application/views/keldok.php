@@ -328,6 +328,16 @@
                                                 </div>
                                             ';
                                         }
+                                        if($verifDokumen[0]->STATUS_VD == "4"){
+                                            echo '
+                                                <div class="alert alert-danger" role="alert">
+                                                    <h4 class="alert-heading">Catatan Status Gagal</h4>
+                                                    <div class="alert-body">
+                                                        '.$verifDokumen[0]->KOMENTAR_VD.'
+                                                    </div>
+                                                </div>
+                                            ';
+                                        }
                                     ?>
                                     <label class="form-label" for="basic-addon-name">Pilih Pekerjaan</label>
                                     <select class="form-select" id="slct_pilKerja">

@@ -99,8 +99,7 @@ $route['admin/slik'] = 'averberkascontroller/aslik';
 $route['admin/jaminan'] = 'averberkascontroller/ajaminan';
 
 $route['admin/averifkeldok/(:any)'] = 'averberkascontroller/averifkeldok/$1';
-
-
+$route['admin/proses_verifkeldok']  = 'averberkascontroller/proses_verifkeldok';
 //AKRITERIA
 $route['admin/krikeldok'] = 'akriteriacontroller/akrikeldok';
 $route['admin/krikemba'] = 'akriteriacontroller/akrikemba';

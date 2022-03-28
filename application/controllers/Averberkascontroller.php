@@ -36,6 +36,16 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->view('averifkeldok', $data);
 	}
 
+	public function proses_verifkeldok(){
+		$dataUpdate = array(
+			'ID_VD' => $_POST['idVD'],
+			'STATUS_VD' => $_POST['status'],
+			'KOMENTAR_VD' => $_POST['komentar']
+		);
+		$this->Mverifdokumen->update($dataUpdate);
+		redirect('admin/keldok');
+	}
+
 	public function akemba()
 	{
 		$this->load->view('akemba');

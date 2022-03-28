@@ -309,7 +309,7 @@
                                             <tbody>
                                             <?php
                                                 foreach ($keldoks as $item) {
-                                                    $pekerjaan = "";
+                                                    $pekerjaan = "-";
                                                     if($item->JENIS_VD == "1"){
                                                         $pekerjaan = "Profesional";
                                                     }else if($item->JENIS_VD == "2"){
@@ -319,13 +319,35 @@
                                                     }
 
                                                     $status = "";
-                                                    if($item->STATUSVERIF_VD == "0"){
-                                                        $status = '<span class="badge badge-light-warning">Menunggu</span>';
-                                                    }else if($item->STATUSVERIF_VD == "1"){
-                                                        $status = '<span class="badge badge-light-success">Terverifikasi</span>';
-                                                    }else if($item->STATUSVERIF_VD == "2"){
-                                                        $status = '<span class="badge badge-light-danger">Gagal</span>';
+                                                    if($item->STATUS_VD == '1'){
+                                                        $status = '
+                                                            <span class="badge badge-light-info">Draft</span>
+                                                        ';
+                                                    }else if($item->STATUS_VD == '2'){
+                                                        $status = '
+                                                        <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                    }else if($item->STATUS_VD == '3'){
+                                                        $status = '
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                    }else if($item->STATUS_VD == '4'){
+                                                        $status = '
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
+                                                    }else if($item->STATUS_VD == '0'){
+                                                        $status = '
+                                                            <span class="badge badge-light-dark">Belum ada aksi</span>
+                                                        ';
                                                     }
+
+                                                    $aksiDetail = "";
+                                                    if($item->STATUS_VD == "2"){
+                                                        $aksiDetail = '
+                                                            <a class="btn btn-sm btn-info" href="'.site_url('admin/averifkeldok/'.$item->ID_VD).'"><i data-feather="info"></i></a>
+                                                        ';
+                                                    }
+
                                                     echo '
                                                         <tr>
                                                             <td>'.$item->EMAIL_NAS.'</td>
@@ -333,9 +355,7 @@
                                                             <td>'.$pekerjaan.'</td>
                                                             <td class="cell-fit">'.$status.'</td>
                                                             <td>
-                                                                <a class="btn btn-sm btn-info" href="'.site_url('admin/averifkeldok/'.$item->ID_VD).'"><i data-feather="info"></i></a>
-                                                                <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                                <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
+                                                                '.$aksiDetail.'    
                                                             </td>
                                                         </tr>        
                                                     ';
