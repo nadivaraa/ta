@@ -28,6 +28,14 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->view('akeldok', $data);
 	}
 
+	public function averifkeldok($idVD){
+		$data['verifDokumen'] = $this->Mverifdokumen->get(['ID_VD' => $idVD]);
+		$data['dokProf'] 	  = $this->db->get_where('dokumen_profesional', ['ID_VD' => $idVD])->row();
+		$data['dokKary'] 	  = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $idVD])->row();
+		$data['dokWira'] 	  = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $idVD])->row();
+		$this->load->view('averifkeldok', $data);
+	}
+
 	public function akemba()
 	{
 		$this->load->view('akemba');

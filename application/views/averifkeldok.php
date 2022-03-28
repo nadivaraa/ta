@@ -335,7 +335,8 @@
                                         <option value="2">Karyawan</option>
                                         <option value="3">Wiraswasta</option>
                                     </select>
-                                    <button type="button" id="btn_pilKerja" class="btn btn-sm btn-primary mt-1">Pilih</button>
+                                    <!-- <button type="button" id="btn_pilKerja" class="btn btn-sm btn-primary mt-1">Pilih</button> -->
+
                                     <div id="boxProfessional">
 
                                     </div>
@@ -1376,21 +1377,25 @@
                                                     }
                                                 ?>
                                         </form>
-
-                                        <?php
-                                            if($verifDokumen[0]->STATUS_VD != "2"){
-                                                echo '
-                                                    <form action="'.site_url('kirim_keldok').'" method="post">
-                                                        <div style="float: right;">
-                                                            <input type="hidden" name="idVD" value="'.$verifDokumen[0]->ID_VD.'">
-                                                            <button type="submit" class="btn btn-success">Kirim</button>
-                                                        </div>
-                                                    </form>        
-                                                ';
-                                            }
-                                        ?>
-                                    
                                     </div>
+                                    <form action="" method="POST" class="mt-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="" style="float: right;">
+                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i> Verif</a>
+                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i> Tolak</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="">
+                                                    <label for="">Komentar</label>
+                                                    <textarea name="komen" id="" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

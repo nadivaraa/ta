@@ -333,7 +333,7 @@
                                                             <td>'.$pekerjaan.'</td>
                                                             <td class="cell-fit">'.$status.'</td>
                                                             <td>
-                                                                <a class="btn btn-sm btn-info" href="'.site_url('averifkeldok/'.$item->ID_VD).'"><i data-feather="info"></i></a>
+                                                                <a class="btn btn-sm btn-info" href="'.site_url('admin/averifkeldok/'.$item->ID_VD).'"><i data-feather="info"></i></a>
                                                                 <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
                                                                 <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
                                                             </td>

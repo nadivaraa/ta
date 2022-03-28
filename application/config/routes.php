@@ -98,6 +98,9 @@ $route['admin/kemba'] = 'averberkascontroller/akemba';
 $route['admin/slik'] = 'averberkascontroller/aslik';
 $route['admin/jaminan'] = 'averberkascontroller/ajaminan';
 
+$route['admin/averifkeldok/(:any)'] = 'averberkascontroller/averifkeldok/$1';
+
+
 //AKRITERIA
 $route['admin/krikeldok'] = 'akriteriacontroller/akrikeldok';
 $route['admin/krikemba'] = 'akriteriacontroller/akrikemba';
