@@ -13,6 +13,16 @@ class Mverifdokumen extends CI_Model{
     public function getById($id){
         return $this->db->where('ID_VD', $id)->get('verif_dokumen')->row();
     }
+    public function getVDUser(){
+        return $this->db->query("
+            SElECT
+                vd.*,
+                n.NAMA_NAS
+            FROM verif_dokumen vd, nasabah n
+            WHERE vd.EMAIL_NAS = n.EMAIL_NAS
+            ORDER BY vd.STATUSVERIF_VD ASC
+        ")->result(); 
+    }
     public function insert($param){
         $this->db->insert('verif_dokumen', $param);
     }

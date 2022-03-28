@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard</title>
+    <title>Kemampuan Bayar</title>
 <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
@@ -306,12 +306,8 @@
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div class="mb-1">
-                                            <label for="customFile1" class="form-label">Slip Gaji</label>
-                                            <input class="form-control" type="file" id="customFile1" required />
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basic-addon-name">33% Gaji</label>
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="33% Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                            <label class="form-label" for="basic-addon-name">Biaya Kebutuhan Rumah Tangga</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Harga Rumah</label>
@@ -321,11 +317,41 @@
                                             <label class="form-label" for="basic-addon-name">Down Payment</label>
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Down Payment" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
-                                        
                                         <div class="mb-1">
-                                            <label class="form-label" for="basic-addon-name">Lama Angsuran</label>
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Lama Angsuran" aria-label="Lama Angsuran" aria-describedby="basic-addon-name" required />
+                                            <label class="form-label" for="basicSelect">Pekerjaan</label>
+                                            <select class="form-select" id="basicSelect">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+
+                                            </select>
                                         </div>
+                                        <section id="touchspin-min-max">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Min - Max</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p>
+                                                Set <code>min</code> and <code>max</code> attributes values for minimum and maximum in page js file.
+                                            </p>
+                                            <div class="input-group">
+                                                <input type="number" class="touchspin-min-max" value="20" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Angsuran Perbulan</label>
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Angsuran Perbulan" aria-label="Lama Angsuran" aria-describedby="basic-addon-name" required />

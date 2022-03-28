@@ -18,9 +18,14 @@ class Averberkascontroller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('Mverifdokumen');
+	}
 	public function akeldok()
 	{
-		$this->load->view('akeldok');
+		$data['keldoks'] = $this->Mverifdokumen->getVDUser();
+		$this->load->view('akeldok', $data);
 	}
 
 	public function akemba()
