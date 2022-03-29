@@ -67,6 +67,20 @@
                                 <h2 class="card-title fw-bold mb-1">Dapatkan Rumah Impian Anda Disini 🚀</h2>
                                 <p class="card-text mb-2">Lakukan Pendaftaran Terlebih Dahulu !</p>
                                 <form class="auth-register-form mt-2" action="<?php echo base_url('proses_register') ?>" method="POST">
+                                    <?php
+                                        if ($this->session->flashdata('msg')){
+                                            echo '
+                                                <div class="mb-1">
+                                                    <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                        <div class="alert-body d-flex align-items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                                            <span>'.$this->session->flashdata('msg').'</span>
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                            ';
+                                        }
+                                    ?>
                                     <div class="mb-1">
                                         <label class="form-label" for="register-email">Email</label>
                                         <input class="form-control" id="register-email" type="text" name="register_email" placeholder="john@example.com" aria-describedby="register-email" autofocus="" tabindex="1" />

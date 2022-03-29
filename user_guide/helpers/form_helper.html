@@ -597,7 +597,7 @@ name/value string to create one field:</p>
 </div>
 <p>… or you can submit an associative array to create multiple fields:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;<?= $this->session->userdata('nama')?>&#39;</span><span class="p">,</span>
         <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span>
         <span class="s1">&#39;url&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;http://example.com&#39;</span>
 <span class="p">);</span>
@@ -606,7 +606,7 @@ name/value string to create one field:</p>
 
 <span class="cm">/*</span>
 <span class="cm">        Would produce:</span>
-<span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;name&quot; value=&quot;John Doe&quot; /&gt;</span>
+<span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;name&quot; value=&quot;<?= $this->session->userdata('nama')?>&quot; /&gt;</span>
 <span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;john@example.com&quot; /&gt;</span>
 <span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;url&quot; value=&quot;http://example.com&quot; /&gt;</span>
 <span class="cm">*/</span>
@@ -614,7 +614,7 @@ name/value string to create one field:</p>
 </div>
 <p>You can also pass an associative array to the value field:</p>
 <div class="highlight-ci"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;<?= $this->session->userdata('nama')?>&#39;</span><span class="p">,</span>
         <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span>
         <span class="s1">&#39;url&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;http://example.com&#39;</span>
 <span class="p">);</span>
@@ -624,7 +624,7 @@ name/value string to create one field:</p>
 <span class="cm">/*</span>
 <span class="cm">        Would produce:</span>
 
-<span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;my_array[name]&quot; value=&quot;John Doe&quot; /&gt;</span>
+<span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;my_array[name]&quot; value=&quot;<?= $this->session->userdata('nama')?>&quot; /&gt;</span>
 <span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;my_array[email]&quot; value=&quot;john@example.com&quot; /&gt;</span>
 <span class="cm">        &lt;input type=&quot;hidden&quot; name=&quot;my_array[url]&quot; value=&quot;http://example.com&quot; /&gt;</span>
 <span class="cm">*/</span>

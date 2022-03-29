@@ -588,7 +588,7 @@ template, they are ignored:</p>
 <span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 
-<span class="c1">// Result: Hello, John Doe</span>
+<span class="c1">// Result: Hello, <?= $this->session->userdata('nama')?></span>
 </pre></div>
 </div>
 <p>If you do not include a substitution parameter that is referenced in your
@@ -619,7 +619,7 @@ pair tag, but the closing variable pair tag is not rendered properly:</p>
 <span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 
-<span class="c1">// Result: Hello, John Doe (Mr{degree} {/degrees})</span>
+<span class="c1">// Result: Hello, <?= $this->session->userdata('nama')?> (Mr{degree} {/degrees})</span>
 </pre></div>
 </div>
 <p>If you name one of your individual substitution parameters the same as one
@@ -636,7 +636,7 @@ used inside a variable pair, the results may not be as expected:</p>
 <span class="p">);</span>
 <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parser</span><span class="o">-&gt;</span><span class="na">parse_string</span><span class="p">(</span><span class="nv">$template</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 
-<span class="c1">// Result: Hello, John Doe (Mr Mr )</span>
+<span class="c1">// Result: Hello, <?= $this->session->userdata('nama')?> (Mr Mr )</span>
 </pre></div>
 </div>
 </div>

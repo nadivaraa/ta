@@ -30,6 +30,12 @@ class Authcontroller extends CI_Controller {
 
 	public function proses_register()
 	{
+		$nasabah = $this->Mnasabah->get(['EMAIL_NAS' => $_POST['register_email']]);
+		if($nasabah != null){
+			$this->session->set_flashdata('msg','Email telah terdaftar!');
+			redirect('register');
+		}
+
 		$data = array(
 			'EMAIL_NAS' => $_POST['register_email'],
 			'NAMA_NAS' => $_POST['register_nama'],
