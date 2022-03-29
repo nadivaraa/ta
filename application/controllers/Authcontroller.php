@@ -47,6 +47,10 @@ class Authcontroller extends CI_Controller {
 		$this->Mverifdokumen->insert(['EMAIL_NAS' => $_POST['register_email']]);
 		redirect('/');
 	}
+	public function proses_logout(){
+		$this->session->sess_destroy();
+		redirect('/');
+	}
 
 	public function proses_login()
 	{

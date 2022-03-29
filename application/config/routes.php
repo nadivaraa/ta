@@ -60,6 +60,7 @@ $route['proses_register'] = 'authcontroller/proses_register';
 
 //LOGIN
 $route['proses_login'] = 'Authcontroller/proses_login';
+$route['proses_logout'] = 'Authcontroller/proses_logout';
 
 // BERANDA
 $route['beranda'] = 'berandacontroller/beranda';
