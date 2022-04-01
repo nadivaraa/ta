@@ -23,9 +23,19 @@ class Akriteriacontroller extends CI_Controller {
 		$this->load->view('akrikeldok');
 	}
 
+	public function atambahkrikeldok()
+	{
+		$this->load->view('atambahkrikeldok');
+	}
+
 	public function akrikemba()
 	{
 		$this->load->view('akrikemba');
+	}
+
+	public function atambahkrikemba()
+	{
+		$this->load->view('atambahkrikemba');
 	}
 
 	public function akrislik()
@@ -33,8 +43,18 @@ class Akriteriacontroller extends CI_Controller {
 		$this->load->view('akrislik');
 	}
 
+	public function atambahkrislik()
+	{
+		$this->load->view('atambahkrislik');
+	}
+
 	public function akrijaminan()
 	{
 		$this->load->view('akrijaminan');
+	}
+
+	public function atambahkrijaminan()
+	{
+		$this->load->view('atambahkrijaminan');
 	}
 }

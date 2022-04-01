@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Jaminan</title>
+    <title>Edit Kriteria Kelengkapan Dokumen</title>
 <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
@@ -46,8 +46,8 @@
 
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
 
-    <!-- BEGIN: Header-->
-    <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
+   <!-- BEGIN: Header-->
+   <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
         <div class="navbar-container d-flex content">
             <ul class="nav navbar-nav align-items-center ms-auto">
                 
@@ -147,7 +147,7 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item me-auto"><a class="navbar-brand" href="../../../html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
+                <li class="nav-item me-auto"><a class="navbar-brand" href="<?= base_url()?>/html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
                             <img width="75px" src="<?= base_url('assets/images/logo/logokpr.svg')?>" alt="">
                         </span>
                         <h2 class="brand-text">KPR</h2>
@@ -157,21 +157,36 @@
         </div>
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
-            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('beranda')?>"><i data-feather="home"></i><span class="menu-item text-truncate" data-i18n="Dashboard">Dashboard</span></a>
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/beranda')?>"><i data-feather="home"></i><span class="menu-item text-truncate" data-i18n="Dashboard">Dashboard</span></a>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Berkas">Berkas</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="<?= site_url('keldok')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/nasabah')?>"><i data-feather="user"></i><span class="menu-item text-truncate" data-i18n="Nasabah">Nasabah</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="check-circle"></i><span class="menu-title text-truncate" data-i18n="VerifBerkas">Verifikasi Berkas</span></a>
+                <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/keldok')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('kemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/kemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('slik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/slik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>  
                     </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Hasil</span></a>
+                    <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file"></i><span class="menu-title text-truncate" data-i18n="Kriteria">Kriteria</span></a>
+                    <ul class="menu-content">
+                    <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikeldok')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krislik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krijaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
+                    </li> 
+                    </ul>           
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/apenilaian')?>"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Penilaian">Penilaian</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/arekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
                 </li>
                 </li>
             </ul>
@@ -195,109 +210,24 @@
                             <div class="card">
                                 <div class="row ps-2 pt-2">
                                     <div class="col-6 col-md-6">
-                                        <h4 class="card-title">Jaminan</h4>        
+                                        <h4 class="card-title">Edit Kriteria Kemampuan Bayar</h4>        
                                     </div>
                                     <div class="col-6 col-md-6 pe-3" style="text-align: right;">
-                                        <span class="badge badge-light-danger">Gagal</span>
+                                        <span class="badge badge-light-warning">Proses</span>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="alert alert-danger" role="alert">
-                                        <h4 class="alert-heading">Gagal</h4>
-                                        <div class="alert-body">
-                                            Gagal karena rumah anda masih tergolong kurang layak.
-                                        </div>
-                                    </div>
-                                           
-                                    <form class="needs-validation" enctype="multipart/form-data" action="<?php echo base_url('proses_jaminan') ?>" method="POST" novalidate >
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
-                                                <input class="form-control" type="file" id="customFile1"  name="jaminan_sertifikat" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">IMB</label>
-                                                <input class="form-control" type="file" id="customFile1" name="jaminan_imb" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">PBB TERAKHIR</label>
-                                                <input class="form-control" type="file" id="customFile1" name="jaminan_pbb" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
-                                                <input class="form-control" type="file" id="customFile1" name="jaminan_akta" required />
-                                            </div>
+                                    <form class="needs-validation" novalidate>
+                                        
                                         <div class="mb-1">
-                                            <label class="form-label" for="registernama">Harga Rumah</label>
-                                            <input class="form-control" id="register-nama" type="telp" name="jaminan_harga" placeholder="harga rumah" aria-describedby="register-nama" tabindex="2" />
-                                        </div>
-                                        <!-- <div class="mb-1">
-                                            <label class="form-label" class="d-block">JALAN LUAS</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_jalan" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_jalan" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
+                                            <label class="form-label" for="basic-addon-name">Jenis Kriteria</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Jenis Krteria" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH DI BAWAH TOWER</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_tower" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_tower" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
+                                            <label class="form-label" for="basic-addon-name">Bobot Kriteria</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Bobot Kriteria" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH DEKAT SUNGAI</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_sungai" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_sungai" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH TUSUK SATE</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_sate" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_sate" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH DEKAT MAKAM</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_makam" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_makam" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH TIDAK ADA LISTRIK DAN AIR</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_lisair" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_lisair" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div> -->
                                         <div style="float: right;">
-                                            <button type="submit" class="btn btn-info">Simpan</button>
                                             <button type="button" class="btn btn-success">Kirim</button>
                                         </div>
                                     </form>

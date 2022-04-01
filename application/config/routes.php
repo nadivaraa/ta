@@ -77,6 +77,7 @@ $route['slik'] = 'berkascontroller/slik';
 
 $route['jaminan'] = 'berkascontroller/jaminan';
 $route['proses_jaminan'] = 'berkascontroller/proses_jaminan';
+$route['kirim_jaminan'] = 'berkascontroller/kirim_jaminan';
 
 // REKOMENDASI
 $route['rekomendasi'] = 'rekomendasicontroller/rekomendasi';
@@ -95,17 +96,35 @@ $route['admin/nasabah'] = 'anasabahcontroller/anasabah';
 
 //AVERIFIKASI BERKAS
 $route['admin/keldok'] = 'averberkascontroller/akeldok';
-$route['admin/kemba'] = 'averberkascontroller/akemba';
-$route['admin/slik'] = 'averberkascontroller/aslik';
-$route['admin/jaminan'] = 'averberkascontroller/ajaminan';
-
 $route['admin/averifkeldok/(:any)'] = 'averberkascontroller/averifkeldok/$1';
 $route['admin/proses_verifkeldok']  = 'averberkascontroller/proses_verifkeldok';
+
+$route['admin/kemba'] = 'averberkascontroller/akemba';
+
+$route['admin/slik'] = 'averberkascontroller/aslik';
+
+$route['admin/jaminan'] = 'averberkascontroller/ajaminan';
+$route['admin/averifjaminan/(:any)'] = 'averberkascontroller/averifjaminan/$1';
+$route['admin/proses_verifjaminan']  = 'averberkascontroller/proses_verifjaminan';
+
+
+
 //AKRITERIA
 $route['admin/krikeldok'] = 'akriteriacontroller/akrikeldok';
+$route['admin/atambahkrikeldok'] = 'akriteriacontroller/atambahkrikeldok';
+$route['admin/aeditkrikeldok'] = 'akriteriacontroller/aeditkrikeldok';
+
 $route['admin/krikemba'] = 'akriteriacontroller/akrikemba';
+$route['admin/atambahkrikemba'] = 'akriteriacontroller/atambahkrikemba';
+$route['admin/aeditkrikemba'] = 'akriteriacontroller/aeditkrikemba';
+
 $route['admin/krislik'] = 'akriteriacontroller/akrislik';
+$route['admin/atambahkrislik'] = 'akriteriacontroller/atambahkrislik';
+$route['admin/aeditkrislik'] = 'akriteriacontroller/aeditkrislik';
+
 $route['admin/krijaminan'] = 'akriteriacontroller/akrijaminan';
+$route['admin/atambahkrijaminan'] = 'akriteriacontroller/atambahkrijaminan';
+$route['admin/aeditkrijaminan'] = 'akriteriacontroller/aeditkrijaminan';
 
 //APENILAIAN
 $route['admin/apenilaian'] = 'apenilaiancontroller/apenilaian';

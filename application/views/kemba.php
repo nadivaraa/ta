@@ -37,6 +37,8 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="<?= site_url()?>/assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
+    <script src="<?= site_url()?>/assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -232,6 +234,10 @@
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div class="mb-1">
+                                            <label class="form-label" for="basic-addon-name">Biaya Cicilan Lainnya</label>
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                        </div>
+                                        <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Harga Rumah</label>
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
@@ -240,40 +246,19 @@
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Down Payment" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div class="mb-1">
-                                            <label class="form-label" for="basicSelect">Pekerjaan</label>
-                                            <select class="form-select" id="basicSelect">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-
-                                            </select>
-                                        </div>
-                                        <section id="touchspin-min-max">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Min - Max</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p>
-                                                Set <code>min</code> and <code>max</code> attributes values for minimum and maximum in page js file.
-                                            </p>
-                                            <div class="input-group">
-                                                <input type="number" class="touchspin-min-max" value="21" />
+                                            <label class="form-label" for="basic-addon-name">Lama Angsuran</label>
+                                            <div class="input-group bootstrap-touchspin">
+                                                <span class="input-group-btn bootstrap-touchspin-injected">
+                                                    <button class="btn btn-primary bootstrap-touchspin-down" type="button">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                                    </button>
+                                                </span>
+                                                <input type="number" class="touchspin form-control" min="1" max="20" value="1">
+                                                <span class="input-group-btn bootstrap-touchspin-injected">
+                                                    <button class="btn btn-primary bootstrap-touchspin-up" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                                                </span>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Angsuran Perbulan</label>
                                             <input type="text" id="basic-addon-name" class="form-control" placeholder="Angsuran Perbulan" aria-label="Lama Angsuran" aria-describedby="basic-addon-name" required />

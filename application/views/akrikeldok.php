@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard</title>
+    <title>Kriteria Kelengkapan Dokumen</title>
 <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
@@ -214,7 +214,7 @@
                                     <div class="card">
                                         <div class="card-header border-bottom">
                                             <h4 class="card-title">Data Kriteria Kelengkapan Dokumen</h4>
-                                            <button class="btn btn-sm btn-success"><i data-feather="plus"></i>Tambah</button>
+                                            <a href= "<?=site_url('admin/atambahkrikeldok/')?>" class="btn btn-sm btn-success"><i data-feather="plus"></i>Tambah</a>
                                         </div>
                                         <div class="card-datatable" style="padding: 2rem;">
                                             <table class="dt-complex-header table table-bordered table-responsive dataTable no-footer" id="tbl" role="grid" aria-describedby="DataTables_Table_1_info" style="width: 1018px;">

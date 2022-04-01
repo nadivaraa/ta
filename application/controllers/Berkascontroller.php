@@ -25,6 +25,7 @@ class Berkascontroller extends CI_Controller {
 		$this->load->model('Mberkaswira');
 		$this->load->model('Mjaminan');
 		$this->load->model('Mverifdokumen');
+		$this->load->model('Mverifjaminan');
 	}
 	
 	 public function keldok()
@@ -106,7 +107,6 @@ class Berkascontroller extends CI_Controller {
 
 	public function jaminan()
 	{
-
 		$this->load->view('jaminan');
 	}
 
@@ -161,10 +161,10 @@ class Berkascontroller extends CI_Controller {
 			'PBB_DJ' => $linkJampbb,
 			'AJB_DJ' => $linkJamakta,
 		);
-		// $this->Mjaminan->insert($data);
-		// redirect('jaminan');
+		$this->Mjaminan->insert($dokumenStore);
+		redirect('jaminan');
 	}
-
+		
 	public function upload_file($path,$file){
 		$conf = array(
 			'upload_path' => $path,
@@ -186,5 +186,6 @@ class Berkascontroller extends CI_Controller {
 		}
 		return $data;
 	} 
+}
 
-	}
+
