@@ -26,6 +26,8 @@ class Berkascontroller extends CI_Controller {
 		$this->load->model('Mjaminan');
 		$this->load->model('Mverifdokumen');
 		$this->load->model('Mverifjaminan');
+		$this->load->model('Mverifkemba');
+		$this->load->model('Mnasabah');
 	}
 	
 	 public function keldok()
@@ -97,7 +99,10 @@ class Berkascontroller extends CI_Controller {
 
 	public function kemba()
 	{
-		$this->load->view('kemba');
+		$data['kemba'] = $this->Mverifkemba->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['nasabah'] = $this->Mnasabah->getById($this->session->userdata('email'));
+		
+		$this->load->view('kemba', $data);
 	}
 
 	public function slik()
@@ -112,58 +117,107 @@ class Berkascontroller extends CI_Controller {
 
 	public function proses_jaminan()
 	{
-		$linkJamSert = '';
-		if($_FILES['jaminan_sertifikat'] != null){
-			$uploadJamSert = $this->upload_file('uploads/jam_sertifikat/', 'jaminan_sertifikat');
-			if($uploadJamSert['status'] == true){
-				$linkJamSert = $uploadJamSert['link'];
-			}
+		$uploadFile = $this->upload_file('uploads/'.$_POST['dir'].'/', 'file');
+		if($uploadFile['status'] == false){
+			$this->session->set_flashdata('err_msg', $uploadFile['msg']);
+			redirect('jaminan');
 		}
 
-		$linkJamimb = '';
-		if($_FILES['jaminan_imb'] != null){
-			$uploadJamimb = $this->upload_file('uploads/jam_imb/', 'jaminan_imb');
-			if($uploadJamimb['status'] == true){
-				$linkJamimb = $uploadJamimb['link'];
-			}
+		$verifJaminan 	= $this->Mverifjaminan->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$jaminan 		= $this->db->get_where( ['ID_VJ' => $verifJaminan[0]->ID_VJ])->result();
+		if($jaminan == null){
+			$this->db->insert( ['ID_VJ' => $verifJaminan[0]->ID_VJ, $_POST['col'] => $uploadFile['link']]);
+		}else{
+			$this->db->where('ID_VJ', $verifJaminan[0]->ID_VJ)->update( [$_POST['col'] => $uploadFile['link']]);
 		}
-
-		$linkJampbb = '';
-		if($_FILES['jaminan_pbb'] != null){
-			$uploadJampbb = $this->upload_file('uploads/jam_pbb/', 'jaminan_pbb');
-			if($uploadJamSert['status'] == true){
-				$linkJampbb = $uploadJampbb['link'];
-			}
-		}
-
-		$linkJamakta = '';
-		if($_FILES['jaminan_akta'] != null){
-			$uploadJamakta = $this->upload_file('uploads/jam_akta/', 'jaminan_akta');
-			if($uploadJamakta['status'] == true){
-				$linkJamakta = $uploadJamakta['link'];
-			}
-		}
-
-		$verifStore = array(
-			'EMAIL_NAS' => $this->session->userdata('email'),
-			'HARGAR_DJ' => $_POST['jaminan_harga'],
-			'JALAN_DJ' => $_POST['jaminan_jalan'],
-			'TOWER_DJ' => $_POST['jaminan_tower'],
-			'SUNGAI_DJ' => $_POST['jaminan_sungai'],
-			'SATE_DJ' => $_POST['jaminan_sate'],
-			'MAKAM_DJ' => $_POST['jaminan_makam'],
-			'LISTRIKAIR_DJ' => $_POST['jaminan_lisair']
-		);
-
-		$dokumenStore = array(
-			'SERHHS_DJ' => $linkJamSert,
-			'IMB_DJ' => $linkJamimb,
-			'PBB_DJ' => $linkJampbb,
-			'AJB_DJ' => $linkJamakta,
-		);
-		$this->Mjaminan->insert($dokumenStore);
+		
+		$this->Mverifjaminan->update(['ID_VJ' => $verifJaminan[0]->ID_VJ, 'STATUS_VJ' => '1', 'JENIS_VJ' => $_POST['pekerjaan']]);
+		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
 		redirect('jaminan');
 	}
+
+	public function kirim_jaminan(){
+		$verifJaminan = $this->Mverifjaminan->getById($_POST['idVJ']);
+
+		//cek jika di dalam tabel berkas dokumen ada salah satu yang kosong maka akan dikembalikan
+		if($verifJaminan->JENIS_VJ == "1"){
+			$dataJaminan = $this->db->get_where(['jaminan','ID_VJ' => $verifJaminan->ID_VJ])->row();
+		}else if($verifJaminan->JENIS_VJ == "0"){
+			$this->session->set_flashdata('err_msg', 'Lengkapi dokumen terlebih dahulu!');
+			redirect('jaminan');
+		}
+
+		foreach ($dataJaminan as $key) {
+			if($key == null || $key == ''){
+				$this->session->set_flashdata('err_msg', 'Lengkapi dokumen terlebih dahulu!');
+				redirect('jaminan');
+			}
+		}
+		
+		$this->session->set_flashdata('succ_msg', 'Dokumen berhasil diunggah, silahkan tunggu verifikasi!');
+		$this->Mverifjaminan->update(['ID_VJ' => $verifJaminan->ID_VJ, 'STATUS_VJ' => '2']);
+		redirect('jaminan');
+	}
+
+	// public function jaminan()
+	// {
+	// 	$this->load->view('jaminan');
+	// }
+
+	// public function proses_jaminan()
+	// {
+	// 	$linkJamSert = '';
+	// 	if($_FILES['jaminan_sertifikat'] != null){
+	// 		$uploadJamSert = $this->upload_file('uploads/jam_sertifikat/', 'jaminan_sertifikat');
+	// 		if($uploadJamSert['status'] == true){
+	// 			$linkJamSert = $uploadJamSert['link'];
+	// 		}
+	// 	}
+
+	// 	$linkJamimb = '';
+	// 	if($_FILES['jaminan_imb'] != null){
+	// 		$uploadJamimb = $this->upload_file('uploads/jam_imb/', 'jaminan_imb');
+	// 		if($uploadJamimb['status'] == true){
+	// 			$linkJamimb = $uploadJamimb['link'];
+	// 		}
+	// 	}
+
+	// 	$linkJampbb = '';
+	// 	if($_FILES['jaminan_pbb'] != null){
+	// 		$uploadJampbb = $this->upload_file('uploads/jam_pbb/', 'jaminan_pbb');
+	// 		if($uploadJamSert['status'] == true){
+	// 			$linkJampbb = $uploadJampbb['link'];
+	// 		}
+	// 	}
+
+	// 	$linkJamakta = '';
+	// 	if($_FILES['jaminan_akta'] != null){
+	// 		$uploadJamakta = $this->upload_file('uploads/jam_akta/', 'jaminan_akta');
+	// 		if($uploadJamakta['status'] == true){
+	// 			$linkJamakta = $uploadJamakta['link'];
+	// 		}
+	// 	}
+
+	// 	$verifStore = array(
+	// 		'EMAIL_NAS' => $this->session->userdata('email'),
+	// 		'HARGAR_DJ' => $_POST['jaminan_harga'],
+	// 		'JALAN_DJ' => $_POST['jaminan_jalan'],
+	// 		'TOWER_DJ' => $_POST['jaminan_tower'],
+	// 		'SUNGAI_DJ' => $_POST['jaminan_sungai'],
+	// 		'SATE_DJ' => $_POST['jaminan_sate'],
+	// 		'MAKAM_DJ' => $_POST['jaminan_makam'],
+	// 		'LISTRIKAIR_DJ' => $_POST['jaminan_lisair']
+	// 	);
+
+	// 	$dokumenStore = array(
+	// 		'SERHHS_DJ' => $linkJamSert,
+	// 		'IMB_DJ' => $linkJamimb,
+	// 		'PBB_DJ' => $linkJampbb,
+	// 		'AJB_DJ' => $linkJamakta,
+	// 	);
+	// 	$this->Mjaminan->insert($dokumenStore);
+	// 	redirect('jaminan');
+	// }
 		
 	public function upload_file($path,$file){
 		$conf = array(

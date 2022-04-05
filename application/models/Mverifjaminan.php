@@ -18,9 +18,9 @@ class Mverifjaminan extends CI_Model{
             SElECT
                 vd.*,
                 n.NAMA_NAS
-            FROM verif_jaminan vd, nasabah n
+            FROM verif_jaminan vj, nasabah n
             WHERE vd.EMAIL_NAS = n.EMAIL_NAS
-            ORDER BY vd.STATUSVERIF_VD ASC
+            ORDER BY vj.STATUSVERIF_VJ ASC
         ")->result(); 
     }
     public function insert($param){

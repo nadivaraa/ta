@@ -311,7 +311,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokProf->KTP_DP.'">'.$dokProf->KTP_DP.'</a><br>
+                                                                <a href="'.$dokProf->KTP_DP.'" target="_blank">'.$dokProf->KTP_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -958,7 +958,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokWira->KTP_DW.'">'.$dokWira->KTP_DW.'</a><br>
+                                                                <a href="'.$dokWira->KTP_DW.'" target="_blank">'.$dokWira->KTP_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1366,6 +1366,10 @@
                 </div>
                 <div class="modal-body">
                     <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                        <div class="form-group mb-1">
+                            <label for="">Harga Rumah</label>
+                            <input name="harrum"  class="form-control" required>
+                        </div>
                         <div class="form-group">
                             <label for="">Catatan</label>
                             <textarea name="komentar" class="form-control"></textarea>

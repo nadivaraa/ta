@@ -197,8 +197,8 @@
     </div>
     <!-- END: Main Menu-->
 
-    <!-- BEGIN: Content-->
-    <div class="app-content content ">
+        <!-- BEGIN: Content-->
+        <div class="app-content content ">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
@@ -213,7 +213,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title">Daftar Jaminan</h4>
+                                    <h4 class="card-title">Jaminan</h4>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
@@ -227,22 +227,54 @@
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
+                                            <tbody>
+                                            <?php
+                                                    $status = "";
+                                                    if($item->STATUS_VJ == '1'){
+                                                        $status = '
+                                                            <span class="badge badge-light-info">Draft</span>
+                                                        ';
+                                                    }else if($item->STATUS_VJ == '2'){
+                                                        $status = '
+                                                        <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                    }else if($item->STATUS_VJ == '3'){
+                                                        $status = '
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                    }else if($item->STATUS_VJ == '4'){
+                                                        $status = '
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
+                                                    }else if($item->STATUS_VJ == '0'){
+                                                        $status = '
+                                                            <span class="badge badge-light-dark">Belum ada aksi</span>
+                                                        ';
+                                                    }
+
+                                                    $aksiDetail = "";
+                                                    if($item->STATUS_VJ == "2"){
+                                                        $aksiDetail = '
+                                                            <a class="btn btn-sm btn-info" href="'.site_url('admin/averifjaminan/'.$item->ID_VJ).'"><i data-feather="info"></i></a>
+                                                        ';
+                                                    }
+
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->SERHHS_DJ.'</td>
+                                                            <td>'.$item->IMB_DJ.'</td>
+                                                            <td>'.$item->PBB_DJ.'</td>
+                                                            <td>'.$item->AJB_DJ.'</td>
+                                                            <td class="cell-fit">'.$status.'</td>
+                                                            <td>
+                                                                '.$aksiDetail.'    
+                                                            </td>
+                                                        </tr>        
+                                                    ';
+                                            ?>
+                                            </tbody>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>Sertifikat HHS</td>
-                                                <td>IMB</td>
-                                                <td>PBB</td>
-                                                <td>AJB</td>
-                                                <td>Status</td>
-                                                <td>
-                                                <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>

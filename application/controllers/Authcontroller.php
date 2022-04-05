@@ -22,6 +22,7 @@ class Authcontroller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Mnasabah');
 		$this->load->model('Mverifdokumen');
+		$this->load->model('Mverifkemba');
 	}
 	 public function register()
 	{
@@ -39,12 +40,19 @@ class Authcontroller extends CI_Controller {
 		$data = array(
 			'EMAIL_NAS' => $_POST['register_email'],
 			'NAMA_NAS' => $_POST['register_nama'],
+			'TGLLHR_NAS' => $_POST['register_tgllhr'],
+			'PEKERJAAN_NAS' => $_POST['register_pekerjaan'],
 			'NOTLP_NAS' => $_POST['register_notlp'],
 			'PASS_NAS' => md5($_POST['register_password']),
 		);
 		$this->Mnasabah->insert($data);
 
 		$this->Mverifdokumen->insert(['EMAIL_NAS' => $_POST['register_email']]);
+		$formKemba = array(
+			'EMAIL_NAS' => $_POST['register_email'],
+			'USIA_VKB' => date_diff(date_create($_POST['register_tgllhr']), date_create(date("Y-m-d")))->format('%y')
+		);
+		$this->Mverifkemba->insert($formKemba);
 		redirect('/');
 	}
 	public function proses_logout(){
@@ -67,6 +75,7 @@ class Authcontroller extends CI_Controller {
 			$dataSession = array(
 				'email' => $nasabah[0]->EMAIL_NAS,
 				'nama' => $nasabah[0]->NAMA_NAS,
+				'pekerjaan' => $nasabah[0]->PEKERJAAN_NAS,
 				'is_login' => true,
 				'role' => '2'
 			);

@@ -15,6 +15,11 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/charts/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/extensions/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/pickers/pickadate/pickadate.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -30,10 +35,14 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/forms/form-validation.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/pages/authentication.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-toastr.css">
+    
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/style.css">
     <!-- END: Custom CSS-->
 
 </head>
@@ -89,10 +98,16 @@
                                         <label class="form-label" for="register-nama">Nama</label>
                                         <input class="form-control" id="register-nama" type="text" name="register_nama" placeholder="johndoe" aria-describedby="register-nama" tabindex="2" />
                                     </div>
-                                    <!-- <div class="mb-1">
-                                        <label class="form-label" for="register-alamat">Alamat</label>
-                                        <textarea name="register_alamat" class="form-control" id="" cols="30" rows="4"></textarea>
-                                    </div> -->
+                                    <div class="mb-1">
+                                            <label class="form-label" for="fp-default">Tanggal Lahir</label>
+                                            <input type="text" id="fp-default" class="form-control flatpickr-basic" name="register_tgllhr" placeholder="YYYY-MM-DD"/>
+                                    </div>
+                                    <label class="form-label" for="basic-addon-name">Pekerjaan</label>
+                                    <select class="form-select" id="slct_pilKerja" name="register_pekerjaan">
+                                        <option value="1">Professional</option>
+                                        <option value="2">Karyawan</option>
+                                        <option value="3">Wiraswasta</option>
+                                    </select>
                                     <div class="mb-1">
                                         <label class="form-label" for="registernama">No Telp</label>
                                         <input class="form-control" id="register-nama" type="telp" name="register_notlp" placeholder="08XXXXXXXXXX" aria-describedby="register-nama" tabindex="2" />
@@ -127,6 +142,8 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="<?= base_url()?>/assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -136,9 +153,13 @@
 
     <!-- BEGIN: Page JS-->
     <script src="<?= base_url()?>/assets/js/scripts/pages/auth-register.js"></script>
+
     <!-- END: Page JS-->
 
-    <script>
+<script>
+        $(document).ready(function(){
+            $('.flatpickr-basic').flatpickr();
+        })
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({

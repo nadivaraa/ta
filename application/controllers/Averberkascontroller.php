@@ -21,6 +21,7 @@ class Averberkascontroller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Mverifdokumen');
+		$this->load->model('Mverifkemba');
 	}
 	public function akeldok()
 	{
@@ -43,6 +44,16 @@ class Averberkascontroller extends CI_Controller {
 			'KOMENTAR_VD' => $_POST['komentar']
 		);
 		$this->Mverifdokumen->update($dataUpdate);
+
+		$emailNas = $this->Mverifdokumen->getById($_POST['idVD'])->EMAIL_NAS;
+		$idVKB = $this->Mverifkemba->get(['EMAIL_NAS' => $emailNas])[0]->ID_VKB;
+		$dataUpdateVerifKemba = array(
+			'ID_VKB' => $idVKB,
+			'HARRUM_VKB' => $_POST['harrum'],
+			'DP_VKB' => ((int)$_POST['harrum'] * 10) / 100,
+			'HARRUMBANK_VKB' => ((int)$_POST['harrum'] * 90) / 100
+		);
+		$this->Mverifkemba->update($dataUpdateVerifKemba);
 		redirect('admin/keldok');
 	}
 

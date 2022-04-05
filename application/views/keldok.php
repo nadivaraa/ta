@@ -102,7 +102,7 @@
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama')?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                     </div>
                 </li>
@@ -212,8 +212,8 @@
                         </li>
                         <li><a class="d-flex align-items-center" href="<?= site_url('kemba') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('slik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li>
+                        <!-- <li><a class="d-flex align-items-center" href="<?= site_url('slik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        </li> -->
                         <li><a class="d-flex align-items-center" href="<?= site_url('jaminan') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>
                     </ul>
@@ -306,7 +306,7 @@
                                         <option value="2">Karyawan</option>
                                         <option value="3">Wiraswasta</option>
                                     </select>
-                                    <button type="button" id="btn_pilKerja" class="btn btn-sm btn-primary mt-1">Pilih</button>
+                                    <!-- <button type="button" id="btn_pilKerja" class="btn btn-sm btn-primary mt-1">Pilih</button> -->
                                     <div id="boxProfessional">
 
                                     </div>
@@ -1405,27 +1405,26 @@
 
         $(document).ready(function(){
             <?php
-                if($verifDokumen[0]->STATUS_VD != '0'){
+                echo '
+                    $("#slct_pilKerja").attr("disabled", true);
+                    $("#btn_pilKerja").attr("disabled", true);
+                    $("#slct_pilKerja").val("'.$this->session->userdata('pekerjaan').'").change();
+                    $(".inptPekerjaan").val("'.$this->session->userdata('pekerjaan').'");
+                ';
+                
+                if($this->session->userdata('pekerjaan') == '1'){
                     echo '
-                        $("#slct_pilKerja").attr("disabled", true);
-                        $("#btn_pilKerja").attr("disabled", true);
-                        $("#slct_pilKerja").val("'.$verifDokumen[0]->JENIS_VD.'").change();
-                        $(".inptPekerjaan").val("'.$verifDokumen[0]->JENIS_VD.'");
+                        $("#box_prof").attr("hidden", false);
+                        
                     ';
-                    if($verifDokumen[0]->JENIS_VD == '1'){
-                        echo '
-                            $("#box_prof").attr("hidden", false);
-                            
-                        ';
-                    }else if($verifDokumen[0]->JENIS_VD == '2'){
-                        echo '
-                            $("#box_kar").attr("hidden", false);
-                        ';
-                    }else{
-                        echo '
-                            $("#box_swas").attr("hidden", false);
-                        ';
-                    }
+                }else if($this->session->userdata('pekerjaan') == '2'){
+                    echo '
+                        $("#box_kar").attr("hidden", false);
+                    ';
+                }else{
+                    echo '
+                        $("#box_swas").attr("hidden", false);
+                    ';
                 }    
             ?>
         })

@@ -9,14 +9,15 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard</title>
-<link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
+    <title>Profile</title>
+    <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/extensions/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/extensions/sweetalert2.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -30,9 +31,8 @@
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/forms/form-validation.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -184,130 +184,70 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-            <div class="content-header row">
-            </div>
             <div class="content-body">
-                <!-- Dashboard Ecommerce Starts -->
-                <section id="dashboard-ecommerce">
-                    <div class="row match-height">
-                       <!-- Statistics Card -->
-                        <div class="col-xl-12 col-md-6 col-12">
-                            <div class="card card-statistics">
-                                <div class="card-header">
-                                    <h4 class="card-title">Status Pengajuan</h4>
-                                </div>
-                                <div class="card-body statistics-body">
-                                    <div class="row">
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
-                                            <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-success me-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="check" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Terverifikasi</h4>
-                                                    <p class="card-text font-small-3 mb-0">Kelengkapan Dokumen</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
-                                            <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-warning me-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="clock" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Proses</h4>
-                                                    <p class="card-text font-small-3 mb-0">Kemampuan Bayar</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
-                                            <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-info me-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="pocket" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Draft</h4>
-                                                    <p class="card-text font-small-3 mb-0">Pengecekkan SLIK</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-sm-6 col-12">
-                                            <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-info me-2">
-                                                    <div class="avatar-content">
-                                                        <i data-feather="pocket" class="avatar-icon"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Draft</h4>
-                                                    <p class="card-text font-small-3 mb-0">Jaminan</p>
-                                                </div>
-                                            </div>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- profile -->
+                        <div class="card">
+                            <div class="card-header border-bottom">
+                                <h4 class="card-title">Detail Profile</h4>
+                            </div>
+                            <div class="card-body py-2 my-25">
+                                <!-- header section -->
+                                <div class="d-flex">
+                                    <a href="#" class="me-25">
+                                        <img src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" id="account-upload-img" class="uploadedAvatar rounded me-50" alt="profile image" height="100" width="100" />
+                                    </a>
+                                    <!-- upload and reset button -->
+                                    <div class="d-flex align-items-end mt-75 ms-1">
+                                        <div>
+                                            <label for="account-upload" class="btn btn-sm btn-primary mb-75 me-75">Upload</label>
+                                            <input type="file" id="account-upload" hidden accept="image/*" />
+                                            <button type="button" id="account-reset" class="btn btn-sm btn-outline-secondary mb-75">Reset</button>
+                                            <p class="mb-0">Allowed file types: png, jpg, jpeg.</p>
                                         </div>
                                     </div>
+                                    <!--/ upload and reset button -->
                                 </div>
-                            </div>
-                        </div>
+                                <!--/ header section -->
 
-
-                        <!--/ Statistics Card -->
-                         <!-- Medal Card -->
-                         <!-- <div class="col-xl-4 col-md-6 col-12">
-                            <div class="card card-congratulation-medal">
-                                <div class="card-body">
-                                    <h5>Congratulations 🎉 John!</h5>
-                                    <p class="card-text font-small-3">Pengajuan Kreditmu Diterima</p>
-                                    <h3 class="mb-75 mt-2 pt-50">
-                                    </h3>
-                                    <button type="button" class="btn btn-primary">Lihat Rekomendasi</button>
-                                    <img src="<?= base_url()?>/assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
-                                </div>
-                            </div>
-                        </div> -->
-                        <!--/ Medal Card -->
-                    </div>
-            
-                </div>
-                <div class="row match-height">
-                       <!-- Statistics Card -->
-                        <div class="col-xl-12 col-md-6 col-12">
-                            <div class="card card-statistics">
-                                <div class="card-header">
-                                    <h4 class="card-title">Pesan Masuk</h4>
-                                </div>
-                                <div class="card-body statistics-body">
+                                <!-- form -->
+                                <form class="validate-form mt-2 pt-50">
                                     <div class="row">
-                                        
+                                        <div class="col-12">
+                                            <label class="form-label" for="accountFirstName">Email</label>
+                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="accountFirstName">Nama</label>
+                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="accountFirstName">Tanggal Lahir</label>
+                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="accountFirstName">No Telepon</label>
+                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="accountFirstName">Pekerjaan</label>
+                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary mt-1 me-1">Save changes</button>
+                                            <button type="reset" class="btn btn-outline-secondary mt-1">Discard</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
+                                <!--/ form -->
                             </div>
                         </div>
-
-
-                        <!--/ Statistics Card -->
-                         <!-- Medal Card -->
-                         <!-- <div class="col-xl-4 col-md-6 col-12">
-                            <div class="card card-congratulation-medal">
-                                <div class="card-body">
-                                    <h5>Congratulations 🎉 John!</h5>
-                                    <p class="card-text font-small-3">Pengajuan Kreditmu Diterima</p>
-                                    <h3 class="mb-75 mt-2 pt-50">
-                                    </h3>
-                                    <button type="button" class="btn btn-primary">Lihat Rekomendasi</button>
-                                    <img src="<?= base_url()?>/assets/images/illustration/badge.svg" class="congratulation-medal" alt="Medal Pic" />
-                                </div>
-                            </div>
-                        </div> -->
-                        <!--/ Medal Card -->
+                        <!--/ profile -->
                     </div>
-            
                 </div>
+
+            </div>
         </div>
     </div>
     <!-- END: Content-->
@@ -315,13 +255,17 @@
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 
+
     <!-- BEGIN: Vendor JS-->
     <script src="<?= base_url()?>/assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/extensions/toastr.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/forms/cleave/cleave.min.js"></script>
+    <script src="<?= base_url()?>/assets/vendors/js/forms/cleave/addons/cleave-phone.us.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -330,7 +274,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="<?= base_url()?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <script src="<?= base_url()?>/assets/js/scripts/pages/page-account-settings-account.js"></script>
     <!-- END: Page JS-->
 
     <script>
@@ -342,17 +286,6 @@
                 });
             }
         })
-        setTimeout(function () {
-            toastr['success'](
-                'You have successfully logged in to Vuexy. Now you can start to explore!',
-                '👋 Welcome <?= $this->session->userdata("nama")?>!',
-                {
-                    closeButton: true,
-                    tapToDismiss: false,
-                    rtl: isRtl
-                }
-            );
-        }, 2000);
     </script>
 </body>
 <!-- END: Body-->

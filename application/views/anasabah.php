@@ -220,6 +220,8 @@
                                                     <tr>
                                                         <th>Email</th>
                                                         <th>Nama</th>
+                                                        <th>Tanggal Lahir</th>
+                                                        <th>Pekerjaan</th>
                                                         <th>No Telepon</th>
                                                     </tr>
                                                 </thead>
@@ -230,6 +232,8 @@
                                                                     <tr>
                                                                         <td>'.$item->EMAIL_NAS.'</td>
                                                                         <td>'.$item->NAMA_NAS.'</td>
+                                                                        <td>'.$item->TGLLHR_NAS.'</td>
+                                                                        <td>'.$item->PEKERJAAN_NAS.'</td>
                                                                         <th>'.$item->NOTLP_NAS.'</th>
                                                                     </tr>                                                      
                                                                 ';

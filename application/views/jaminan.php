@@ -56,7 +56,7 @@
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama')?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                     </div>
                 </li>
@@ -166,8 +166,8 @@
                         </li>
                         <li><a class="d-flex align-items-center" href="<?= site_url('kemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('slik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li>
+                        <!-- <li><a class="d-flex align-items-center" href="<?= site_url('slik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        </li> -->
                         <li><a class="d-flex align-items-center" href="<?= site_url('jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>  
                     </ul>
@@ -209,7 +209,7 @@
                                         </div>
                                     </div>
                                            
-                                    <form class="needs-validation" enctype="multipart/form-data" action="<?php echo base_url('proses_jaminan') ?>" method="POST" novalidate >
+                                    <!-- <form class="needs-validation" enctype="multipart/form-data" action="<?php echo base_url('proses_jaminan') ?>" method="POST" novalidate >
                                             <div class="mb-1">
                                                 <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
                                                 <input class="form-control" type="file" id="customFile1"  name="jaminan_sertifikat" required />
@@ -225,11 +225,11 @@
                                             <div class="mb-1">
                                                 <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
                                                 <input class="form-control" type="file" id="customFile1" name="jaminan_akta" required />
-                                            </div>
-                                        <div class="mb-1">
+                                            </div> -->
+                                        <!-- <div class="mb-1">
                                             <label class="form-label" for="registernama">Harga Rumah</label>
                                             <input class="form-control" id="register-nama" type="telp" name="jaminan_harga" placeholder="harga rumah" aria-describedby="register-nama" tabindex="2" />
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="mb-1">
                                             <label class="form-label" class="d-block">JALAN LUAS</label>
                                             <div class="form-check my-50">
@@ -296,10 +296,50 @@
                                                 <label class="form-check-label" for="validationRadio4">TIDAK</label>
                                             </div>
                                         </div> -->
-                                        <div style="float: right;">
+                                        <!-- <div style="float: right;">
                                             <button type="submit" class="btn btn-info">Simpan</button>
                                             <button type="button" class="btn btn-success">Kirim</button>
                                         </div>
+                                    </form> -->
+
+                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
+                                                            <div class="input-group mb-1">
+                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="dir" value="jam_sertifikat">
+                                                                <input type="hidden" name="col" value="SERHHS_DJ">
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div> 
+                                    </form>
+                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">IMB</label>
+                                                            <div class="input-group mb-1">
+                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
+                                                                <input type="hidden" name="dir" value="jam_imb">
+                                                                <input type="hidden" name="col" value="IMB_DJ">
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div>
+                                    </form>
+                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">PBB TERAKHIR</label>
+                                                            <div class="input-group mb-1">
+                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
+                                                                <input type="hidden" name="dir" value="jam_pbb">
+                                                                <input type="hidden" name="col" value="PBB_DJ">
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div>
+                                    </form>
+                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
+                                                            <div class="input-group mb-1">
+                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
+                                                                <input type="hidden" name="dir" value="jam_akta">
+                                                                <input type="hidden" name="col" value="AJB_DJ">
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div>
                                     </form>
                                 </div>
                             </div>
