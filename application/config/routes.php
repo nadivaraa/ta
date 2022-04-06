@@ -115,15 +115,24 @@ $route['admin/proses_verifjaminan']  = 'averberkascontroller/proses_verifjaminan
 //AKRITERIA
 $route['admin/krikeldok'] = 'akriteriacontroller/akrikeldok';
 $route['admin/atambahkrikeldok'] = 'akriteriacontroller/atambahkrikeldok';
-$route['admin/aeditkrikeldok'] = 'akriteriacontroller/aeditkrikeldok';
+$route['admin/aprostambahkrikeldok'] = 'akriteriacontroller/aprostambahkrikeldok';
+$route['admin/aeditkrikeldok/(:any)'] = 'akriteriacontroller/aeditkrikeldok/$1';
+$route['admin/aprosupdatekrikeldok'] = 'akriteriacontroller/aprosupdatekrikeldok';
+$route['admin/aproshapuskrikeldok'] = 'akriteriacontroller/aproshapuskrikeldok';
 
 $route['admin/krikemba'] = 'akriteriacontroller/akrikemba';
 $route['admin/atambahkrikemba'] = 'akriteriacontroller/atambahkrikemba';
-$route['admin/aeditkrikemba'] = 'akriteriacontroller/aeditkrikemba';
+$route['admin/aprostambahkrikemba'] = 'akriteriacontroller/aprostambahkrikemba';
+$route['admin/aeditkrikemba/(:any)'] = 'akriteriacontroller/aeditkrikemba/$1';
+$route['admin/aprosupdatekrikemba'] = 'akriteriacontroller/aprosupdatekrikemba';
+$route['admin/aproshapuskrikemba'] = 'akriteriacontroller/aproshapuskrikemba';
 
 $route['admin/krislik'] = 'akriteriacontroller/akrislik';
 $route['admin/atambahkrislik'] = 'akriteriacontroller/atambahkrislik';
-$route['admin/aeditkrislik'] = 'akriteriacontroller/aeditkrislik';
+$route['admin/aprostambahkrislik'] = 'akriteriacontroller/aprostambahkrislik';
+$route['admin/aeditkrislik/(:any)'] = 'akriteriacontroller/aeditkrislik/$1';
+$route['admin/aprosupdatekrislik'] = 'akriteriacontroller/aprosupdatekrislik';
+$route['admin/aproshapuskrislik'] = 'akriteriacontroller/aproshapuskrislik';
 
 $route['admin/krijaminan'] = 'akriteriacontroller/akrijaminan';
 $route['admin/atambahkrijaminan'] = 'akriteriacontroller/atambahkrijaminan';

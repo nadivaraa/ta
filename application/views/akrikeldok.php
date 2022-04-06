@@ -226,14 +226,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Layak</td>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <a class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
-                                                            <a class="btn btn-sm btn-danger"><i data-feather="trash"></i></a>
-                                                        </td>
-                                                    </tr>
+                                                <?php 
+                                                    foreach ($krikeldok as $item){
+                                                        echo '
+                                                            <tr>
+                                                                <td>'.$item->NAMA_KD.'</td>
+                                                                <td>'.$item->BOBOT_KD.'</td>
+                                                                <td>
+                                                                    <a href="'.site_url('admin/aeditkrikeldok/'.$item->ID_KD).'" class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
+                                                                    <button type="button" onclick="showMdlHapus('.$item->ID_KD.')" class="btn btn-sm btn-danger"><i data-feather="trash"></i></butto>
+                                                                </td>
+                                                            </tr>                                                      
+                                                        ';
+                                                    } 
+                                                ?>
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -247,7 +254,29 @@
         </div>
     </div>
     <!-- END: Content-->
-
+<!-- Modal -->
+<div class="modal fade text-start" id="mdlHapus" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel1">Verif Kelengkapan Dokumen</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= site_url('admin/aproshapuskrikeldok')?>" method="post">
+                        <p class="text-center">Apakah anda yakin untuk menghapus kriteria ini?</p>
+                </div>
+                <div class="modal-footer">
+                        <input type="hidden" id="mdlHapus_id" name="id_kd" value="">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Basic trigger modal end -->
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 
@@ -292,6 +321,10 @@
         $(document).ready(function(){
             $('#tbl').DataTable()
         })
+        function showMdlHapus(id){
+            $('#mdlHapus_id').val(id)
+            $('#mdlHapus').modal('show')
+        }
     </script>
 </body>
 <!-- END: Body-->

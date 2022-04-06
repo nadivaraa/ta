@@ -340,7 +340,7 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->KTPPAS_DP.'">'.$dokProf->KTPPAS_DP.'</a><br>
+                                                                    <a href="'.$dokProf->KTPPAS_DP.'" target="_blank" >'.$dokProf->KTPPAS_DP.'</a><br>
                                                                 ';
                                                             }
                                                         }
@@ -368,7 +368,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                    <a href="'.$dokProf->AKTANIK_DP.'">'.$dokProf->AKTANIK_DP.'</a><br>
+                                                                    <a href="'.$dokProf->AKTANIK_DP.'" target="_blank" >'.$dokProf->AKTANIK_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -396,7 +396,7 @@
                                                             echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->KK_DP.'">'.$dokProf->KK_DP.'</a><br>
+                                                                    <a href="'.$dokProf->KK_DP.'" target="_blank" >'.$dokProf->KK_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -424,7 +424,7 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->AKTAPIS_DP.'">'.$dokProf->AKTAPIS_DP.'</a><br>
+                                                                    <a href="'.$dokProf->AKTAPIS_DP.'"target="_blank">'.$dokProf->AKTAPIS_DP.'</a><br>
                                                                 ';
                                                             }
                                                         }
@@ -452,7 +452,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->NPWP_DP.'">'.$dokProf->NPWP_DP.'</a><br>
+                                                                    <a href="'.$dokProf->NPWP_DP.'"target="_blank">'.$dokProf->NPWP_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -480,7 +480,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->NPWPUSH_DP.'">'.$dokProf->NPWPUSH_DP.'</a><br>
+                                                                    <a href="'.$dokProf->NPWPUSH_DP.'"target="_blank">'.$dokProf->NPWPUSH_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -508,7 +508,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->IZINPRAK_DP.'">'.$dokProf->IZINPRAK_DP.'</a><br>
+                                                                    <a href="'.$dokProf->IZINPRAK_DP.'"target="_blank">'.$dokProf->IZINPRAK_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -536,7 +536,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->REKKOR_DP.'">'.$dokProf->REKKOR_DP.'</a><br>
+                                                                    <a href="'.$dokProf->REKKOR_DP.'"target="_blank">'.$dokProf->REKKOR_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -564,7 +564,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->SPERNYATAAN_DP.'">'.$dokProf->SPERNYATAAN_DP.'</a><br>
+                                                                    <a href="'.$dokProf->SPERNYATAAN_DP.'"target="_blank">'.$dokProf->SPERNYATAAN_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -592,7 +592,7 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                         <br>
-                                                                        <a href="'.$dokProf->SPEMESANAN_DP.'">'.$dokProf->SPEMESANAN_DP.'</a><br>
+                                                                        <a href="'.$dokProf->SPEMESANAN_DP.'"target="_blank">'.$dokProf->SPEMESANAN_DP.'</a><br>
                                                                 ';
                                                             }
                                                         }
@@ -620,7 +620,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->BPEMBAYARAN_DP.'">'.$dokProf->BPEMBAYARAN_DP.'</a><br>
+                                                                    <a href="'.$dokProf->BPEMBAYARAN_DP.'"target="_blank">'.$dokProf->BPEMBAYARAN_DP.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -663,7 +663,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KTP_DK.'">'.$dokKary->KTP_DK.'</a><br>
+                                                                <a href="'.$dokKary->KTP_DK.'"target="_blank">'.$dokKary->KTP_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -691,7 +691,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KTPPAS_DK.'">'.$dokKary->KTPPAS_DK.'</a><br>
+                                                                <a href="'.$dokKary->KTPPAS_DK.'"target="_blank">'.$dokKary->KTPPAS_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -719,7 +719,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->AKTANIK_DK.'">'.$dokKary->AKTANIK_DK.'</a><br>
+                                                                <a href="'.$dokKary->AKTANIK_DK.'"target="_blank">'.$dokKary->AKTANIK_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -747,7 +747,7 @@
                                                         echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->AKTAPIS_DK.'">'.$dokKary->AKTAPIS_DK.'</a><br>
+                                                                <a href="'.$dokKary->AKTAPIS_DK.'"target="_blank">'.$dokKary->AKTAPIS_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -775,7 +775,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KK_DK.'">'.$dokKary->KK_DK.'</a><br>
+                                                                <a href="'.$dokKary->KK_DK.'"target="_blank">'.$dokKary->KK_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -803,7 +803,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->NPWP_DK.'">'.$dokKary->NPWP_DK.'</a><br>
+                                                                    <a href="'.$dokKary->NPWP_DK.'"target="_blank">'.$dokKary->NPWP_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -831,7 +831,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SLIPGAJI_DK.'">'.$dokKary->SLIPGAJI_DK.'</a><br>
+                                                                    <a href="'.$dokKary->SLIPGAJI_DK.'"target="_blank">'.$dokKary->SLIPGAJI_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -859,7 +859,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SPERNYATAAN_DK.'">'.$dokKary->SPERNYATAAN_DK.'</a><br>
+                                                                    <a href="'.$dokKary->SPERNYATAAN_DK.'"target="_blank">'.$dokKary->SPERNYATAAN_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -887,7 +887,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SPEMESANAN_DK.'">'.$dokKary->SPEMESANAN_DK.'</a><br>
+                                                                    <a href="'.$dokKary->SPEMESANAN_DK.'"target="_blank">'.$dokKary->SPEMESANAN_DK.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -915,7 +915,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->BPEMBAYARAN_DK.'">'.$dokKary->BPEMBAYARAN_DK.'</a><br>
+                                                                    <a href="'.$dokKary->BPEMBAYARAN_DK.'"target="_blank">'.$dokKary->BPEMBAYARAN_DK.'</a><br>
                                                             ';
                                                         }  
                                                     }
@@ -987,7 +987,7 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->KTPPAS_DW.'">'.$dokWira->KTPPAS_DW.'</a><br>
+                                                                    <a href="'.$dokWira->KTPPAS_DW.'"target="_blank">'.$dokWira->KTPPAS_DW.'</a><br>
                                                                 ';
                                                             }
                                                         }
@@ -1015,7 +1015,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                    <a href="'.$dokWira->AKTANIK_DW.'">'.$dokWira->AKTANIK_DW.'</a><br>
+                                                                    <a href="'.$dokWira->AKTANIK_DW.'"target="_blank">'.$dokWira->AKTANIK_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1043,7 +1043,7 @@
                                                             echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->KK_DW.'">'.$dokWira->KK_DW.'</a><br>
+                                                                    <a href="'.$dokWira->KK_DW.'"target="_blank">'.$dokWira->KK_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1071,7 +1071,7 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->AKTAPIS_DW.'">'.$dokWira->AKTAPIS_DW.'</a><br>
+                                                                    <a href="'.$dokWira->AKTAPIS_DW.'"target="_blank">'.$dokWira->AKTAPIS_DW.'</a><br>
                                                                 ';
                                                             }
                                                         }
@@ -1099,7 +1099,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->NPWP_DW.'">'.$dokWira->NPWP_DW.'</a><br>
+                                                                    <a href="'.$dokWira->NPWP_DW.'"target="_blank">'.$dokWira->NPWP_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1127,7 +1127,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->NPWPUSH_DW.'">'.$dokWira->NPWPUSH_DW.'</a><br>
+                                                                    <a href="'.$dokWira->NPWPUSH_DW.'"target="_blank">'.$dokWira->NPWPUSH_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1155,7 +1155,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SIUP_DW.'">'.$dokWira->SIUP_DW.'</a><br>
+                                                                    <a href="'.$dokWira->SIUP_DW.'"target="_blank">'.$dokWira->SIUP_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1182,7 +1182,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->TDP_DW.'">'.$dokWira->TDP_DW.'</a><br>
+                                                                    <a href="'.$dokWira->TDP_DW.'"target="_blank">'.$dokWira->TDP_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1209,7 +1209,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->AKTAPEND_DW.'">'.$dokWira->AKTAPEND_DW.'</a><br>
+                                                                    <a href="'.$dokWira->AKTAPEND_DW.'"target="_blank">'.$dokWira->AKTAPEND_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1236,7 +1236,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->REKKOR_DW.'">'.$dokWira->REKKOR_DW.'</a><br>
+                                                                    <a href="'.$dokWira->REKKOR_DW.'"target="_blank">'.$dokWira->REKKOR_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1263,7 +1263,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SPERNYATAAN_DW.'">'.$dokWira->SPERNYATAAN_DW.'</a><br>
+                                                                    <a href="'.$dokWira->SPERNYATAAN_DW.'"target="_blank">'.$dokWira->SPERNYATAAN_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1291,7 +1291,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SPEMESANAN_DW.'">'.$dokWira->SPEMESANAN_DW.'</a><br>
+                                                                    <a href="'.$dokWira->SPEMESANAN_DW.'"target="_blank">'.$dokWira->SPEMESANAN_DW.'</a><br>
                                                             ';
                                                         }
                                                     }
@@ -1319,7 +1319,7 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->BPEMBAYARAN_DW.'">'.$dokWira->BPEMBAYARAN_DW.'</a><br>
+                                                                    <a href="'.$dokWira->BPEMBAYARAN_DW.'"target="_blank">'.$dokWira->BPEMBAYARAN_DW.'</a><br>
                                                             ';
                                                         }  
                                                     }

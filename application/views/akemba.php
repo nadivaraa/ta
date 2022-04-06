@@ -220,7 +220,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Email</th>
-                                                <th>Slip Gaji</th>
+                                                <th>Nama</th>
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -228,7 +228,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>Email</td>
-                                                <td>Slip Gaji</td>
+                                                <td>Nama</td>
                                                 <td>Status</td>
                                                 <td>
                                                     <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>

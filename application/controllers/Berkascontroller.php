@@ -101,6 +101,7 @@ class Berkascontroller extends CI_Controller {
 	{
 		$data['kemba'] = $this->Mverifkemba->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$data['nasabah'] = $this->Mnasabah->getById($this->session->userdata('email'));
+		$data['keldok'] = $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		
 		$this->load->view('kemba', $data);
 	}

@@ -221,7 +221,6 @@
                                             <tr>
                                                 <th>Email</th>
                                                 <th>Nama</th>
-                                                <th>NIK</th>
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -230,7 +229,6 @@
                                             <tr>
                                                 <td>Email</td>
                                                 <td>Nama</td>
-                                                <td>NIK</td>
                                                 <td>Status</td>
                                                 <td>
                                                     <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>

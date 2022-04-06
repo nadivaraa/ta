@@ -208,6 +208,16 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <?php
+                                        if($keldok[0]->STATUS_VD != "3"){
+                                    ?>
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <img src="<?= site_url('assets/images/empty.svg')?>" style="width: 250px;" alt="">
+                                            <h3 class="mt-3">Opps! Silahkan lengkapi form kelengkapan dokumen terlebih dahulu!</h3>
+                                        </div>
+                                    </div>
+                                    <?php }else{?>
                                     <form class="needs-validation" novalidate>
                                         <div class="mb-1">
                                             <label class="form-label" for="basicSelect">Pekerjaan</label>
@@ -272,6 +282,7 @@
                                             <button type="button" class="btn btn-success">Kirim</button>
                                         </div>
                                     </form>
+                                    <?php }?>
                                 </div>
                             </div>
                         </div>

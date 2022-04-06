@@ -226,14 +226,20 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Layak</td>
-                                                        <td>4</td>
-                                                        <td>
-                                                            <a class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
-                                                            <a class="btn btn-sm btn-danger"><i data-feather="trash"></i></a>
-                                                        </td>
-                                                    </tr>
+                                                <?php 
+                                                    foreach ($krislik as $item){
+                                                        echo '
+                                                            <tr>
+                                                                <td>'.$item->NAMA_KPS.'</td>
+                                                                <td>'.$item->BOBOT_KPS.'</td>
+                                                                <td>
+                                                                    <a href="'.site_url('admin/aeditkrislik/'.$item->ID_KPS).'" class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
+                                                                    <button type="button" onclick="showMdlHapus('.$item->ID_KPS.')" class="btn btn-sm btn-danger"><i data-feather="trash"></i></butto>
+                                                                </td>
+                                                            </tr>                                                      
+                                                        ';
+                                                    } 
+                                                ?>
                                                 </tbody>
                                             </table>
                                         </div>

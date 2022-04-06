@@ -217,18 +217,18 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    <form class="needs-validation" action="<?php echo base_url('admin/aprostambahkrikeldok') ?>" method="POST">
                                         
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Jenis Kriteria</label>
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Jenis Krteria" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Jenis Kriteria" name="krikeldok_jenis" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Bobot Kriteria</label>
-                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Bobot Kriteria" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                            <input type="text" id="basic-addon-name" class="form-control" placeholder="Bobot Kriteria" name="krikeldok_bobot" aria-label="Name" aria-describedby="basic-addon-name" required />
                                         </div>
                                         <div style="float: right;">
-                                            <button type="button" class="btn btn-success">Kirim</button>
+                                            <button type="submit" class="btn btn-success">Kirim</button>
                                         </div>
                                     </form>
                                 </div>
