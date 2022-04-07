@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="mb-1">
                                             <label class="form-label" for="fp-default">Tanggal Lahir</label>
-                                            <input type="text" id="fp-default" class="form-control flatpickr-basic" name="register_tgllhr" placeholder="YYYY-MM-DD"/>
+                                            <input type="text" id="fp-default" class="form-control flatpickr-basic bg-white" name="register_tgllhr" placeholder="YYYY-MM-DD"/>
                                     </div>
                                     <label class="form-label" for="basic-addon-name">Pekerjaan</label>
                                     <select class="form-select" id="slct_pilKerja" name="register_pekerjaan">

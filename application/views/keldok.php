@@ -39,6 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
     <style>
+        ::file-selector-button {
+            display: none;
+        }
+
         .custom-file-input {
             position: relative;
             z-index: 2;
@@ -83,6 +87,7 @@
             border: 1px solid #ced4da;
             border-radius: 0.25rem;
             box-shadow: none;
+
         }
     </style>
 </head>
@@ -98,15 +103,15 @@
             <ul class="nav navbar-nav align-items-center ms-auto">
 
 
-                
+
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama')?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout') ?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
-                    </div>
-                </li>
-            </ul>
+        </div>
+        </li>
+        </ul>
         </div>
     </nav>
     <ul class="main-search-list-defaultlist d-none">
@@ -152,7 +157,7 @@
                 <div class="d-flex align-items-center">
                     <div class="avatar me-75"><img src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0"><?= $this->session->userdata('nama')?></p><small class="text-muted">UI designer</small>
+                        <p class="search-data-title mb-0"><?= $this->session->userdata('nama') ?></p><small class="text-muted">UI designer</small>
                     </div>
                 </div>
             </a></li>
@@ -245,60 +250,60 @@
                                     </div>
                                     <div class="col-6 col-md-6 pe-3" style="text-align: right;">
                                         <?php
-                                            if($verifDokumen[0]->STATUS_VD != '0'){
-                                                if($verifDokumen[0]->STATUS_VD == '1'){
-                                                    echo '
+                                        if ($verifDokumen[0]->STATUS_VD != '0') {
+                                            if ($verifDokumen[0]->STATUS_VD == '1') {
+                                                echo '
                                                         <span class="badge badge-light-info">Draft</span>
                                                     ';
-                                                }else if($verifDokumen[0]->STATUS_VD == '2'){
-                                                    echo '
+                                            } else if ($verifDokumen[0]->STATUS_VD == '2') {
+                                                echo '
                                                     <span class="badge badge-light-warning">Proses</span>
                                                     ';
-                                                }else if($verifDokumen[0]->STATUS_VD == '3'){
-                                                    echo '
+                                            } else if ($verifDokumen[0]->STATUS_VD == '3') {
+                                                echo '
                                                         <span class="badge badge-light-success">Terverifikasi</span>
                                                     ';
-                                                }else if($verifDokumen[0]->STATUS_VD == '4'){
-                                                    echo '
+                                            } else if ($verifDokumen[0]->STATUS_VD == '4') {
+                                                echo '
                                                         <span class="badge badge-light-danger">Gagal</span>
                                                     ';
-                                                }
                                             }
+                                        }
                                         ?>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <?php
-                                        if($this->session->flashdata('err_msg')){
-                                            echo '
+                                    if ($this->session->flashdata('err_msg')) {
+                                        echo '
                                                 <div class="alert alert-danger" role="alert">
                                                     <h4 class="alert-heading">Gagal</h4>
                                                     <div class="alert-body">
-                                                        '.$this->session->flashdata('err_msg').'
+                                                        ' . $this->session->flashdata('err_msg') . '
                                                     </div>
                                                 </div>
                                             ';
-                                        }
-                                        if($this->session->flashdata('succ_msg')){
-                                            echo '
+                                    }
+                                    if ($this->session->flashdata('succ_msg')) {
+                                        echo '
                                                 <div class="alert alert-success" role="alert">
                                                     <h4 class="alert-heading">Sukses</h4>
                                                     <div class="alert-body">
-                                                        '.$this->session->flashdata('succ_msg').'
+                                                        ' . $this->session->flashdata('succ_msg') . '
                                                     </div>
                                                 </div>
                                             ';
-                                        }
-                                        if($verifDokumen[0]->STATUS_VD == "4"){
-                                            echo '
+                                    }
+                                    if ($verifDokumen[0]->STATUS_VD == "4") {
+                                        echo '
                                                 <div class="alert alert-danger" role="alert">
                                                     <h4 class="alert-heading">Catatan Status Gagal</h4>
                                                     <div class="alert-body">
-                                                        '.$verifDokumen[0]->KOMENTAR_VD.'
+                                                        ' . $verifDokumen[0]->KOMENTAR_VD . '
                                                     </div>
                                                 </div>
                                             ';
-                                        }
+                                    }
                                     ?>
                                     <label class="form-label" for="basic-addon-name">Pilih Pekerjaan</label>
                                     <select class="form-select" id="slct_pilKerja">
@@ -312,1055 +317,1163 @@
                                     </div>
                                     <div class="text mt-3" id="box_prof" hidden="true">
                                         <h3>Professional</h3>
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->KTP_DP != null || $dokProf->KTP_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->KTP_DP != null || $dokProf->KTP_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokProf->KTP_DP.'">'.$dokProf->KTP_DP.'</a><br>
+                                                                <a href="' . $dokProf->KTP_DP . '">' . $dokProf->KTP_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
+                                                }
+                                            }
+                                            ?>
 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktp">
                                                                 <input type="hidden" name="col" value="KTP_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>        
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP PASANGAN</label>
-                                                <?php
-                                                        if($dokProf != null){
-                                                            if($dokProf->KTPPAS_DP != null || $dokProf->KTPPAS_DP != ''){
-                                                                echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->KTPPAS_DP != null || $dokProf->KTPPAS_DP != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->KTPPAS_DP.'">'.$dokProf->KTPPAS_DP.'</a><br>
+                                                                    <a href="' . $dokProf->KTPPAS_DP . '">' . $dokProf->KTPPAS_DP . '</a><br>
                                                                 ';
-                                                            }
-                                                        }
-                                                    ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktppas">
                                                                 <input type="hidden" name="col" value="KTPPAS_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA NIKAH</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->AKTANIK_DP != null || $dokProf->AKTANIK_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->AKTANIK_DP != null || $dokProf->AKTANIK_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                    <a href="'.$dokProf->AKTANIK_DP.'">'.$dokProf->AKTANIK_DP.'</a><br>
+                                                                    <a href="' . $dokProf->AKTANIK_DP . '">' . $dokProf->AKTANIK_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktanik">
                                                                 <input type="hidden" name="col" value="AKTANIK_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KARTU KELUARGA</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->KK_DP != null || $dokProf->KK_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->KK_DP != null || $dokProf->KK_DP != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->KK_DP.'">'.$dokProf->KK_DP.'</a><br>
+                                                                    <a href="' . $dokProf->KK_DP . '">' . $dokProf->KK_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_kk">
                                                                 <input type="hidden" name="col" value="KK_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
-                                                <?php
-                                                        if($dokProf != null){
-                                                            if($dokProf->AKTAPIS_DP != null || $dokProf->AKTAPIS_DP != ''){
-                                                                echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->AKTAPIS_DP != null || $dokProf->AKTAPIS_DP != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->AKTAPIS_DP.'">'.$dokProf->AKTAPIS_DP.'</a><br>
+                                                                    <a href="' . $dokProf->AKTAPIS_DP . '">' . $dokProf->AKTAPIS_DP . '</a><br>
                                                                 ';
-                                                            }
-                                                        }
-                                                    ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapis">
                                                                 <input type="hidden" name="col" value="AKTAPIS_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">NPWP</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->NPWP_DP != null || $dokProf->NPWP_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->NPWP_DP != null || $dokProf->NPWP_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->NPWP_DP.'">'.$dokProf->NPWP_DP.'</a><br>
+                                                                    <a href="' . $dokProf->NPWP_DP . '">' . $dokProf->NPWP_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                 <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwp">
                                                                 <input type="hidden" name="col" value="NPWP_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">NPWP USAHA</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->NPWPUSH_DP != null || $dokProf->NPWPUSH_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->NPWPUSH_DP != null || $dokProf->NPWPUSH_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->NPWPUSH_DP.'">'.$dokProf->NPWPUSH_DP.'</a><br>
+                                                                    <a href="' . $dokProf->NPWPUSH_DP . '">' . $dokProf->NPWPUSH_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwpush">
                                                                 <input type="hidden" name="col" value="NPWPUSH_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>      
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">IZIN PRAKTEK</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->IZINPRAK_DP != null || $dokProf->IZINPRAK_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->IZINPRAK_DP != null || $dokProf->IZINPRAK_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->IZINPRAK_DP.'">'.$dokProf->IZINPRAK_DP.'</a><br>
+                                                                    <a href="' . $dokProf->IZINPRAK_DP . '">' . $dokProf->IZINPRAK_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_izinprak">
                                                                 <input type="hidden" name="col" value="IZINPRAK_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">REKENING KORAN 3 BULAN TERAKHIR</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->REKKOR_DP != null || $dokProf->REKKOR_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->REKKOR_DP != null || $dokProf->REKKOR_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->REKKOR_DP.'">'.$dokProf->REKKOR_DP.'</a><br>
+                                                                    <a href="' . $dokProf->REKKOR_DP . '">' . $dokProf->REKKOR_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_rekkor">
                                                                 <input type="hidden" name="col" value="REKKOR_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
-                                                <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->SPERNYATAAN_DP != null || $dokProf->SPERNYATAAN_DP != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->SPERNYATAAN_DP != null || $dokProf->SPERNYATAAN_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->SPERNYATAAN_DP.'">'.$dokProf->SPERNYATAAN_DP.'</a><br>
+                                                                    <a href="' . $dokProf->SPERNYATAAN_DP . '">' . $dokProf->SPERNYATAAN_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_spkredit">
                                                                 <input type="hidden" name="col" value="SPERNYATAAN_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
-                                                <?php
-                                                        if($dokProf != null){
-                                                            if($dokProf->SPEMESANAN_DP != null || $dokProf->SPEMESANAN_DP != ''){
-                                                                echo '
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->SPEMESANAN_DP != null || $dokProf->SPEMESANAN_DP != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                         <br>
-                                                                        <a href="'.$dokProf->SPEMESANAN_DP.'">'.$dokProf->SPEMESANAN_DP.'</a><br>
+                                                                        <a href="' . $dokProf->SPEMESANAN_DP . '">' . $dokProf->SPEMESANAN_DP . '</a><br>
                                                                 ';
-                                                            }
-                                                        }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_sprumah">
                                                                 <input type="hidden" name="col" value="SPEMESANAN_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
                                             <?php
-                                                    if($dokProf != null){
-                                                        if($dokProf->BPEMBAYARAN_DP != null || $dokProf->BPEMBAYARAN_DP != ''){
-                                                            echo '
+                                            if ($dokProf != null) {
+                                                if ($dokProf->BPEMBAYARAN_DP != null || $dokProf->BPEMBAYARAN_DP != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->BPEMBAYARAN_DP.'">'.$dokProf->BPEMBAYARAN_DP.'</a><br>
+                                                                    <a href="' . $dokProf->BPEMBAYARAN_DP . '">' . $dokProf->BPEMBAYARAN_DP . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
                                                                 <input type="hidden" name="col" value="BPEMBAYARAN_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
                                         <?php
-                                            if($verifDokumen[0]->STATUS_VD != "2"){
-                                                echo '
-                                                    <form action="'.site_url('kirim_keldok').'" method="post">
+                                        if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            echo '
+                                                    <form action="' . site_url('kirim_keldok') . '" method="post">
                                                         <div style="float: right;">
-                                                            <input type="hidden" name="idVD" value="'.$verifDokumen[0]->ID_VD.'">
+                                                            <input type="hidden" name="idVD" value="' . $verifDokumen[0]->ID_VD . '">
                                                             <button type="submit" class="btn btn-success">Kirim</button>
                                                         </div>
                                                     </form>        
                                                 ';
-                                            }
+                                        }
                                         ?>
-                                        
+
                                     </div>
                                     <div class="text mt-3" id="box_kar" hidden="true">
                                         <h3>Karyawan</h3>
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
-                                                <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->KTP_DK != null || $dokKary->KTP_DK != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->KTP_DK != null || $dokKary->KTP_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KTP_DK.'">'.$dokKary->KTP_DK.'</a><br>
+                                                                <a href="' . $dokKary->KTP_DK . '">' . $dokKary->KTP_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktp">
                                                                 <input type="hidden" name="col" value="KTP_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP PASANGAN</label>
-                                                <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->KTPPAS_DK != null || $dokKary->KTPPAS_DK != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->KTPPAS_DK != null || $dokKary->KTPPAS_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KTPPAS_DK.'">'.$dokKary->KTPPAS_DK.'</a><br>
+                                                                <a href="' . $dokKary->KTPPAS_DK . '">' . $dokKary->KTPPAS_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktppas">
                                                                 <input type="hidden" name="col" value="KTPPAS_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA NIKAH</label>
-                                                <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->AKTANIK_DK != null || $dokKary->AKTANIK_DK != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->AKTANIK_DK != null || $dokKary->AKTANIK_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->AKTANIK_DK.'">'.$dokKary->AKTANIK_DK.'</a><br>
+                                                                <a href="' . $dokKary->AKTANIK_DK . '">' . $dokKary->AKTANIK_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktanik">
                                                                 <input type="hidden" name="col" value="AKTANIK_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
                                             <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->AKTAPIS_DK != null || $dokKary->AKTAPIS_DK != ''){
-                                                        echo '
+                                            if ($dokKary != null) {
+                                                if ($dokKary->AKTAPIS_DK != null || $dokKary->AKTAPIS_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->AKTAPIS_DK.'">'.$dokKary->AKTAPIS_DK.'</a><br>
+                                                                <a href="' . $dokKary->AKTAPIS_DK . '">' . $dokKary->AKTAPIS_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
+                                                }
+                                            }
+                                            ?>
                                             <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapis">
                                                                 <input type="hidden" name="col" value="AKTAPIS_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KARTU KELUARGA</label>
                                             <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->KK_DK != null || $dokKary->KK_DK != ''){
-                                                            echo '
+                                            if ($dokKary != null) {
+                                                if ($dokKary->KK_DK != null || $dokKary->KK_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KK_DK.'">'.$dokKary->KK_DK.'</a><br>
+                                                                <a href="' . $dokKary->KK_DK . '">' . $dokKary->KK_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_kk">
                                                                 <input type="hidden" name="col" value="KK_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">NPWP</label>
-                                                <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->NPWP_DK != null || $dokKary->NPWP_DK != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->NPWP_DK != null || $dokKary->NPWP_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->NPWP_DK.'">'.$dokKary->NPWP_DK.'</a><br>
+                                                                    <a href="' . $dokKary->NPWP_DK . '">' . $dokKary->NPWP_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
+                                                }
+                                            }
+                                            ?>
                                             <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwp">
                                                                 <input type="hidden" name="col" value="NPWP_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SLIP GAJI</label>
-                                                <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->SLIPGAJI_DK != null || $dokKary->SLIPGAJI_DK != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->SLIPGAJI_DK != null || $dokKary->SLIPGAJI_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SLIPGAJI_DK.'">'.$dokKary->SLIPGAJI_DK.'</a><br>
+                                                                    <a href="' . $dokKary->SLIPGAJI_DK . '">' . $dokKary->SLIPGAJI_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_slip">
                                                                 <input type="hidden" name="col" value="SLIPGAJI_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
-                                                <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->SPERNYATAAN_DK != null || $dokKary->SPERNYATAAN_DK != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->SPERNYATAAN_DK != null || $dokKary->SPERNYATAAN_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SPERNYATAAN_DK.'">'.$dokKary->SPERNYATAAN_DK.'</a><br>
+                                                                    <a href="' . $dokKary->SPERNYATAAN_DK . '">' . $dokKary->SPERNYATAAN_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_spkredit">
                                                                 <input type="hidden" name="col" value="SPERNYATAAN_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
                                             <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->SPERNYATAAN_DK != null || $dokKary->SPERNYATAAN_DK != ''){
-                                                            echo '
+                                            if ($dokKary != null) {
+                                                if ($dokKary->SPERNYATAAN_DK != null || $dokKary->SPERNYATAAN_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SPEMESANAN_DK.'">'.$dokKary->SPEMESANAN_DK.'</a><br>
+                                                                    <a href="' . $dokKary->SPEMESANAN_DK . '">' . $dokKary->SPEMESANAN_DK . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                             <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_sprumah">
                                                                 <input type="hidden" name="col" value="SPEMESANAN_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
                                             <?php
-                                                    if($dokKary != null){
-                                                        if($dokKary->BPEMBAYARAN_DK != null || $dokKary->BPEMBAYARAN_DK != ''){
-                                                            echo '
+                                            if ($dokKary != null) {
+                                                if ($dokKary->BPEMBAYARAN_DK != null || $dokKary->BPEMBAYARAN_DK != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->BPEMBAYARAN_DK.'">'.$dokKary->BPEMBAYARAN_DK.'</a><br>
+                                                                    <a href="' . $dokKary->BPEMBAYARAN_DK . '">' . $dokKary->BPEMBAYARAN_DK . '</a><br>
                                                             ';
-                                                        }  
-                                                    }
-                                                ?> 
+                                                }
+                                            }
+                                            ?>
                                             <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
                                                                 <input type="hidden" name="col" value="BPEMBAYARAN_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
                                         <?php
-                                            if($verifDokumen[0]->STATUS_VD != "2"){
-                                                echo '
-                                                    <form action="'.site_url('kirim_keldok').'" method="post">
+                                        if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            echo '
+                                                    <form action="' . site_url('kirim_keldok') . '" method="post">
                                                         <div style="float: right;">
-                                                            <input type="hidden" name="idVD" value="'.$verifDokumen[0]->ID_VD.'">
+                                                            <input type="hidden" name="idVD" value="' . $verifDokumen[0]->ID_VD . '">
                                                             <button type="submit" class="btn btn-success">Kirim</button>
                                                         </div>
                                                     </form>        
                                                 ';
-                                            }
+                                        }
                                         ?>
                                     </div>
                                     <div class="text mt-3" id="box_swas" hidden="true">
                                         <h3>Wiraswasta</h3>
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->KTP_DW != null || $dokWira->KTP_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->KTP_DW != null || $dokWira->KTP_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokWira->KTP_DW.'">'.$dokWira->KTP_DW.'</a><br>
+                                                                <a href="' . $dokWira->KTP_DW . '">' . $dokWira->KTP_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
+                                                }
+                                            }
+                                            ?>
 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktp">
                                                                 <input type="hidden" name="col" value="KTP_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>        
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP PASANGAN</label>
-                                                <?php
-                                                        if($dokWira != null){
-                                                            if($dokWira->KTPPAS_DW != null || $dokWira->KTPPAS_DW != ''){
-                                                                echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->KTPPAS_DW != null || $dokWira->KTPPAS_DW != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->KTPPAS_DW.'">'.$dokWira->KTPPAS_DW.'</a><br>
+                                                                    <a href="' . $dokWira->KTPPAS_DW . '">' . $dokWira->KTPPAS_DW . '</a><br>
                                                                 ';
-                                                            }
-                                                        }
-                                                    ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktppas">
                                                                 <input type="hidden" name="col" value="KTPPAS_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA NIKAH</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->AKTANIK_DW != null || $dokWira->AKTANIK_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->AKTANIK_DW != null || $dokWira->AKTANIK_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                    <a href="'.$dokWira->AKTANIK_DW.'">'.$dokWira->AKTANIK_DW.'</a><br>
+                                                                    <a href="' . $dokWira->AKTANIK_DW . '">' . $dokWira->AKTANIK_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktanik">
                                                                 <input type="hidden" name="col" value="AKTANIK_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KARTU KELUARGA</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->KK_DW != null || $dokWira->KK_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->KK_DW != null || $dokWira->KK_DW != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->KK_DW.'">'.$dokWira->KK_DW.'</a><br>
+                                                                    <a href="' . $dokWira->KK_DW . '">' . $dokWira->KK_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_kk">
                                                                 <input type="hidden" name="col" value="KK_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA PISAH HARTA</label>
-                                                <?php
-                                                        if($dokWira != null){
-                                                            if($dokWira->AKTAPIS_DW != null || $dokWira->AKTAPIS_DW != ''){
-                                                                echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->AKTAPIS_DW != null || $dokWira->AKTAPIS_DW != '') {
+                                                    echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->AKTAPIS_DW.'">'.$dokWira->AKTAPIS_DW.'</a><br>
+                                                                    <a href="' . $dokWira->AKTAPIS_DW . '">' . $dokWira->AKTAPIS_DW . '</a><br>
                                                                 ';
-                                                            }
-                                                        }
-                                                    ?>  
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapis">
                                                                 <input type="hidden" name="col" value="AKTAPIS_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">NPWP</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->NPWP_DW != null || $dokWira->NPWP_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->NPWP_DW != null || $dokWira->NPWP_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->NPWP_DW.'">'.$dokWira->NPWP_DW.'</a><br>
+                                                                    <a href="' . $dokWira->NPWP_DW . '">' . $dokWira->NPWP_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                 <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwp">
                                                                 <input type="hidden" name="col" value="NPWP_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">NPWP USAHA</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->NPWPUSH_DW != null || $dokWira->NPWPUSH_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->NPWPUSH_DW != null || $dokWira->NPWPUSH_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->NPWPUSH_DW.'">'.$dokWira->NPWPUSH_DW.'</a><br>
+                                                                    <a href="' . $dokWira->NPWPUSH_DW . '">' . $dokWira->NPWPUSH_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwpush">
                                                                 <input type="hidden" name="col" value="NPWPUSH_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>      
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SIUP</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->SIUP_DW != null || $dokWira->SIUP_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->SIUP_DW != null || $dokWira->SIUP_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SIUP_DW.'">'.$dokWira->SIUP_DW.'</a><br>
+                                                                    <a href="' . $dokWira->SIUP_DW . '">' . $dokWira->SIUP_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_siup">
                                                                 <input type="hidden" name="col" value="SIUP_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>      
+                                            }
+                                            ?>
                                         </form>
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">TDP</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->TDP_DW != null || $dokWira->TDP_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->TDP_DW != null || $dokWira->TDP_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->TDP_DW.'">'.$dokWira->TDP_DW.'</a><br>
+                                                                    <a href="' . $dokWira->TDP_DW . '">' . $dokWira->TDP_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_tdp">
                                                                 <input type="hidden" name="col" value="TDP_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>      
+                                            }
+                                            ?>
                                         </form>
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">AKTA PENDIRIAN</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->AKTAPEND_DW != null || $dokWira->AKTAPEND_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->AKTAPEND_DW != null || $dokWira->AKTAPEND_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->AKTAPEND_DW.'">'.$dokWira->AKTAPEND_DW.'</a><br>
+                                                                    <a href="' . $dokWira->AKTAPEND_DW . '">' . $dokWira->AKTAPEND_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapend">
                                                                 <input type="hidden" name="col" value="AKTAPEND_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>      
+                                            }
+                                            ?>
                                         </form>
-                                            <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">REKENING KORAN 3 BULAN TERAKHIR</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->REKKOR_DW != null || $dokWira->REKKOR_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->REKKOR_DW != null || $dokWira->REKKOR_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->REKKOR_DW.'">'.$dokWira->REKKOR_DW.'</a><br>
+                                                                    <a href="' . $dokWira->REKKOR_DW . '">' . $dokWira->REKKOR_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_rekkor">
                                                                 <input type="hidden" name="col" value="REKKOR_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>      
+                                            }
+                                            ?>
                                         </form>
-                                            <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SURAT PERNYATAAN KREDIT PEMILIKAN PROPERTI</label>
-                                                <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->SPERNYATAAN_DW != null || $dokWira->SPERNYATAAN_DW != ''){
-                                                            echo '
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->SPERNYATAAN_DW != null || $dokWira->SPERNYATAAN_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SPERNYATAAN_DW.'">'.$dokWira->SPERNYATAAN_DW.'</a><br>
+                                                                    <a href="' . $dokWira->SPERNYATAAN_DW . '">' . $dokWira->SPERNYATAAN_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                                <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_spkredit">
                                                                 <input type="hidden" name="col" value="SPERNYATAAN_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">SURAT PEMESANAN RUMAH DEVELOPER</label>
                                             <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->SPERNYATAAN_DW != null || $dokWira->SPERNYATAAN_DW != ''){
-                                                            echo '
+                                            if ($dokWira != null) {
+                                                if ($dokWira->SPERNYATAAN_DW != null || $dokWira->SPERNYATAAN_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SPEMESANAN_DW.'">'.$dokWira->SPEMESANAN_DW.'</a><br>
+                                                                    <a href="' . $dokWira->SPEMESANAN_DW . '">' . $dokWira->SPEMESANAN_DW . '</a><br>
                                                             ';
-                                                        }
-                                                    }
-                                                ?> 
-                                             <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_sprumah">
                                                                 <input type="hidden" name="col" value="SPEMESANAN_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
-                                        <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">BUKTI PEMBAYARAN APPRAISAL</label>
                                             <?php
-                                                    if($dokWira != null){
-                                                        if($dokWira->BPEMBAYARAN_DW != null || $dokWira->BPEMBAYARAN_DW != ''){
-                                                            echo '
+                                            if ($dokWira != null) {
+                                                if ($dokWira->BPEMBAYARAN_DW != null || $dokWira->BPEMBAYARAN_DW != '') {
+                                                    echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->BPEMBAYARAN_DW.'">'.$dokWira->BPEMBAYARAN_DW.'</a><br>
+                                                                    <a href="' . $dokWira->BPEMBAYARAN_DW . '">' . $dokWira->BPEMBAYARAN_DW . '</a><br>
                                                             ';
-                                                        }  
-                                                    }
-                                                ?> 
+                                                }
+                                            }
+                                            ?>
                                             <?php
-                                                    if($verifDokumen[0]->STATUS_VD != "2"){
-                                                        echo '
+                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                                echo '
                                                             <div class="input-group mb-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
                                                                 <input type="hidden" name="col" value="BPEMBAYARAN_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
                                                                 <button class="btn btn-outline-primary" type="submit">Upload</button>
                                                             </div>
                                                         ';
-                                                    }
-                                                ?>
+                                            }
+                                            ?>
                                         </form>
 
                                         <?php
-                                            if($verifDokumen[0]->STATUS_VD != "2"){
-                                                echo '
-                                                    <form action="'.site_url('kirim_keldok').'" method="post">
+                                        if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            echo '
+                                                    <form action="' . site_url('kirim_keldok') . '" method="post">
                                                         <div style="float: right;">
-                                                            <input type="hidden" name="idVD" value="'.$verifDokumen[0]->ID_VD.'">
+                                                            <input type="hidden" name="idVD" value="' . $verifDokumen[0]->ID_VD . '">
                                                             <button type="submit" class="btn btn-success">Kirim</button>
                                                         </div>
                                                     </form>        
                                                 ';
-                                            }
+                                        }
                                         ?>
-                                    
+
                                     </div>
                                 </div>
                             </div>
@@ -1403,29 +1516,29 @@
             }
         })
 
-        $(document).ready(function(){
+        $(document).ready(function() {
             <?php
-                echo '
+            echo '
                     $("#slct_pilKerja").attr("disabled", true);
                     $("#btn_pilKerja").attr("disabled", true);
-                    $("#slct_pilKerja").val("'.$this->session->userdata('pekerjaan').'").change();
-                    $(".inptPekerjaan").val("'.$this->session->userdata('pekerjaan').'");
+                    $("#slct_pilKerja").val("' . $this->session->userdata('pekerjaan') . '").change();
+                    $(".inptPekerjaan").val("' . $this->session->userdata('pekerjaan') . '");
                 ';
-                
-                if($this->session->userdata('pekerjaan') == '1'){
-                    echo '
+
+            if ($this->session->userdata('pekerjaan') == '1') {
+                echo '
                         $("#box_prof").attr("hidden", false);
                         
                     ';
-                }else if($this->session->userdata('pekerjaan') == '2'){
-                    echo '
+            } else if ($this->session->userdata('pekerjaan') == '2') {
+                echo '
                         $("#box_kar").attr("hidden", false);
                     ';
-                }else{
-                    echo '
+            } else {
+                echo '
                         $("#box_swas").attr("hidden", false);
                     ';
-                }    
+            }
             ?>
         })
 
