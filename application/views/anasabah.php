@@ -10,32 +10,32 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Data Nasabah</title>
-<link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg') ?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-   <!-- BEGIN: Vendor CSS-->
-   <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/plugins/extensions/ext-component-toastr.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -53,11 +53,11 @@
     <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
         <div class="navbar-container d-flex content">
             <ul class="nav navbar-nav align-items-center ms-auto">
-                
-                
-                
+
+
+
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama')?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chats</a>
                         <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Logout</a>
@@ -72,7 +72,7 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100" href="app-file-manager.html">
                 <div class="d-flex">
-                    <div class="me-75"><img src="<?= base_url()?>/assets/images/icons/xls.png" alt="png" height="32"></div>
+                    <div class="me-75"><img src="<?= base_url() ?>/assets/images/icons/xls.png" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing Manager</small>
                     </div>
@@ -80,7 +80,7 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100" href="app-file-manager.html">
                 <div class="d-flex">
-                    <div class="me-75"><img src="<?= base_url()?>/assets/images/icons/jpg.png" alt="png" height="32"></div>
+                    <div class="me-75"><img src="<?= base_url() ?>/assets/images/icons/jpg.png" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd Developer</small>
                     </div>
@@ -88,7 +88,7 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100" href="app-file-manager.html">
                 <div class="d-flex">
-                    <div class="me-75"><img src="<?= base_url()?>/assets/images/icons/pdf.png" alt="png" height="32"></div>
+                    <div class="me-75"><img src="<?= base_url() ?>/assets/images/icons/pdf.png" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing Manager</small>
                     </div>
@@ -96,7 +96,7 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100" href="app-file-manager.html">
                 <div class="d-flex">
-                    <div class="me-75"><img src="<?= base_url()?>/assets/images/icons/doc.png" alt="png" height="32"></div>
+                    <div class="me-75"><img src="<?= base_url() ?>/assets/images/icons/doc.png" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
                     </div>
@@ -107,15 +107,15 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view-account.html">
                 <div class="d-flex align-items-center">
-                    <div class="avatar me-75"><img src="<?= base_url()?>/assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
+                    <div class="avatar me-75"><img src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0"><?= $this->session->userdata('nama')?></p><small class="text-muted">UI designer</small>
+                        <p class="search-data-title mb-0"><?= $this->session->userdata('nama') ?></p><small class="text-muted">UI designer</small>
                     </div>
                 </div>
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view-account.html">
                 <div class="d-flex align-items-center">
-                    <div class="avatar me-75"><img src="<?= base_url()?>/assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
+                    <div class="avatar me-75"><img src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
                     </div>
@@ -123,7 +123,7 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view-account.html">
                 <div class="d-flex align-items-center">
-                    <div class="avatar me-75"><img src="<?= base_url()?>/assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
+                    <div class="avatar me-75"><img src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing Manager</small>
                     </div>
@@ -131,7 +131,7 @@
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view-account.html">
                 <div class="d-flex align-items-center">
-                    <div class="avatar me-75"><img src="<?= base_url()?>/assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
+                    <div class="avatar me-75"><img src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
                     <div class="search-data">
                         <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
                     </div>
@@ -151,7 +151,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item me-auto"><a class="navbar-brand" href="../../../html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
-                            <img width="75px" src="<?= base_url('assets/images/logo/logokpr.svg')?>" alt="">
+                            <img width="75px" src="<?= base_url('assets/images/logo/logokpr.svg') ?>" alt="">
                         </span>
                         <h2 class="brand-text">KPR</h2>
                     </a></li>
@@ -160,36 +160,36 @@
         </div>
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/beranda')?>"><i data-feather="home"></i><span class="menu-item text-truncate" data-i18n="Dashboard">Dashboard</span></a>
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/beranda') ?>"><i data-feather="home"></i><span class="menu-item text-truncate" data-i18n="Dashboard">Dashboard</span></a>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/nasabah')?>"><i data-feather="user"></i><span class="menu-item text-truncate" data-i18n="Nasabah">Nasabah</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/nasabah') ?>"><i data-feather="user"></i><span class="menu-item text-truncate" data-i18n="Nasabah">Nasabah</span></a>
                 </li>
                 <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="check-circle"></i><span class="menu-title text-truncate" data-i18n="VerifBerkas">Verifikasi Berkas</span></a>
-                <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/keldok')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/kemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/slik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
-                        </li>  
-                    </ul>
-                    <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file"></i><span class="menu-title text-truncate" data-i18n="Kriteria">Kriteria</span></a>
                     <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikeldok')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/keldok') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/kemba') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krislik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/slik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krijaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
-                    </li> 
-                    </ul>           
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/apenilaian')?>"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Penilaian">Penilaian</span></a>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/jaminan') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
+                        </li>
+                    </ul>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file"></i><span class="menu-title text-truncate" data-i18n="Kriteria">Kriteria</span></a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikeldok') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikemba') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krislik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krijaminan') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
+                        </li>
+                    </ul>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/apenilaian') ?>"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Penilaian">Penilaian</span></a>
                 </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/arekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/arekomendasi') ?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
                 </li>
                 </li>
             </ul>
@@ -205,9 +205,9 @@
             <div class="content-header row"></div>
             <div class="content-body">
                 <!-- Dashboard Ecommerce Starts -->
-                <section id="dashboard-ecommerce">
+                <section id="responsive-datatable">
                     <div class="row match-height">
-                        <section id="complex-header-datatable">
+                        <section id="responsive-datatable">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card">
@@ -215,7 +215,7 @@
                                             <h4 class="card-title">Data Nasabah</h4>
                                         </div>
                                         <div class="card-datatable" style="padding: 2rem;">
-                                            <table id="tbl" class="dt-complex-header table table-bordered table-responsive">
+                                            <table id="tbl" class="dt-responsive table table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th>Email</th>
@@ -225,21 +225,21 @@
                                                         <th>No Telepon</th>
                                                     </tr>
                                                 </thead>
-                                                    <tbody>
-                                                        <?php 
-                                                            foreach ($nasabah as $item){
-                                                                echo '
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($nasabah as $item) {
+                                                        echo '
                                                                     <tr>
-                                                                        <td>'.$item->EMAIL_NAS.'</td>
-                                                                        <td>'.$item->NAMA_NAS.'</td>
-                                                                        <td>'.$item->TGLLHR_NAS.'</td>
-                                                                        <td>'.$item->PEKERJAAN_NAS.'</td>
-                                                                        <th>'.$item->NOTLP_NAS.'</th>
+                                                                        <td>' . $item->EMAIL_NAS . '</td>
+                                                                        <td>' . $item->NAMA_NAS . '</td>
+                                                                        <td>' . $item->TGLLHR_NAS . '</td>
+                                                                        <td>' . $item->PEKERJAAN_NAS . '</td>
+                                                                        <th>' . $item->NOTLP_NAS . '</th>
                                                                     </tr>                                                      
                                                                 ';
-                                                            } 
-                                                        ?>
-                                                    </tbody>
+                                                    }
+                                                    ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -257,37 +257,37 @@
     <div class="drag-target"></div>
 
     <!-- BEGIN: Vendor JS-->
-    <script src="<?= base_url()?>/assets/vendors/js/vendors.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/jszip.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
-    <script src="<?= base_url()?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <!-- <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script> -->
-    <script src="<?= base_url()?>/assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- <script src="<?= base_url() ?>/assets/vendors/js/charts/apexcharts.min.js"></script> -->
+    <script src="<?= base_url() ?>/assets/vendors/js/extensions/toastr.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="<?= base_url()?>/assets/js/core/app-menu.js"></script>
-    <script src="<?= base_url()?>/assets/js/core/app.js"></script>
+    <script src="<?= base_url() ?>/assets/js/core/app-menu.js"></script>
+    <script src="<?= base_url() ?>/assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <!-- <script src="<?= base_url()?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
+    <!-- <script src="<?= base_url() ?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
     <!-- END: Page JS-->
 
     <script>
@@ -299,7 +299,7 @@
                 });
             }
         })
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('#tbl').DataTable()
         })
     </script>
