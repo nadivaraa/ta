@@ -58,10 +58,9 @@
 
 
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Logout</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href=" "><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                 </li>
             </ul>
@@ -270,47 +269,21 @@
                                 </div>
                             </div>
                         </div>
-                        <section id="responsive-datatable">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-header border-bottom">
-                                            <h4 class="card-title">Data Nasabah</h4>
-                                        </div>
-                                        <div class="card-datatable" style="padding: 2rem;">
-                                            <table id="tbl" class="dt-responsive table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Email</th>
-                                                        <th>Nama</th>
-                                                        <th>Tanggal Lahir</th>
-                                                        <th>Alamat</th>
-                                                        <th>Pekerjaan</th>
-                                                        <th class="cell-fit">Status</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Email</td>
-                                                        <td>Nama</td>
-                                                        <td>Tanggal Lahir</td>
-                                                        <td>Alamat</td>
-                                                        <td>Pekerjaan</td>
-                                                        <td>Status</td>
-                                                        <td>
-                                                            <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                            <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                            <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                        </div>
+                <div class="row match-height">
+                       <!-- Statistics Card -->
+                        <div class="col-xl-12 col-md-6 col-12">
+                            <div class="card card-statistics">
+                                <div class="card-header">
+                                    <h4 class="card-title">Pesan Masuk</h4>
+                                </div>
+                                <div class="card-body statistics-body">
+                                    <div class="row">
+                                        
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </div>
                     </div>
             </div>
         </div>

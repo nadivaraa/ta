@@ -57,10 +57,9 @@
 
 
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="me-50" data-feather="message-square"></i> Chats</a>
-                        <div class="dropdown-divider"></div><a class="dropdown-item" href="page-account-settings-account.html"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item" href="auth-login-cover.html"><i class="me-50" data-feather="power"></i> Logout</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href=""><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                 </li>
             </ul>
@@ -211,7 +210,7 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Data Kriteria Jaminan</h4>
-                                    <a href="<?= site_url('admin/atambahkrijaminan/') ?>" class="btn btn-sm btn-success"><i data-feather="plus"></i>Tambah</a>
+                                    <a href="<?= site_url('admin/atambahkrijaminan') ?>" class="btn btn-sm btn-success"><i data-feather="plus"></i>Tambah</a>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table id="tbl" class="dt-responsive table table-bordered">
@@ -223,14 +222,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Layak</td>
-                                                <td>4</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="trash"></i></a>
-                                                </td>
-                                            </tr>
+                                        <?php
+                                            foreach ($krijaminan as $item) {
+                                                echo '
+                                                            <tr>
+                                                                <td>' . $item->NAMA_KJ . '</td>
+                                                                <td>' . $item->BOBOT_KJ . '</td>
+                                                                <td>
+                                                                    <a href="' . site_url('admin/aeditkrijaminan/' . $item->ID_KJ) . '" class="btn btn-sm btn-primary"><i data-feather="edit"></i></a>
+                                                                    <button type="button" onclick="showMdlHapus(' . $item->ID_KJ . ')" class="btn btn-sm btn-danger"><i data-feather="trash"></i></buttoN>
+                                                                </td>
+                                                            </tr>                                                      
+                                                        ';
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -242,6 +247,27 @@
         </div>
     </div>
     <!-- END: Content-->
+    <!-- Modal -->
+    <div class="modal fade text-start" id="mdlHapus" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel1">Verif Kelengkapan Dokumen</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= site_url('admin/aproshapuskrijaminan') ?>" method="post">
+                        <p class="text-center">Apakah anda yakin untuk menghapus kriteria ini?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="mdlHapus_id" name="id_kj" value="">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
@@ -287,6 +313,11 @@
         $(document).ready(function() {
             $('#tbl').DataTable()
         })
+
+        function showMdlHapus(id) {
+            $('#mdlHapus_id').val(id)
+            $('#mdlHapus').modal('show')
+        }
     </script>
 </body>
 <!-- END: Body-->

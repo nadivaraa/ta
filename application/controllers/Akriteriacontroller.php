@@ -24,6 +24,7 @@ class Akriteriacontroller extends CI_Controller {
 		$this->load->model('Mkriteriakeldok');
 		$this->load->model('Mkriteriakemba');
 		$this->load->model('Mkriteriaslik');
+		$this->load->model('Mkriteriajaminan');
 	}
 
 	public function akrikeldok()
@@ -172,17 +173,57 @@ class Akriteriacontroller extends CI_Controller {
 		$data = array(
 			'ID_KPS' => $_POST['id_kps']
 		);
-		$this->Mkriteriakeldok->delete($data);
-		redirect('admin/krikeldok');
+		$this->Mkriteriaslik->delete($data);
+		redirect('admin/krislik');
 	}
 
 	public function akrijaminan()
 	{
-		$this->load->view('akrijaminan');
+		$data['krijaminan'] = $this->Mkriteriajaminan->getAll();
+		$this->load->view('akrijaminan',$data);
 	}
 
 	public function atambahkrijaminan()
 	{
 		$this->load->view('atambahkrijaminan');
+	}
+
+	public function aeditkrijaminan($id)
+	{
+		$data = array(
+			'krijaminan' => $this->Mkriteriajaminan->getById($id)
+		);
+
+		$this->load->view('aeditkrijaminan', $data);
+	}
+
+	public function aprostambahkrijaminan()
+	{
+		$data = array(
+			'NAMA_KJ' => $_POST['krijaminan_jenis'],
+			'BOBOT_KJ' => $_POST['krijaminan_bobot'],
+		);
+		$this->Mkriteriajaminan->insert($data);
+		redirect('admin/krijaminan');
+	}
+
+	public function aprosupdatekrijaminan()
+	{
+		$data = array(
+			'ID_KJ' => $_POST['id_kj'],
+			'NAMA_KJ' => $_POST['krijaminan_jenis'],
+			'BOBOT_KJ' => $_POST['krijaminan_bobot'],
+		);
+		$this->Mkriteriajaminan->update($data);
+		redirect('admin/krijaminan');
+	}
+
+	public function aproshapuskrijaminan()
+	{
+		$data = array(
+			'ID_KJ' => $_POST['id_kj']
+		);
+		$this->Mkriteriajaminan->delete($data);
+		redirect('admin/krijaminan');
 	}
 }

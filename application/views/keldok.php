@@ -305,7 +305,7 @@
                                             ';
                                     }
                                     ?>
-                                    <label class="form-label" for="basic-addon-name">Pilih Pekerjaan</label>
+                                    <label class="form-label" for="basic-addon-name">Pekerjaan</label>
                                     <select class="form-select" id="slct_pilKerja">
                                         <option value="1">Professional</option>
                                         <option value="2">Karyawan</option>
@@ -316,7 +316,7 @@
 
                                     </div>
                                     <div class="text mt-3" id="box_prof" hidden="true">
-                                        <h3>Professional</h3>
+                                        <h3>Dokumen Professional</h3>
                                         <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
                                             <?php
@@ -704,7 +704,7 @@
 
                                     </div>
                                     <div class="text mt-3" id="box_kar" hidden="true">
-                                        <h3>Karyawan</h3>
+                                        <h3>Dokumen Karyawan</h3>
                                         <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
                                             <?php
@@ -1029,7 +1029,7 @@
                                         ?>
                                     </div>
                                     <div class="text mt-3" id="box_swas" hidden="true">
-                                        <h3>Wiraswasta</h3>
+                                        <h3>Dokumen Wiraswasta</h3>
                                         <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
                                             <?php

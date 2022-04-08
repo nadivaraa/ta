@@ -136,7 +136,10 @@ $route['admin/aproshapuskrislik'] = 'akriteriacontroller/aproshapuskrislik';
 
 $route['admin/krijaminan'] = 'akriteriacontroller/akrijaminan';
 $route['admin/atambahkrijaminan'] = 'akriteriacontroller/atambahkrijaminan';
-$route['admin/aeditkrijaminan'] = 'akriteriacontroller/aeditkrijaminan';
+$route['admin/aprostambahkrijaminan'] = 'akriteriacontroller/aprostambahkrijaminan';
+$route['admin/aeditkrijaminan/(:any)'] = 'akriteriacontroller/aeditkrijaminan/$1';
+$route['admin/aprosupdatekrijaminan'] = 'akriteriacontroller/aprosupdatekrijaminan';
+$route['admin/aproshapuskrijaminan'] = 'akriteriacontroller/aproshapuskrijaminan';
 
 //APENILAIAN
 $route['admin/apenilaian'] = 'apenilaiancontroller/apenilaian';
