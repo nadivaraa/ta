@@ -1462,7 +1462,7 @@
                                         </form>
 
                                         <?php
-                                        if ($verifDokumen[0]->STATUS_VD != "2") {
+                                        if ($verifDokumen[0]->STATUS_VD == "0" || $verifDokumen[0]->STATUS_VD == '1' || $verifDokumen[0]->STATUS_VD == '4') {
                                             echo '
                                                     <form action="' . site_url('kirim_keldok') . '" method="post">
                                                         <div style="float: right;">
