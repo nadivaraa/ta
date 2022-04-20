@@ -22,6 +22,7 @@ class Averberkascontroller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Mverifdokumen');
 		$this->load->model('Mverifkemba');
+		$this->load->model('Mnasabah');
 	}
 	public function akeldok()
 	{
@@ -63,7 +64,8 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->view('akemba', $data);
 	}
 	public function averifkemba($idVKB){
-		$data['verifBayar'] = $this->Mverifkemba->get(['ID_VKB' => $idVKB]);
+		$data['verifKemba'] = $this->Mverifkemba->get(['ID_VKB' => $idVKB]);
+		$data['nasabah'] 	= $this->Mnasabah->getById($data['verifKemba'][0]->EMAIL_NAS);
 		$this->load->view('averifkemba', $data);
 	}
 
