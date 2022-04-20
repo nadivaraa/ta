@@ -13,6 +13,16 @@ class Mverifkemba extends CI_Model{
     public function getById($id){
         return $this->db->where('ID_VKB', $id)->get('verif_kemampuan_bayar')->row();
     }
+    public function getVDUser(){
+        return $this->db->query("
+            SElECT
+                vkb.*,
+                n.NAMA_NAS
+            FROM verif_kemampuan_bayar vkb, nasabah n
+            WHERE vkb.EMAIL_NAS = n.EMAIL_NAS
+            ORDER BY vkb.STATUS_VKB ASC
+        ")->result(); 
+    }
     public function insert($param){
         $this->db->insert('verif_kemampuan_bayar', $param);
     }
@@ -20,6 +30,6 @@ class Mverifkemba extends CI_Model{
         $this->db->where('ID_VKB', $param['ID_VKB'])->update('verif_kemampuan_bayar', $param);
     }
     public function delete($param){
-        $this->db->delete('verif_kemampuan_bayar', $param);
+        $this->db->delete('verif_kemba', $param);
     }
 }

@@ -222,16 +222,50 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>Nama</td>
-                                                <td>Status</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
-                                                </td>
-                                            </tr>
+                                        <?php
+                                            foreach ($kembas as $item) {
+                                                $status = "";
+                                                if ($item->STATUS_VKB == '1') {
+                                                    $status = '
+                                                            <span class="badge badge-light-info">Draft</span>
+                                                        ';
+                                                } else if ($item->STATUS_VKB == '2') {
+                                                    $status = '
+                                                        <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                } else if ($item->STATUS_VKB == '3') {
+                                                    $status = '
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                } else if ($item->STATUS_VKB == '4') {
+                                                    $status = '
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
+                                                } else if ($item->STATUS_VKB == '0') {
+                                                    $status = '
+                                                            <span class="badge badge-light-dark">Belum ada aksi</span>
+                                                        ';
+                                                }
+
+                                                $aksiDetail = "";
+                                                if ($item->STATUS_VKB == "2") {
+                                                    $aksiDetail = '
+                                                            <a class="btn btn-sm btn-info" href="' . site_url('admin/averifkemba/' . $item->ID_VKB) . '"><i data-feather="info"></i></a>
+                                                        ';
+                                                }
+
+                                                echo '
+                                                        <tr>
+                                                            <td>' . $item->EMAIL_NAS . '</td>
+                                                            <td>' . $item->NAMA_NAS . '</td>
+                                                            <td class="cell-fit">' . $status . '</td>
+                                                            <td>
+                                                                ' . $aksiDetail . '    
+                                                            </td>
+                                                        </tr>        
+                                                    ';
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
