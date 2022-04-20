@@ -59,7 +59,32 @@ class Averberkascontroller extends CI_Controller {
 
 	public function akemba()
 	{
-		$this->load->view('akemba');
+		$data['kembas'] = $this->Mverifkemba->getVDUser();
+		$this->load->view('akemba', $data);
+	}
+	public function averifkemba($idVKB){
+		$data['verifBayar'] = $this->Mverifkemba->get(['ID_VKB' => $idVKB]);
+		$this->load->view('averifkemba', $data);
+	}
+
+	public function proses_verifkemba(){
+		$dataUpdate = array(
+			'ID_VKB' => $_POST['idVKB'],
+			'STATUS_VKB' => $_POST['status'],
+			'KOMENTAR_VKB' => $_POST['komentar']
+		);
+		$this->Mverifkemba->update($dataUpdate);
+
+		$emailNas = $this->Mverifkemba->getById($_POST['idVKB'])->EMAIL_NAS;
+		$idVKB = $this->Mverifkemba->get(['EMAIL_NAS' => $emailNas])[0]->ID_VKB;
+		$dataUpdateVerifKemba = array(
+			'ID_VKB' => $idVKB,
+			'HARRUM_VKB' => $_POST['harrum'],
+			'DP_VKB' => ((int)$_POST['harrum'] * 10) / 100,
+			'HARRUMBANK_VKB' => ((int)$_POST['harrum'] * 90) / 100
+		);
+		$this->Mverifkemba->update($dataUpdateVerifKemba);
+		redirect('admin/kemba');
 	}
 
 	public function aslik()

@@ -104,6 +104,8 @@ $route['admin/averifkeldok/(:any)'] = 'averberkascontroller/averifkeldok/$1';
 $route['admin/proses_verifkeldok']  = 'averberkascontroller/proses_verifkeldok';
 
 $route['admin/kemba'] = 'averberkascontroller/akemba';
+$route['admin/averifkemba/(:any)'] = 'averberkascontroller/averifkemba/$1';
+$route['admin/proses_verifkemba']  = 'averberkascontroller/proses_verifkemba';
 
 $route['admin/slik'] = 'averberkascontroller/aslik';
 
