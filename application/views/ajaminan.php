@@ -228,49 +228,50 @@
                                             </tr>
                                             <tbody>
                                             <?php
-                                                    $status = "";
-                                                    if($item->STATUS_VJ == '1'){
-                                                        $status = '
-                                                            <span class="badge badge-light-info">Draft</span>
-                                                        ';
-                                                    }else if($item->STATUS_VJ == '2'){
-                                                        $status = '
-                                                        <span class="badge badge-light-warning">Proses</span>
-                                                        ';
-                                                    }else if($item->STATUS_VJ == '3'){
-                                                        $status = '
-                                                            <span class="badge badge-light-success">Terverifikasi</span>
-                                                        ';
-                                                    }else if($item->STATUS_VJ == '4'){
-                                                        $status = '
-                                                            <span class="badge badge-light-danger">Gagal</span>
-                                                        ';
-                                                    }else if($item->STATUS_VJ == '0'){
-                                                        $status = '
-                                                            <span class="badge badge-light-dark">Belum ada aksi</span>
-                                                        ';
-                                                    }
+                                                
+                                                    // $status = "";
+                                                    // if($item->STATUS_VJ == '1'){
+                                                    //     $status = '
+                                                    //         <span class="badge badge-light-info">Draft</span>
+                                                    //     ';
+                                                    // }else if($item->STATUS_VJ == '2'){
+                                                    //     $status = '
+                                                    //     <span class="badge badge-light-warning">Proses</span>
+                                                    //     ';
+                                                    // }else if($item->STATUS_VJ == '3'){
+                                                    //     $status = '
+                                                    //         <span class="badge badge-light-success">Terverifikasi</span>
+                                                    //     ';
+                                                    // }else if($item->STATUS_VJ == '4'){
+                                                    //     $status = '
+                                                    //         <span class="badge badge-light-danger">Gagal</span>
+                                                    //     ';
+                                                    // }else if($item->STATUS_VJ == '0'){
+                                                    //     $status = '
+                                                    //         <span class="badge badge-light-dark">Belum ada aksi</span>
+                                                    //     ';
+                                                    // }
 
-                                                    $aksiDetail = "";
-                                                    if($item->STATUS_VJ == "2"){
-                                                        $aksiDetail = '
-                                                            <a class="btn btn-sm btn-info" href="'.site_url('admin/averifjaminan/'.$item->ID_VJ).'"><i data-feather="info"></i></a>
-                                                        ';
-                                                    }
+                                                    // $aksiDetail = "";
+                                                    // if($item->STATUS_VJ == "2"){
+                                                    //     $aksiDetail = '
+                                                    //         <a class="btn btn-sm btn-info" href="'.site_url('admin/averifjaminan/'.$item->ID_VJ).'"><i data-feather="info"></i></a>
+                                                    //     ';
+                                                    // }
 
-                                                    echo '
-                                                        <tr>
-                                                            <td>'.$item->EMAIL_NAS.'</td>
-                                                            <td>'.$item->SERHHS_DJ.'</td>
-                                                            <td>'.$item->IMB_DJ.'</td>
-                                                            <td>'.$item->PBB_DJ.'</td>
-                                                            <td>'.$item->AJB_DJ.'</td>
-                                                            <td class="cell-fit">'.$status.'</td>
-                                                            <td>
-                                                                '.$aksiDetail.'    
-                                                            </td>
-                                                        </tr>        
-                                                    ';
+                                                    // echo '
+                                                    //     <tr>
+                                                    //         <td>'.$item->EMAIL_NAS.'</td>
+                                                    //         <td>'.$item->SERHHS_DJ.'</td>
+                                                    //         <td>'.$item->IMB_DJ.'</td>
+                                                    //         <td>'.$item->PBB_DJ.'</td>
+                                                    //         <td>'.$item->AJB_DJ.'</td>
+                                                    //         <td class="cell-fit">'.$status.'</td>
+                                                    //         <td>
+                                                    //             '.$aksiDetail.'    
+                                                    //         </td>
+                                                    //     </tr>        
+                                                    // ';
                                             ?>
                                             </tbody>
                                         </thead>

@@ -204,7 +204,27 @@
                                         <h4 class="card-title">Kemampuan Bayar</h4>
                                     </div>
                                     <div class="col-6 col-md-6 pe-3" style="text-align: right;">
-                                        <span class="badge badge-light-warning">Proses</span>
+                                        <?php
+                                            if ($verifKemba[0]->STATUS_VKB != '0') {
+                                                if ($verifKemba[0]->STATUS_VKB == '1') {
+                                                    echo '
+                                                            <span class="badge badge-light-info">Draft</span>
+                                                        ';
+                                                } else if ($verifKemba[0]->STATUS_VKB == '2') {
+                                                    echo '
+                                                        <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                } else if ($verifKemba[0]->STATUS_VKB == '3') {
+                                                    echo '
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                } else if ($verifKemba[0]->STATUS_VKB == '4') {
+                                                    echo '
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
+                                                }
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -218,7 +238,7 @@
                                             </div>
                                         </div>
                                     <?php } else { ?>
-                                        <form class="needs-validation" novalidate>
+                                        <form action="<?= site_url('proses_kemba')?>" method="POST" class="needs-validation">
                                             <div class="mb-1">
                                                 <label class="form-label" for="basicSelect">Pekerjaan</label>
                                                 <select class="form-select" id="basicSelect" disabled>
@@ -228,24 +248,58 @@
                                                 </select>
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="fp-default">Tanggal Lahir</label>
-                                                <input type="text" id="fp-default" class="form-control" placeholder="YYYY-MM-DD" value="<?= date_format(date_create($nasabah->TGLLHR_NAS), 'j F Y') ?>" disabled />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">Usia</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Usia" aria-label="Name" value="<?= $kemba[0]->USIA_VKB ?> Tahun" aria-describedby="basic-addon-name" disabled />
-                                            </div>
-                                            <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Gaji</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                <?php
+                                                    if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" value="'.$verifKemba[0]->GAJI_VKB.'" aria-label="Name" aria-describedby="basic-addon-name" value="'.$verifKemba[0]->GAJI_VKB.'" required />        
+                                                        ';
+                                                    }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" value="'.$verifKemba[0]->GAJI_VKB.'" aria-label="Name" aria-describedby="basic-addon-name" value="'.$verifKemba[0]->GAJI_VKB.'" disabled />        
+                                                        ';
+                                                    }else{
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />        
+                                                        ';
+                                                    }
+                                                ?>
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Biaya Kebutuhan Rumah Tangga</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                <?php
+                                                    if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="krt" value="'.$verifKemba[0]->KEBRUMTA_VKB.'" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                        ';
+                                                    }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="krt" value="'.$verifKemba[0]->KEBRUMTA_VKB.'" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
+                                                        ';
+                                                    }else{
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="krt" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                        ';
+                                                    }
+                                                ?>
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Biaya Cicilan Lainnya</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                <?php
+                                                    if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="'.$verifKemba[0]->CICILLAIN_VKB.'" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                        ';
+                                                    }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="'.$verifKemba[0]->CICILLAIN_VKB.'" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
+                                                        ';
+                                                    }else{
+                                                        echo '
+                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                        ';
+                                                    }
+                                                ?>
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Harga Rumah</label>
@@ -260,37 +314,35 @@
                                                 <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah yang Dibayar Bank" aria-label="Name" aria-describedby="basic-addon-name" value="<?= $kemba[0]->HARRUMBANK_VKB ?>" disabled />
                                             </div>
                                             <div class="mb-1">
-                                            <label class="form-label" for="basic-addon-name">Lama Angsuran</label>
+                                            <label class="form-label" for="basic-addon-name">Lama Angsuran (Tahun)</label>
                                                 <div class="input-group">
-                                                    <input type="number" class="touchspin-min-max" value="1" />
+                                                    <?php
+                                                        if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
+                                                            echo '
+                                                                <input type="number" name="angsuran" class="touchspin-min-max" value="'.$verifKemba[0]->DURCIL_VKB.'" />
+                                                            ';
+                                                        }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
+                                                            echo '
+                                                                <span>'.$verifKemba[0]->DURCIL_VKB.' Tahun</span>
+                                                            ';
+                                                        }else{
+                                                            echo '
+                                                                <input type="number" name="angsuran" class="touchspin-min-max" value="1" />
+                                                            ';
+                                                        }
+                                                    ?>
                                                 </div>
-                                            </div>
-                                            <!-- <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">Lama Angsuran</label>
-                                                <div class="input-group bootstrap-touchspin">
-                                                    <span class="input-group-btn bootstrap-touchspin-injected">
-                                                        <button class="btn btn-primary bootstrap-touchspin-down" type="button">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                                            </svg>
-                                                        </button>
-                                                    </span>
-                                                    <input type="number" class="touchspin form-control" min="1" max="20" value="1">
-                                                    <span class="input-group-btn bootstrap-touchspin-injected">
-                                                        <button class="btn btn-primary bootstrap-touchspin-up" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                                            </svg></button>
-                                                    </span>
-                                                </div>
-                                            </div> -->
-                                            <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">Angsuran Perbulan</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Angsuran Perbulan" aria-label="Lama Angsuran" aria-describedby="basic-addon-name" required />
                                             </div>
                                             <div style="float: right;">
-                                                <button type="button" class="btn btn-info">Simpan</button>
-                                                <button type="button" class="btn btn-success">Kirim</button>
+                                                <input type="hidden" name="idVKB" value="<?= $verifKemba[0]->ID_VKB?>">
+                                                <?php
+                                                    if($verifKemba[0]->STATUS_VKB != '2' && $verifKemba[0]->STATUS_VKB != '3'){
+                                                        echo '
+                                                            <input type="submit" name="status" class="btn btn-info" value="Simpan">
+                                                            <input type="submit" name="status" class="btn btn-success" value="Kirim">        
+                                                        ';
+                                                    }
+                                                ?>
                                             </div>
                                         </form>
                                     <?php } ?>
@@ -342,6 +394,10 @@
                 });
             }
         })
+        function prosesKemba(status){
+            $('#status').val(status)
+            $('#formKemba').submit()
+        }
     </script>
 </body>
 <!-- END: Body-->
