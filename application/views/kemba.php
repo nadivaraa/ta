@@ -260,7 +260,7 @@
                                                         ';
                                                     }else{
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />        
+                                                            <input type="text" id="basic-addon-name" name="gaji" onkeypress="return isNumberKey(event)" onkeyup="return addCommaNumeric(event)" class="form-control" placeholder="Gaji" aria-label="Name" aria-describedby="basic-addon-name" required />        
                                                         ';
                                                     }
                                                 ?>
@@ -278,7 +278,7 @@
                                                         ';
                                                     }else{
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="krt" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                            <input type="text" id="basic-addon-name" name="krt" class="form-control" onkeypress="return isNumberKey(event)" onkeyup="return addCommaNumeric(event)" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
                                                         ';
                                                     }
                                                 ?>
@@ -296,7 +296,7 @@
                                                         ';
                                                     }else{
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" onkeypress="return isNumberKey(event)" onkeyup="return addCommaNumeric(event)" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
                                                         ';
                                                     }
                                                 ?>
@@ -397,6 +397,17 @@
         function prosesKemba(status){
             $('#status').val(status)
             $('#formKemba').submit()
+        }
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function addCommaNumeric(evt) {
+            $(evt.target).val(function(index, value) {
+                return value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            });
         }
     </script>
 </body>

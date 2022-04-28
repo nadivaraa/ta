@@ -118,9 +118,9 @@ class Berkascontroller extends CI_Controller {
 	public function proses_kemba()
 	{
 		$data['ID_VKB']			= $_POST['idVKB'];
-		$data['GAJI_VKB']		= $_POST['gaji'];
-		$data['KEBRUMTA_VKB']	= $_POST['krt'];
-		$data['CICILLAIN_VKB']	= $_POST['cicilan'];
+		$data['GAJI_VKB']		= str_replace(',', '', $_POST['gaji']);
+		$data['KEBRUMTA_VKB']	= str_replace(',', '', $_POST['krt']);
+		$data['CICILLAIN_VKB']	= str_replace(',', '', $_POST['cicilan']);
 		$data['DURCIL_VKB']		= $_POST['angsuran'];
 		$data['STATUS_VKB']		= ($_POST['status'] == 'Simpan' ? 1 : 2);
 		$this->Mverifkemba->update($data);

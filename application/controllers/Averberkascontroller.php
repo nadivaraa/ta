@@ -84,7 +84,7 @@ class Averberkascontroller extends CI_Controller {
 
 		if(($durcil + $usia) > $maxUsia){
 			$data['statusVerif'] = false;
-			array_push($data['statusVerifMsg'], '<li>Maximal usia lebih bos</li>');
+			array_push($data['statusVerifMsg'], '<li>Usia nasabah melebihi batas yang telah ditentukan</li>');
 		}
 
 		// CEK GAJI
@@ -98,13 +98,13 @@ class Averberkascontroller extends CI_Controller {
 
 		if($gaji < $angsuran){
 			$data['statusVerif'] = false;
-			array_push($data['statusVerifMsg'], '<li>Gajimu kurang blok!</li>');
+			array_push($data['statusVerifMsg'], '<li>Gaji belum mampu untuk membayar angsuran perbulan!</li>');
 		}
 
 		// CEK LAMA ANGSURAN
 		if($data['verifKemba'][0]->DURCIL_VKB > 20){
 			$data['statusVerif'] = false;
-			array_push($data['statusVerifMsg'], '<li>Lama angsuran e kakean blok!</li>');
+			array_push($data['statusVerifMsg'], '<li>Durasi angsuran melebihi batas yang telah ditentukan</li>');
 		}
 
 		$this->load->view('averifkemba', $data);

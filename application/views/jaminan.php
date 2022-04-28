@@ -309,7 +309,7 @@
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
                                         <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
+                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
                                             <input type="hidden" name="dir" value="jam_sertifikat">
                                             <input type="hidden" name="col" value="SERHHS_DJ">
                                             <div class="input-group-append">
@@ -321,7 +321,7 @@
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">IMB</label>
                                         <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
+                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
                                             <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                             <input type="hidden" name="dir" value="jam_imb">
                                             <input type="hidden" name="col" value="IMB_DJ">
@@ -334,7 +334,7 @@
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">PBB TERAKHIR</label>
                                         <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
+                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
                                             <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                             <input type="hidden" name="dir" value="jam_pbb">
                                             <input type="hidden" name="col" value="PBB_DJ">
@@ -347,7 +347,7 @@
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
                                         <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
+                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
                                             <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                             <input type="hidden" name="dir" value="jam_akta">
                                             <input type="hidden" name="col" value="AJB_DJ">
