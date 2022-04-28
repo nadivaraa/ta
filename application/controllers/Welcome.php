@@ -20,6 +20,12 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		if ($this->session->is_login && $this->session->role == '1'){
+			redirect('admin/beranda');
+		}
+		if ($this->session->is_login && $this->session->role == '2'){
+			redirect('beranda');
+		}
 		$this->load->view('welcome_message');
 	}
 }

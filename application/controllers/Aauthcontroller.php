@@ -26,6 +26,9 @@ class Aauthcontroller extends CI_Controller {
 
     public function alogin()
 	{
+		if ($this->session->is_login){
+			redirect('admin/beranda');
+		}
 		$this->load->view('alogin');
 	}
 

@@ -48,11 +48,12 @@ class Averberkascontroller extends CI_Controller {
 
 		$emailNas = $this->Mverifdokumen->getById($_POST['idVD'])->EMAIL_NAS;
 		$idVKB = $this->Mverifkemba->get(['EMAIL_NAS' => $emailNas])[0]->ID_VKB;
+		$harrum = str_replace(',','', $_POST['harrum']);
 		$dataUpdateVerifKemba = array(
 			'ID_VKB' => $idVKB,
-			'HARRUM_VKB' => $_POST['harrum'],
-			'DP_VKB' => ((int)$_POST['harrum'] * 10) / 100,
-			'HARRUMBANK_VKB' => ((int)$_POST['harrum'] * 90) / 100
+			'HARRUM_VKB' => $harrum,
+			'DP_VKB' => ((int)$harrum * 10) / 100,
+			'HARRUMBANK_VKB' => ((int)$harrum * 90) / 100
 		);
 		$this->Mverifkemba->update($dataUpdateVerifKemba);
 		redirect('admin/keldok');
@@ -66,6 +67,46 @@ class Averberkascontroller extends CI_Controller {
 	public function averifkemba($idVKB){
 		$data['verifKemba'] = $this->Mverifkemba->get(['ID_VKB' => $idVKB]);
 		$data['nasabah'] 	= $this->Mnasabah->getById($data['verifKemba'][0]->EMAIL_NAS);
+
+		$data['statusVerif'] 	= true;
+		$data['statusVerifMsg'] = array();
+
+		// CEK USIA
+		$durcil = (int)$data['verifKemba'][0]->DURCIL_VKB;
+		$usia = (int)$data['verifKemba'][0]->USIA_VKB;
+		$pekerjaan = $data['nasabah']->PEKERJAAN_NAS;
+		
+		if($pekerjaan == '1'){
+			$maxUsia = 55;
+		}else{
+			$maxUsia = 65;
+		}
+
+		if(($durcil + $usia) > $maxUsia){
+			$data['statusVerif'] = false;
+			array_push($data['statusVerifMsg'], '<li>Maximal usia lebih bos</li>');
+		}
+
+		// CEK GAJI
+		$gaji = (int)$data['verifKemba'][0]->GAJI_VKB;
+		$gaji -= (int)$data['verifKemba'][0]->KEBRUMTA_VKB;
+		$gaji -= (int)$data['verifKemba'][0]->CICILLAIN_VKB;
+
+		$hargaRumbank   = $data['verifKemba'][0]->HARRUMBANK_VKB;
+		$durCil         = $data['verifKemba'][0]->DURCIL_VKB;
+		$angsuran       = $hargaRumbank / ($durCil * 12);
+
+		if($gaji < $angsuran){
+			$data['statusVerif'] = false;
+			array_push($data['statusVerifMsg'], '<li>Gajimu kurang blok!</li>');
+		}
+
+		// CEK LAMA ANGSURAN
+		if($data['verifKemba'][0]->DURCIL_VKB > 20){
+			$data['statusVerif'] = false;
+			array_push($data['statusVerifMsg'], '<li>Lama angsuran e kakean blok!</li>');
+		}
+
 		$this->load->view('averifkemba', $data);
 	}
 
@@ -73,19 +114,10 @@ class Averberkascontroller extends CI_Controller {
 		$dataUpdate = array(
 			'ID_VKB' => $_POST['idVKB'],
 			'STATUS_VKB' => $_POST['status'],
+			'ANGBUL_VKB' => $_POST['angsuran'],
 			'KOMENTAR_VKB' => $_POST['komentar']
 		);
 		$this->Mverifkemba->update($dataUpdate);
-
-		$emailNas = $this->Mverifkemba->getById($_POST['idVKB'])->EMAIL_NAS;
-		$idVKB = $this->Mverifkemba->get(['EMAIL_NAS' => $emailNas])[0]->ID_VKB;
-		$dataUpdateVerifKemba = array(
-			'ID_VKB' => $idVKB,
-			'HARRUM_VKB' => $_POST['harrum'],
-			'DP_VKB' => ((int)$_POST['harrum'] * 10) / 100,
-			'HARRUMBANK_VKB' => ((int)$_POST['harrum'] * 90) / 100
-		);
-		$this->Mverifkemba->update($dataUpdateVerifKemba);
 		redirect('admin/kemba');
 	}
 

@@ -290,7 +290,7 @@
                                             ';
                                         }
                                     ?>
-                                    <label class="form-label" for="basic-addon-name">Pilih Pekerjaan</label>
+                                    <label class="form-label" for="basic-addon-name">Pekerjaan</label>
                                     <select class="form-select" id="slct_pilKerja">
                                         <option value="1">Professional</option>
                                         <option value="2">Karyawan</option>
@@ -302,7 +302,7 @@
 
                                     </div>
                                     <div class="text mt-3" id="box_prof" hidden="true">
-                                        <h3>Professional</h3>
+                                        <!-- <h3>Dokumen Professional</h3> -->
                                         <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
                                                 <?php
@@ -311,7 +311,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokProf->KTP_DP.'" target="_blank">'.$dokProf->KTP_DP.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokProf->KTP_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -320,7 +321,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktp">
@@ -340,7 +341,8 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->KTPPAS_DP.'" target="_blank" >'.$dokProf->KTPPAS_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->KTPPAS_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                                 ';
                                                             }
                                                         }
@@ -348,7 +350,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktppas">
@@ -368,7 +370,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                    <a href="'.$dokProf->AKTANIK_DP.'" target="_blank" >'.$dokProf->AKTANIK_DP.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokProf->AKTANIK_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -376,7 +379,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktanik">
@@ -396,7 +399,8 @@
                                                             echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->KK_DP.'" target="_blank" >'.$dokProf->KK_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->KK_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -404,7 +408,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_kk">
@@ -424,7 +428,8 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->AKTAPIS_DP.'"target="_blank">'.$dokProf->AKTAPIS_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->AKTAPIS_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                                 ';
                                                             }
                                                         }
@@ -432,7 +437,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapis">
@@ -452,7 +457,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->NPWP_DP.'"target="_blank">'.$dokProf->NPWP_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->NPWP_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -460,7 +466,7 @@
                                                  <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwp">
@@ -480,7 +486,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->NPWPUSH_DP.'"target="_blank">'.$dokProf->NPWPUSH_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->NPWPUSH_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -488,7 +495,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwpush">
@@ -508,7 +515,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->IZINPRAK_DP.'"target="_blank">'.$dokProf->IZINPRAK_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->IZINPRAK_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -516,7 +524,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_izinprak">
@@ -536,7 +544,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->REKKOR_DP.'"target="_blank">'.$dokProf->REKKOR_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->REKKOR_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -544,7 +553,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_rekkor">
@@ -564,7 +573,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->SPERNYATAAN_DP.'"target="_blank">'.$dokProf->SPERNYATAAN_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->SPERNYATAAN_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -572,7 +582,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_spkredit">
@@ -592,7 +602,8 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                         <br>
-                                                                        <a href="'.$dokProf->SPEMESANAN_DP.'"target="_blank">'.$dokProf->SPEMESANAN_DP.'</a><br>
+                                                                        <a class="badge bg-primary" href="' . $dokProf->SPEMESANAN_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                        
                                                                 ';
                                                             }
                                                         }
@@ -600,7 +611,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_sprumah">
@@ -620,7 +631,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokProf->BPEMBAYARAN_DP.'"target="_blank">'.$dokProf->BPEMBAYARAN_DP.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->BPEMBAYARAN_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -628,7 +640,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
@@ -654,7 +666,7 @@
                                         
                                     </div>
                                     <div class="text mt-3" id="box_kar" hidden="true">
-                                        <h3>Karyawan</h3>
+                                        <!-- <h3>Dokumen Karyawan</h3> -->
                                         <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
                                                 <?php
@@ -663,7 +675,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KTP_DK.'"target="_blank">'.$dokKary->KTP_DK.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokKary->KTP_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -671,7 +684,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktp">
@@ -691,7 +704,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KTPPAS_DK.'"target="_blank">'.$dokKary->KTPPAS_DK.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokKary->KTPPAS_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -699,7 +713,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktppas">
@@ -719,7 +733,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->AKTANIK_DK.'"target="_blank">'.$dokKary->AKTANIK_DK.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokKary->AKTANIK_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -727,7 +742,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktanik">
@@ -747,7 +762,8 @@
                                                         echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->AKTAPIS_DK.'"target="_blank">'.$dokKary->AKTAPIS_DK.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokKary->AKTAPIS_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -755,7 +771,7 @@
                                             <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapis">
@@ -775,7 +791,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokKary->KK_DK.'"target="_blank">'.$dokKary->KK_DK.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokKary->KK_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -783,7 +800,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_kk">
@@ -803,7 +820,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->NPWP_DK.'"target="_blank">'.$dokKary->NPWP_DK.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokKary->NPWP_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -811,7 +829,7 @@
                                             <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwp">
@@ -831,7 +849,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SLIPGAJI_DK.'"target="_blank">'.$dokKary->SLIPGAJI_DK.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokKary->SLIPGAJI_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -839,7 +858,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_slip">
@@ -859,7 +878,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SPERNYATAAN_DK.'"target="_blank">'.$dokKary->SPERNYATAAN_DK.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokKary->SPERNYATAAN_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -867,7 +887,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_spkredit">
@@ -887,7 +907,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->SPEMESANAN_DK.'"target="_blank">'.$dokKary->SPEMESANAN_DK.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokKary->SPEMESANAN_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -895,7 +916,7 @@
                                              <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_sprumah">
@@ -915,7 +936,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokKary->BPEMBAYARAN_DK.'"target="_blank">'.$dokKary->BPEMBAYARAN_DK.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokKary->BPEMBAYARAN_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }  
                                                     }
@@ -923,7 +945,7 @@
                                             <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
@@ -949,7 +971,7 @@
                                         ?>
                                     </div>
                                     <div class="text mt-3" id="box_swas" hidden="true">
-                                        <h3>Wiraswasta</h3>
+                                        <!-- <h3>Dokumen Wiraswasta</h3> -->
                                         <form action="<?= site_url('proses_keldok')?>" method="post" enctype="multipart/form-data">
                                             <label for="customFile1" class="form-label">KTP</label>
                                                 <?php
@@ -958,7 +980,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                <a href="'.$dokWira->KTP_DW.'" target="_blank">'.$dokWira->KTP_DW.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokWira->KTP_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                
                                                             ';
                                                         }
                                                     }
@@ -967,7 +990,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktp">
@@ -987,7 +1010,8 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->KTPPAS_DW.'"target="_blank">'.$dokWira->KTPPAS_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->KTPPAS_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                                 ';
                                                             }
                                                         }
@@ -995,7 +1019,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_ktppas">
@@ -1015,7 +1039,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                 <br>
-                                                                    <a href="'.$dokWira->AKTANIK_DW.'"target="_blank">'.$dokWira->AKTANIK_DW.'</a><br>
+                                                                <a class="badge bg-primary" href="' . $dokWira->AKTANIK_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1023,7 +1048,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktanik">
@@ -1043,7 +1068,8 @@
                                                             echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->KK_DW.'"target="_blank">'.$dokWira->KK_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->KK_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1051,7 +1077,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_kk">
@@ -1071,7 +1097,8 @@
                                                                 echo '
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->AKTAPIS_DW.'"target="_blank">'.$dokWira->AKTAPIS_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->AKTAPIS_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                                 ';
                                                             }
                                                         }
@@ -1079,7 +1106,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapis">
@@ -1099,7 +1126,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->NPWP_DW.'"target="_blank">'.$dokWira->NPWP_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->NPWP_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1107,7 +1135,7 @@
                                                  <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwp">
@@ -1127,7 +1155,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->NPWPUSH_DW.'"target="_blank">'.$dokWira->NPWPUSH_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->NPWPUSH_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1135,7 +1164,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_npwpush">
@@ -1155,7 +1184,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SIUP_DW.'"target="_blank">'.$dokWira->SIUP_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->SIUP_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1163,7 +1193,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_siup">
@@ -1182,7 +1212,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->TDP_DW.'"target="_blank">'.$dokWira->TDP_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->TDP_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1190,7 +1221,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_tdp">
@@ -1209,7 +1240,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->AKTAPEND_DW.'"target="_blank">'.$dokWira->AKTAPEND_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->AKTAPEND_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1217,7 +1249,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_aktapend">
@@ -1236,7 +1268,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->REKKOR_DW.'"target="_blank">'.$dokWira->REKKOR_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->REKKOR_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1244,7 +1277,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_rekkor">
@@ -1263,7 +1296,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SPERNYATAAN_DW.'"target="_blank">'.$dokWira->SPERNYATAAN_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->SPERNYATAAN_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1271,7 +1305,7 @@
                                                 <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_spkredit">
@@ -1291,7 +1325,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->SPEMESANAN_DW.'"target="_blank">'.$dokWira->SPEMESANAN_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->SPEMESANAN_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }
                                                     }
@@ -1299,7 +1334,7 @@
                                              <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_sprumah">
@@ -1319,7 +1354,8 @@
                                                             echo '
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                                                     <br>
-                                                                    <a href="'.$dokWira->BPEMBAYARAN_DW.'"target="_blank">'.$dokWira->BPEMBAYARAN_DW.'</a><br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->BPEMBAYARAN_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
                                                             ';
                                                         }  
                                                     }
@@ -1327,7 +1363,7 @@
                                             <?php
                                                     if($verifDokumen[0]->STATUS_VD != "2"){
                                                         echo '
-                                                            <div class="input-group mb-1">
+                                                            <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
@@ -1342,8 +1378,9 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="" style="float: right;">
-                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
-                                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
+                                            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -1368,7 +1405,7 @@
                     <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
                         <div class="form-group mb-1">
                             <label for="">Harga Rumah</label>
-                            <input name="harrum"  class="form-control" required>
+                            <input type="text" onkeypress="return isNumberKey(event)" onkeyup="return addCommaNumeric(event)" name="harrum"  class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="">Catatan</label>
@@ -1489,6 +1526,17 @@
                 $('#box_swas').attr('hidden', false);
             }
         })
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function addCommaNumeric(evt) {
+            $(evt.target).val(function(index, value) {
+                return value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            });
+        }
     </script>
 
     <script>

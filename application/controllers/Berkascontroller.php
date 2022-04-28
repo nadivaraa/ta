@@ -28,6 +28,14 @@ class Berkascontroller extends CI_Controller {
 		$this->load->model('Mverifjaminan');
 		$this->load->model('Mverifkemba');
 		$this->load->model('Mnasabah');
+		if (!$this->session->is_login){
+			redirect();
+		}
+
+		if ($this->session->role == '1'){
+			redirect('admin/beranda');
+		}
+		
 	}
 	
 	 public function keldok()
@@ -41,7 +49,7 @@ class Berkascontroller extends CI_Controller {
 	}
 
 	public function proses_keldok(){
-		$uploadFile = $this->upload_file('uploads/'.$_POST['dir'].'/', 'file');
+		$uploadFile = $this->upload_file($_POST['dir'], 'file');
 		if($uploadFile['status'] == false){
 			$this->session->set_flashdata('err_msg', $uploadFile['msg']);
 			redirect('keldok');
@@ -66,7 +74,7 @@ class Berkascontroller extends CI_Controller {
 		}
 		
 		$this->Mverifdokumen->update(['ID_VD' => $verifDokumen[0]->ID_VD, 'STATUS_VD' => '1', 'JENIS_VD' => $_POST['pekerjaan']]);
-		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
+		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!'.$this->upload->data('file_name'));
 		redirect('keldok');
 	}
 
@@ -131,7 +139,7 @@ class Berkascontroller extends CI_Controller {
 
 	public function proses_jaminan()
 	{
-		$uploadFile = $this->upload_file('uploads/'.$_POST['dir'].'/', 'file');
+		$uploadFile = $this->upload_file($_POST['dir'], 'file');
 		if($uploadFile['status'] == false){
 			$this->session->set_flashdata('err_msg', $uploadFile['msg']);
 			redirect('jaminan');
@@ -235,20 +243,23 @@ class Berkascontroller extends CI_Controller {
 		
 	public function upload_file($path,$file){
 		$conf = array(
-			'upload_path' => $path,
+			'upload_path' => 'uploads/'.$path.'/',
 			'allowed_types' => 'jpg|jpeg|png|pdf',
-			'max_size' => 1024	
+			'max_size' => 1024,
+			'overwrite' => true,
+			'file_name' => $path . '_'. $this->session->nama	
 		);
+		
 		$this->load->library('upload', $conf);
 		
 		if($this->upload->do_upload($file)){
 			$data = array(
-				'link' => site_url($path.$this->upload->data('file_name')),
+				'link' => site_url('uploads/'.$path.'/'.$this->upload->data('file_name')),
 				'status' => true
 			);
 		}else{
 			$data = array(
-				'msg' => $this->upload->display_errors(),
+				'msg' => $this->upload->display_errors().$conf['upoad_path'],
 				'status' => false
 			);
 		}

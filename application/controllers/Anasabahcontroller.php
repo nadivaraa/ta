@@ -21,6 +21,13 @@ class Anasabahcontroller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Mnasabah');
+		if (!$this->session->is_login){
+			redirect();
+		}
+
+		if ($this->session->role == '2'){
+			redirect('beranda');
+		}
 	}
 
 		public function anasabah()

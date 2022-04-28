@@ -20,6 +20,13 @@ class Profilecontroller extends CI_Controller {
 	 */
 	public function Profile()
 	{
+		if (!$this->session->is_login){
+			redirect();
+		}
+
+		if ($this->session->role == '1'){
+			redirect('admin/beranda');
+		}
 		$this->load->view('profile');
 	}
 }

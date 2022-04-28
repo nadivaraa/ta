@@ -25,6 +25,14 @@ class Berandacontroller extends CI_Controller {
 				redirect('/');
 			}
 		}
+
+		if (!$this->session->is_login){
+			redirect();
+		}
+
+		if ($this->session->role == '1'){
+			redirect('admin/beranda');
+		}
 	}
 	public function beranda()
 	{

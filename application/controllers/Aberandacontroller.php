@@ -28,8 +28,17 @@ class Aberandacontroller extends CI_Controller {
 				redirect('/');
 			}
 		}
+
+		if (!$this->session->is_login){
+			redirect();
+		}
+
+		if ($this->session->role == '2'){
+			redirect('beranda');
+		}
 	}
-		public function aberanda(){
+	
+	public function aberanda(){
 		
 		$this->load->view('aberanda');
 	}

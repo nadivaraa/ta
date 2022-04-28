@@ -36,7 +36,7 @@
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/style.css">
     <!-- END: Custom CSS-->
     <style>
         .custom-file-input {
@@ -269,12 +269,14 @@
                                 </div>
                                 <div class="card-body">
                                     <?php
-                                        if($this->session->flashdata('err_msg')){
+                                        if($statusVerif == false){
                                             echo '
                                                 <div class="alert alert-danger" role="alert">
                                                     <h4 class="alert-heading">Gagal</h4>
                                                     <div class="alert-body">
-                                                        '.$this->session->flashdata('err_msg').'
+                                                        <ol>
+                                                            '.implode('', $statusVerifMsg).'    
+                                                        </ol>
                                                     </div>
                                                 </div>
                                             ';
@@ -325,7 +327,7 @@
                                                 <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="<?= number_format($verifKemba[0]->HARRUM_VKB)?>" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
                                             </div>
                                             <div class="mb-1">
-                                                <label class="form-label" for="basic-addon-name">DP</label>
+                                                <label class="form-label" for="basic-addon-name">Down Payment</label>
                                                 <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="<?= number_format($verifKemba[0]->DP_VKB)?>" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
                                             </div>
                                             <div class="mb-1">
@@ -355,8 +357,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="" style="float: right;">
-                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
-                                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
+                                            <?php
+                                                if($statusVerif == true){
+                                                    echo '
+                                                        <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
+                                                    ';
+                                                }
+                                            ?>
                                             </div>
                                         </div>
                                     </div>
@@ -378,10 +386,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                    <form action="<?= site_url('admin/proses_verifkemba')?>" method="post">
                         <div class="form-group mb-1">
-                            <label for="">Harga Rumah</label>
-                            <input name="harrum"  class="form-control" required>
+                            <label for="">Angsuran Perbulan</label>
+                            <input  class="form-control" value="<?= number_format($angsuran)?>" required disabled>
+                            <input  type="hidden" name="angsuran" class="form-control" value="<?= $angsuran?>" required>
                         </div>
                         <div class="form-group">
                             <label for="">Catatan</label>
@@ -390,7 +399,7 @@
                 </div>
                 <div class="modal-footer">
                         <input type="hidden" name="status" value="3">
-                        <input type="hidden" name="idVD" value="<?= $verifDokumen[0]->ID_VD?>">
+                        <input type="hidden" name="idVKB" value="<?= $verifKemba[0]->ID_VKB?>">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Verif</button>
                     </form>
@@ -409,7 +418,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                    <form action="<?= site_url('admin/proses_verifkemba')?>" method="post">
                         <div class="form-group">
                             <label for="">Catatan</label>
                             <textarea name="komentar" class="form-control"></textarea>
@@ -417,7 +426,8 @@
                 </div>
                 <div class="modal-footer">
                         <input type="hidden" name="status" value="4">
-                        <input type="hidden" name="idVD" value="<?= $verifDokumen[0]->ID_VD?>">
+                        <input type="hidden" name="idVKB" value="<?= $verifKemba[0]->ID_VKB?>">
+                        <input  type="hidden" name="angsuran" class="form-control" value="<?= $angsuran?>" required>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-danger">Tolak</button>
                     </form>
@@ -455,51 +465,6 @@
                     width: 14,
                     height: 14
                 });
-            }
-        })
-
-        $(document).ready(function(){
-            <?php
-                if($verifDokumen[0]->STATUS_VD != '0'){
-                    echo '
-                        $("#slct_pilKerja").attr("disabled", true);
-                        $("#btn_pilKerja").attr("disabled", true);
-                        $("#slct_pilKerja").val("'.$verifDokumen[0]->JENIS_VD.'").change();
-                        $(".inptPekerjaan").val("'.$verifDokumen[0]->JENIS_VD.'");
-                    ';
-                    if($verifDokumen[0]->JENIS_VD == '1'){
-                        echo '
-                            $("#box_prof").attr("hidden", false);
-                            
-                        ';
-                    }else if($verifDokumen[0]->JENIS_VD == '2'){
-                        echo '
-                            $("#box_kar").attr("hidden", false);
-                        ';
-                    }else{
-                        echo '
-                            $("#box_swas").attr("hidden", false);
-                        ';
-                    }
-                }    
-            ?>
-        })
-
-        $('#btn_pilKerja').click(function() {
-            const val = $('#slct_pilKerja').val();
-
-            $('#box_prof').attr('hidden', true);
-            $('#box_kar').attr('hidden', true);
-            $('#box_swas').attr('hidden', true);
-            if (val == "1") {
-                $('#box_prof').attr('hidden', false);
-                $('.inptPekerjaan').val('1');
-            } else if (val == "2") {
-                $('#box_kar').attr('hidden', false);
-                $('.inptPekerjaan').val('2');
-            } else if (val == "3") {
-                $('.inptPekerjaan').val('3');
-                $('#box_swas').attr('hidden', false);
             }
         })
     </script>

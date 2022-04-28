@@ -252,11 +252,11 @@
                                                 <?php
                                                     if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" value="'.$verifKemba[0]->GAJI_VKB.'" aria-label="Name" aria-describedby="basic-addon-name" value="'.$verifKemba[0]->GAJI_VKB.'" required />        
+                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" value="'.number_format($verifKemba[0]->GAJI_VKB).'" required />        
                                                         ';
                                                     }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" value="'.$verifKemba[0]->GAJI_VKB.'" aria-label="Name" aria-describedby="basic-addon-name" value="'.$verifKemba[0]->GAJI_VKB.'" disabled />        
+                                                            <input type="text" id="basic-addon-name" name="gaji" class="form-control" placeholder="Gaji" value="'.number_format($verifKemba[0]->GAJI_VKB).'" disabled />        
                                                         ';
                                                     }else{
                                                         echo '
@@ -270,11 +270,11 @@
                                                 <?php
                                                     if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="krt" value="'.$verifKemba[0]->KEBRUMTA_VKB.'" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                            <input type="text" id="basic-addon-name" name="krt" value="'.number_format($verifKemba[0]->KEBRUMTA_VKB).'" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
                                                         ';
                                                     }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="krt" value="'.$verifKemba[0]->KEBRUMTA_VKB.'" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
+                                                            <input type="text" id="basic-addon-name" name="krt" value="'.number_format($verifKemba[0]->KEBRUMTA_VKB).'" class="form-control" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
                                                         ';
                                                     }else{
                                                         echo '
@@ -288,11 +288,11 @@
                                                 <?php
                                                     if($verifKemba[0]->STATUS_VKB == '1' || $verifKemba[0]->STATUS_VKB == '4'){
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="'.$verifKemba[0]->CICILLAIN_VKB.'" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
+                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="'.number_format($verifKemba[0]->CICILLAIN_VKB).'" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" required />
                                                         ';
                                                     }else if($verifKemba[0]->STATUS_VKB == '2' || $verifKemba[0]->STATUS_VKB == '3'){
                                                         echo '
-                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="'.$verifKemba[0]->CICILLAIN_VKB.'" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
+                                                            <input type="text" id="basic-addon-name" name="cicilan" class="form-control" value="'.number_format($verifKemba[0]->CICILLAIN_VKB).'" placeholder="Biaya Kebutuhan Rumah Tangga" aria-label="Name" aria-describedby="basic-addon-name" disabled />
                                                         ';
                                                     }else{
                                                         echo '
@@ -303,15 +303,15 @@
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Harga Rumah</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah" aria-label="Name" aria-describedby="basic-addon-name" value="<?= $kemba[0]->HARRUM_VKB ?>" disabled />
+                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah" aria-label="Name" aria-describedby="basic-addon-name" value="<?= number_format($kemba[0]->HARRUM_VKB) ?>" disabled />
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Down Payment</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Down Payment" aria-label="Name" aria-describedby="basic-addon-name" value="<?= $kemba[0]->DP_VKB ?>" disabled />
+                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Down Payment" aria-label="Name" aria-describedby="basic-addon-name" value="<?= number_format($kemba[0]->DP_VKB) ?>" disabled />
                                             </div>
                                             <div class="mb-1">
                                                 <label class="form-label" for="basic-addon-name">Harga Rumah yang Dibayar Bank</label>
-                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah yang Dibayar Bank" aria-label="Name" aria-describedby="basic-addon-name" value="<?= $kemba[0]->HARRUMBANK_VKB ?>" disabled />
+                                                <input type="text" id="basic-addon-name" class="form-control" placeholder="Harga Rumah yang Dibayar Bank" aria-label="Name" aria-describedby="basic-addon-name" value="<?= number_format($kemba[0]->HARRUMBANK_VKB) ?>" disabled />
                                             </div>
                                             <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Lama Angsuran (Tahun)</label>

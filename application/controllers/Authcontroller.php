@@ -62,6 +62,10 @@ class Authcontroller extends CI_Controller {
 
 	public function proses_login()
 	{
+
+		if ($this->session->role == '1'){
+			redirect('admin/beranda');
+		}
 		$data = array(
 			'EMAIL_NAS' => $_POST['login_email'],
 			'PASS_NAS' => md5($_POST['login_password'])

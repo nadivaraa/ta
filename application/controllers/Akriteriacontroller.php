@@ -25,6 +25,13 @@ class Akriteriacontroller extends CI_Controller {
 		$this->load->model('Mkriteriakemba');
 		$this->load->model('Mkriteriaslik');
 		$this->load->model('Mkriteriajaminan');
+		if (!$this->session->is_login){
+			redirect();
+		}
+
+		if ($this->session->role == '2'){
+			redirect('beranda');
+		}
 	}
 
 	public function akrikeldok()
