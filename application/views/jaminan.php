@@ -202,161 +202,194 @@
                                         <h4 class="card-title">Jaminan</h4>
                                     </div>
                                     <div class="col-6 col-md-6 pe-3" style="text-align: right;">
-                                        <span class="badge badge-light-danger">Gagal</span>
+                                        <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != '0') {
+                                                if ($verifJaminan[0]->STATUS_VJ == '1') {
+                                                    echo '
+                                                            <span class="badge badge-light-info">Draft</span>
+                                                        ';
+                                                } else if ($verifJaminan[0]->STATUS_VJ == '2') {
+                                                    echo '
+                                                        <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                } else if ($verifJaminan[0]->STATUS_VJ == '3') {
+                                                    echo '
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                } else if ($verifJaminan[0]->STATUS_VJ == '4') {
+                                                    echo '
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
+                                                }
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="alert alert-danger" role="alert">
-                                        <h4 class="alert-heading">Gagal</h4>
-                                        <div class="alert-body">
-                                            Gagal karena rumah anda masih tergolong kurang layak.
-                                        </div>
-                                    </div>
-
-                                    <!-- <form class="needs-validation" enctype="multipart/form-data" action="<?php echo base_url('proses_jaminan') ?>" method="POST" novalidate >
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
-                                                <input class="form-control" type="file" id="customFile1"  name="jaminan_sertifikat" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">IMB</label>
-                                                <input class="form-control" type="file" id="customFile1" name="jaminan_imb" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">PBB TERAKHIR</label>
-                                                <input class="form-control" type="file" id="customFile1" name="jaminan_pbb" required />
-                                            </div>
-                                            <div class="mb-1">
-                                                <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
-                                                <input class="form-control" type="file" id="customFile1" name="jaminan_akta" required />
-                                            </div> -->
-                                    <!-- <div class="mb-1">
-                                            <label class="form-label" for="registernama">Harga Rumah</label>
-                                            <input class="form-control" id="register-nama" type="telp" name="jaminan_harga" placeholder="harga rumah" aria-describedby="register-nama" tabindex="2" />
-                                        </div> -->
-                                    <!-- <div class="mb-1">
-                                            <label class="form-label" class="d-block">JALAN LUAS</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_jalan" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_jalan" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH DI BAWAH TOWER</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_tower" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_tower" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH DEKAT SUNGAI</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_sungai" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_sungai" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH TUSUK SATE</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_sate" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_sate" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH DEKAT MAKAM</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_makam" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_makam" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-1">
-                                            <label class="form-label" class="d-block">RUMAH TIDAK ADA LISTRIK DAN AIR</label>
-                                            <div class="form-check my-50">
-                                                <input type="radio" id="validationRadio3" name="jaminan_lisair" class="form-check-input" value='1' required />
-                                                <label class="form-check-label" for="validationRadio3">YA</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" id="validationRadio4" name="jaminan_lisair" class="form-check-input" value='0' required />
-                                                <label class="form-check-label" for="validationRadio4">TIDAK</label>
-                                            </div>
-                                        </div> -->
-                                    <!-- <div style="float: right;">
-                                            <button type="submit" class="btn btn-info">Simpan</button>
-                                            <button type="button" class="btn btn-success">Kirim</button>
-                                        </div>
-                                    </form> -->
-
+                                <?php
+                                    if ($this->session->flashdata('err_msg')) {
+                                        echo '
+                                                <div class="alert alert-danger" role="alert">
+                                                    <h4 class="alert-heading">Gagal</h4>
+                                                    <div class="alert-body">
+                                                        ' . $this->session->flashdata('err_msg') . '
+                                                    </div>
+                                                </div>
+                                            ';
+                                    }
+                                    if ($this->session->flashdata('succ_msg')) {
+                                        echo '
+                                                <div class="alert alert-success" role="alert">
+                                                    <h4 class="alert-heading">Sukses</h4>
+                                                    <div class="alert-body">
+                                                        ' . $this->session->flashdata('succ_msg') . '
+                                                    </div>
+                                                </div>
+                                            ';
+                                    }
+                                    if ($verifJaminan[0]->STATUS_VJ == "4") {
+                                        echo '
+                                                <div class="alert alert-danger" role="alert">
+                                                    <h4 class="alert-heading">Catatan Status Gagal</h4>
+                                                    <div class="alert-body">
+                                                        ' . $verifJaminan[0]->KOMENTAR_VJ . '
+                                                    </div>
+                                                </div>
+                                            ';
+                                    }
+                                    ?>
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
-                                        <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
-                                            <input type="hidden" name="dir" value="jam_sertifikat">
-                                            <input type="hidden" name="col" value="SERHHS_DJ">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="">Choose File</span>
-                                            </div>
-                                            <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                        </div>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->SERHHS_DJ != null || $dokJaminan->SERHHS_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->SERHHS_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_sertif">
+                                                        <input type="hidden" name="col" value="SERHHS_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
                                     </form>
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">IMB</label>
-                                        <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
-                                            <input type="hidden" name="pekerjaan" class="inptPekerjaan">
-                                            <input type="hidden" name="dir" value="jam_imb">
-                                            <input type="hidden" name="col" value="IMB_DJ">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="">Choose File</span>
-                                            </div>
-                                            <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                        </div>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->IMB_DJ != null || $dokJaminan->IMB_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->IMB_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_imb">
+                                                        <input type="hidden" name="col" value="IMB_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
                                     </form>
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">PBB TERAKHIR</label>
-                                        <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
-                                            <input type="hidden" name="pekerjaan" class="inptPekerjaan">
-                                            <input type="hidden" name="dir" value="jam_pbb">
-                                            <input type="hidden" name="col" value="PBB_DJ">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="">Choose File</span>
-                                            </div>
-                                            <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                        </div>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->PBB_DJ != null || $dokJaminan->PBB_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->PBB_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_pbb">
+                                                        <input type="hidden" name="col" value="PBB_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
                                     </form>
                                     <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
                                         <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
-                                        <div class="input-group mb-1">
-                                            <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2" />
-                                            <input type="hidden" name="pekerjaan" class="inptPekerjaan">
-                                            <input type="hidden" name="dir" value="jam_akta">
-                                            <input type="hidden" name="col" value="AJB_DJ">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="">Choose File</span>
-                                            </div>
-                                            <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                        </div>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->AJB_DJ != null || $dokJaminan->AJB_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->AJB_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_aktajb">
+                                                        <input type="hidden" name="col" value="AJB_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
                                     </form>
+                                    <?php
+                                        if ($verifJaminan[0]->STATUS_VJ == "0" || $verifJaminan[0]->STATUS_VJ == '1' || $verifJaminan[0]->STATUS_VJ == '4') {
+                                            echo '
+                                                    <form action="' . site_url('kirim_jaminan') . '" method="post">
+                                                        <div style="float: right;">
+                                                            <input type="hidden" name="idVJ" value="' . $verifJaminan[0]->ID_VJ . '">
+                                                            <button type="submit" class="btn btn-success">Kirim</button>
+                                                        </div>
+                                                    </form>        
+                                                ';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

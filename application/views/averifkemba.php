@@ -295,6 +295,15 @@
                                                     </div>
                                                 </div>
                                             ';
+                                        }else{
+                                            echo '
+                                                <div class="alert alert-success" role="alert">
+                                                    <h4 class="alert-heading">Terverifikasi</h4>
+                                                    <div class="alert-body">
+                                                        Nasabah telah memenuhi syarat pada verifikasi kemampuan bayar
+                                                    </div>
+                                                </div>
+                                            ';
                                         }
                                         if($this->session->flashdata('succ_msg')){
                                             echo '
