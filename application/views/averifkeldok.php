@@ -1419,6 +1419,19 @@
                 <div class="modal-body">
                     <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
                         <div class="form-group mb-1">
+                            <label for="">Atur Kriteria</label>
+                            <select name="kriteria" class="form-control" required>
+                                <option value="" disabled selected>Atur Kriteria</option>
+                                <?php
+                                    foreach ($kriteria as $item) {
+                                        echo '
+                                            <option value="'.$item->ID_KD.'">'.$item->NAMA_KD.'</option>
+                                        ';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group mb-1">
                             <label for="">Harga Rumah</label>
                             <input type="text" onkeypress="return isNumberKey(event)" onkeyup="return addCommaNumeric(event)" name="harrum"  class="form-control" required>
                         </div>

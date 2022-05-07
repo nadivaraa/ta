@@ -25,6 +25,8 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->model('Mverifjaminan');
 		$this->load->model('Mnasabah');
 		$this->load->model('Mkriteriajaminan');
+		$this->load->model('Mkriteriakeldok');
+		$this->load->model('Mkriteriakemba');
 	}
 	public function akeldok()
 	{
@@ -37,6 +39,7 @@ class Averberkascontroller extends CI_Controller {
 		$data['dokProf'] 	  = $this->db->get_where('dokumen_profesional', ['ID_VD' => $idVD])->row();
 		$data['dokKary'] 	  = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $idVD])->row();
 		$data['dokWira'] 	  = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $idVD])->row();
+		$data['kriteria'] 	  = $this->Mkriteriakeldok->getAll();
 		$this->load->view('averifkeldok', $data);
 	}
 
@@ -46,6 +49,9 @@ class Averberkascontroller extends CI_Controller {
 			'STATUS_VD' => $_POST['status'],
 			'KOMENTAR_VD' => $_POST['komentar']
 		);
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KD'] = $_POST['kriteria'];
+		}
 		$this->Mverifdokumen->update($dataUpdate);
 
 		$emailNas = $this->Mverifdokumen->getById($_POST['idVD'])->EMAIL_NAS;
@@ -63,12 +69,13 @@ class Averberkascontroller extends CI_Controller {
 
 	public function akemba()
 	{
-		$data['kembas'] = $this->Mverifkemba->getVDUser();
+		$data['kembas'] 	= $this->Mverifkemba->getVDUser();
 		$this->load->view('akemba', $data);
 	}
 	public function averifkemba($idVKB){
 		$data['verifKemba'] = $this->Mverifkemba->get(['ID_VKB' => $idVKB]);
 		$data['nasabah'] 	= $this->Mnasabah->getById($data['verifKemba'][0]->EMAIL_NAS);
+		$data['kriteria']	= $this->Mkriteriakemba->getAll();
 
 		$data['statusVerif'] 	= true;
 		$data['statusVerifMsg'] = array();
@@ -119,6 +126,9 @@ class Averberkascontroller extends CI_Controller {
 			'ANGBUL_VKB' => $_POST['angsuran'],
 			'KOMENTAR_VKB' => $_POST['komentar']
 		);
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KMB'] = $_POST['kriteria'];
+		}
 		$this->Mverifkemba->update($dataUpdate);
 		redirect('admin/kemba');
 	}
