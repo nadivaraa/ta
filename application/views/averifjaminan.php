@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Verifikasi Kelengkapan Dokumen</title>
+    <title>Jaminan</title>
     <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg') ?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
@@ -39,50 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
     <style>
-        .custom-file-input {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: calc(2.25rem + 2px);
-            margin: 0;
-            overflow: hidden;
-            opacity: 0;
-        }
-
-        .custom-file-input:focus~.custom-file-label {
-            border-color: #80bdff;
-            box-shadow: none;
-        }
-
-        .custom-file-input[disabled]~.custom-file-label,
-        .custom-file-input:disabled~.custom-file-label {
-            background-color: #e9ecef;
-        }
-
-        .custom-file-input:lang(en)~.custom-file-label::after {
-            content: "Browse";
-        }
-
-        .custom-file-input~.custom-file-label[data-browse]::after {
-            content: attr(data-browse);
-        }
-
-        .custom-file-label {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1;
-            height: calc(2.25rem + 2px);
-            padding: 0.375rem 0.75rem;
-            overflow: hidden;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
-            box-shadow: none;
+        ::file-selector-button {
+            display: none;
         }
     </style>
 </head>
@@ -98,15 +56,15 @@
             <ul class="nav navbar-nav align-items-center ms-auto">
 
 
-                
+
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama')?></span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama') ?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href=""><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout') ?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
-                    </div>
-                </li>
-            </ul>
+        </div>
+        </li>
+        </ul>
         </div>
     </nav>
     <ul class="main-search-list-defaultlist d-none">
@@ -152,7 +110,7 @@
                 <div class="d-flex align-items-center">
                     <div class="avatar me-75"><img src="<?= base_url() ?>/assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0"><?= $this->session->userdata('nama')?></p><small class="text-muted">UI designer</small>
+                        <p class="search-data-title mb-0"><?= $this->session->userdata('nama') ?></p><small class="text-muted">UI designer</small>
                     </div>
                 </div>
             </a></li>
@@ -212,8 +170,8 @@
                         </li>
                         <li><a class="d-flex align-items-center" href="<?= site_url('kemba') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
                         </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('slik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li>
+                        <!-- <li><a class="d-flex align-items-center" href="<?= site_url('slik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
+                        </li> -->
                         <li><a class="d-flex align-items-center" href="<?= site_url('jaminan') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
                         </li>
                     </ul>
@@ -245,102 +203,248 @@
                                     </div>
                                     <div class="col-6 col-md-6 pe-3" style="text-align: right;">
                                         <?php
-                                            if($verifJaminan[0]->STATUS_VJ!= '0'){
-                                                if($verifJaminan[0]->STATUS_VJ== '1'){
+                                            if ($verifJaminan[0]->STATUS_VJ != '0') {
+                                                if ($verifJaminan[0]->STATUS_VJ == '1') {
                                                     echo '
-                                                        <span class="badge badge-light-info">Draft</span>
-                                                    ';
-                                                }else if($verifJaminan[0]->STATUS_VJ== '2'){
+                                                            <span class="badge badge-light-info">Draft</span>
+                                                        ';
+                                                } else if ($verifJaminan[0]->STATUS_VJ == '2') {
                                                     echo '
-                                                    <span class="badge badge-light-warning">Proses</span>
-                                                    ';
-                                                }else if($verifJaminan[0]->STATUS_VJ== '3'){
+                                                        <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                } else if ($verifJaminan[0]->STATUS_VJ == '3') {
                                                     echo '
-                                                        <span class="badge badge-light-success">Terverifikasi</span>
-                                                    ';
-                                                }else if($verifJaminan[0]->STATUS_VJ== '4'){
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                } else if ($verifJaminan[0]->STATUS_VJ == '4') {
                                                     echo '
-                                                        <span class="badge badge-light-danger">Gagal</span>
-                                                    ';
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
                                                 }
                                             }
                                         ?>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <?php
-                                        if($this->session->flashdata('err_msg')){
-                                            echo '
+                                <?php
+                                    if ($this->session->flashdata('err_msg')) {
+                                        echo '
                                                 <div class="alert alert-danger" role="alert">
                                                     <h4 class="alert-heading">Gagal</h4>
                                                     <div class="alert-body">
-                                                        '.$this->session->flashdata('err_msg').'
+                                                        ' . $this->session->flashdata('err_msg') . '
                                                     </div>
                                                 </div>
                                             ';
-                                        }
-                                        if($this->session->flashdata('succ_msg')){
-                                            echo '
+                                    }
+                                    if ($this->session->flashdata('succ_msg')) {
+                                        echo '
                                                 <div class="alert alert-success" role="alert">
                                                     <h4 class="alert-heading">Sukses</h4>
                                                     <div class="alert-body">
-                                                        '.$this->session->flashdata('succ_msg').'
+                                                        ' . $this->session->flashdata('succ_msg') . '
                                                     </div>
                                                 </div>
                                             ';
+                                    }
+                                    if ($verifJaminan[0]->STATUS_VJ == "4") {
+                                        echo '
+                                                <div class="alert alert-danger" role="alert">
+                                                    <h4 class="alert-heading">Catatan Status Gagal</h4>
+                                                    <div class="alert-body">
+                                                        ' . $verifJaminan[0]->KOMENTAR_VJ . '
+                                                    </div>
+                                                </div>
+                                            ';
+                                    }
+                                    ?>
+                                    <h5>Dokumen Jaminan</h5>
+                                    <hr>
+                                    <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
+                                        <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->SERHHS_DJ != null || $dokJaminan->SERHHS_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->SERHHS_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_sertif">
+                                                        <input type="hidden" name="col" value="SERHHS_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
+                                    </form>
+                                    <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
+                                        <label for="customFile1" class="form-label">IMB</label>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->IMB_DJ != null || $dokJaminan->IMB_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->IMB_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_imb">
+                                                        <input type="hidden" name="col" value="IMB_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
+                                    </form>
+                                    <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
+                                        <label for="customFile1" class="form-label">PBB TERAKHIR</label>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->PBB_DJ != null || $dokJaminan->PBB_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->PBB_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_pbb">
+                                                        <input type="hidden" name="col" value="PBB_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
+                                    </form>
+                                    <form action="<?= site_url('proses_jaminan') ?>" method="post" enctype="multipart/form-data">
+                                        <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
+                                        <?php
+                                            if ($dokJaminan != null) {
+                                                if ($dokJaminan->AJB_DJ != null || $dokJaminan->AJB_DJ != '') {
+                                                    echo '
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                            <br>
+                                                            <a class="badge bg-primary" href="' . $dokJaminan->AJB_DJ . '"." target="_blank">Lihat Dokumen</a><br>
+                                                            
+                                                        ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                                echo '
+                                                    <div class="input-group mb-1 mt-1">
+                                                        <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                        <input type="hidden" name="dir" value="dok_aktajb">
+                                                        <input type="hidden" name="col" value="AJB_DJ">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="">Choose File</span>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                    </div>
+                                                ';
+                                            }
+                                            ?>
+                                    </form>
+                                    <?php
+                                        if ($verifJaminan[0]->STATUS_VJ == "0" || $verifJaminan[0]->STATUS_VJ == '1' || $verifJaminan[0]->STATUS_VJ == '4') {
+                                            echo '
+                                                    <form action="' . site_url('kirim_jaminan') . '" method="post">
+                                                        <div style="float: right;">
+                                                            <input type="hidden" name="idVJ" value="' . $verifJaminan[0]->ID_VJ . '">
+                                                            <button type="submit" class="btn btn-success">Kirim</button>
+                                                        </div>
+                                                    </form>        
+                                                ';
                                         }
                                     ?>
-
-                                    <div id="boxProfessional">
-
-                                    </div>
-                                    <div class="text mt-3" id="box_prof" hidden="true">
-                                        <h3>Professional</h3>
-                                        <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
-                                            <label for="customFile1" class="form-label">SERTIFIKAT HM/HGB/STRATA TITLE</label>
-                                                            <div class="input-group mb-1">
-                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
-                                                                <input type="hidden" name="dir" value="jam_sertifikat">
-                                                                <input type="hidden" name="col" value="SERHHS_DJ">
-                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                                            </div> 
+                                    <br>
+                                    <h5>Dokumen Penunjang</h5>
+                                    <hr>
+                                    <form action="">
+                                        <ol>
+                                            <li>
+                                                <p>Rumah terletak di tusuk sate?</p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="tusuk" id="inlineRadio1" value="1">
+                                                        <label class="form-check-label" for="inlineRadio1">Layak</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="tusuk" id="inlineRadio2" value="0">
+                                                        <label class="form-check-label" for="inlineRadio2">Tidak Layak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>Rumah dekat makam?</p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio3" value="1">
+                                                        <label class="form-check-label" for="inlineRadio3">Layak</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio4" value="0">
+                                                        <label class="form-check-label" for="inlineRadio4">Tidak Layak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>Rumah dekat sungai?</p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio5" value="1">
+                                                        <label class="form-check-label" for="inlineRadio5">Layak</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio6" value="0">
+                                                        <label class="form-check-label" for="inlineRadio6">Tidak Layak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                        <button type="submit" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Simpan dokumen penunjang</button>
                                     </form>
-                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
-                                            <label for="customFile1" class="form-label">IMB</label>
-                                                            <div class="input-group mb-1">
-                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
-                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
-                                                                <input type="hidden" name="dir" value="jam_imb">
-                                                                <input type="hidden" name="col" value="IMB_DJ">
-                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                                            </div>
-                                    </form>
-                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
-                                            <label for="customFile1" class="form-label">PBB TERAKHIR</label>
-                                                            <div class="input-group mb-1">
-                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
-                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
-                                                                <input type="hidden" name="dir" value="jam_pbb">
-                                                                <input type="hidden" name="col" value="PBB_DJ">
-                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                                            </div>
-                                    </form>
-                                    <form action="<?= site_url('proses_jaminan')?>" method="post" enctype="multipart/form-data">
-                                            <label for="customFile1" class="form-label">AKTA JUAL BELI</label>
-                                                            <div class="input-group mb-1">
-                                                                <input type="file" class="form-control" accept=".png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
-                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
-                                                                <input type="hidden" name="dir" value="jam_akta">
-                                                                <input type="hidden" name="col" value="AJB_DJ">
-                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
-                                                            </div>
-                                    </form>                                    
-                                </div>
                                     <div class="row">
                                         <div class="col">
                                             <div class="" style="float: right;">
-                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
-                                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>
+                                            <!-- <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
+                                            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button> -->
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -358,11 +462,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel1">Verif Kelengkapan Dokumen</h4>
+                    <h4 class="modal-title" id="myModalLabel1">Verif Dokumen Jaminan</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                    <form action="<?= site_url('admin/proses_verifjaminan')?>" method="post">
                         <div class="form-group">
                             <label for="">Catatan</label>
                             <textarea name="komentar" class="form-control"></textarea>
@@ -370,7 +474,7 @@
                 </div>
                 <div class="modal-footer">
                         <input type="hidden" name="status" value="3">
-                        <input type="hidden" name="idVD" value="<?= $verifDokumen[0]->ID_VD?>">
+                        <input type="hidden" name="idVJ" value="<?= $verifJaminan[0]->ID_VJ?>">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Verif</button>
                     </form>
@@ -385,11 +489,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel1">Tolak Kelengkapan Dokumen</h4>
+                    <h4 class="modal-title" id="myModalLabel1">Tolak Dokumen Jaminan</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= site_url('admin/proses_verifkeldok')?>" method="post">
+                    <form action="<?= site_url('admin/proses_verifjaminan')?>" method="post">
                         <div class="form-group">
                             <label for="">Catatan</label>
                             <textarea name="komentar" class="form-control"></textarea>
@@ -397,7 +501,7 @@
                 </div>
                 <div class="modal-footer">
                         <input type="hidden" name="status" value="4">
-                        <input type="hidden" name="idVD" value="<?= $verifDokumen[0]->ID_VD?>">
+                        <input type="hidden" name="idVJ" value="<?= $verifJaminan[0]->ID_VJ?>">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-danger">Tolak</button>
                     </form>
@@ -406,7 +510,6 @@
         </div>
     </div>
 </div>
-<!-- Basic trigger modal end -->
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 
@@ -437,62 +540,6 @@
                 });
             }
         })
-
-        $(document).ready(function(){
-            <?php
-                if($verifDokumen[0]->STATUS_VD != '0'){
-                    echo '
-                        $("#slct_pilKerja").attr("disabled", true);
-                        $("#btn_pilKerja").attr("disabled", true);
-                        $("#slct_pilKerja").val("'.$verifDokumen[0]->JENIS_VD.'").change();
-                        $(".inptPekerjaan").val("'.$verifDokumen[0]->JENIS_VD.'");
-                    ';
-                    if($verifDokumen[0]->JENIS_VD == '1'){
-                        echo '
-                            $("#box_prof").attr("hidden", false);
-                            
-                        ';
-                    }else if($verifDokumen[0]->JENIS_VD == '2'){
-                        echo '
-                            $("#box_kar").attr("hidden", false);
-                        ';
-                    }else{
-                        echo '
-                            $("#box_swas").attr("hidden", false);
-                        ';
-                    }
-                }    
-            ?>
-        })
-
-        $('#btn_pilKerja').click(function() {
-            const val = $('#slct_pilKerja').val();
-
-            $('#box_prof').attr('hidden', true);
-            $('#box_kar').attr('hidden', true);
-            $('#box_swas').attr('hidden', true);
-            if (val == "1") {
-                $('#box_prof').attr('hidden', false);
-                $('.inptPekerjaan').val('1');
-            } else if (val == "2") {
-                $('#box_kar').attr('hidden', false);
-                $('.inptPekerjaan').val('2');
-            } else if (val == "3") {
-                $('.inptPekerjaan').val('3');
-                $('#box_swas').attr('hidden', false);
-            }
-        })
-    </script>
-
-    <script>
-        // function ShowPoster(event){
-        //     if(event.target.files.length > 0){
-        //     var src = URL.createObjectURL(event.target.files[0]);
-        //     var preview = document.getElementById("image");
-        //     preview.src = src;
-        //     preview.style.display = "block";
-        // }
-        // };
     </script>
 </body>
 <!-- END: Body-->

@@ -22,6 +22,7 @@ class Averberkascontroller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Mverifdokumen');
 		$this->load->model('Mverifkemba');
+		$this->load->model('Mverifjaminan');
 		$this->load->model('Mnasabah');
 	}
 	public function akeldok()
@@ -128,6 +129,12 @@ class Averberkascontroller extends CI_Controller {
 
 	public function ajaminan()
 	{
-		$this->load->view('ajaminan');
+		$data['jaminans'] = $this->Mverifjaminan->getVDUser();
+		$this->load->view('ajaminan', $data);
+	}
+	public function averifjaminan($idVJ){
+		$data['verifJaminan'] 	= $this->Mverifjaminan->get(['ID_VJ' => $idVJ]);
+		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $idVJ])->row();
+		$this->load->view('averifjaminan', $data);
 	}
 }
