@@ -112,6 +112,7 @@ $route['admin/slik'] = 'averberkascontroller/aslik';
 $route['admin/jaminan'] = 'averberkascontroller/ajaminan';
 $route['admin/averifjaminan/(:any)'] = 'averberkascontroller/averifjaminan/$1';
 $route['admin/proses_verifjaminan']  = 'averberkascontroller/proses_verifjaminan';
+$route['admin/proses_penjaminan'] = 'averberkascontroller/proses_penjaminan';
 
 
 

@@ -159,6 +159,7 @@ class Berkascontroller extends CI_Controller {
 		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
 		redirect('jaminan');
 	}
+	
 
 	public function kirim_jaminan(){
 		$verifJaminan = $this->Mverifjaminan->getById($_POST['idVJ']);
@@ -176,66 +177,6 @@ class Berkascontroller extends CI_Controller {
 		$this->Mverifjaminan->update(['ID_VJ' => $verifJaminan->ID_VJ, 'STATUS_VJ' => '2']);
 		redirect('jaminan');
 	}
-
-	// public function jaminan()
-	// {
-	// 	$this->load->view('jaminan');
-	// }
-
-	// public function proses_jaminan()
-	// {
-	// 	$linkJamSert = '';
-	// 	if($_FILES['jaminan_sertifikat'] != null){
-	// 		$uploadJamSert = $this->upload_file('uploads/jam_sertifikat/', 'jaminan_sertifikat');
-	// 		if($uploadJamSert['status'] == true){
-	// 			$linkJamSert = $uploadJamSert['link'];
-	// 		}
-	// 	}
-
-	// 	$linkJamimb = '';
-	// 	if($_FILES['jaminan_imb'] != null){
-	// 		$uploadJamimb = $this->upload_file('uploads/jam_imb/', 'jaminan_imb');
-	// 		if($uploadJamimb['status'] == true){
-	// 			$linkJamimb = $uploadJamimb['link'];
-	// 		}
-	// 	}
-
-	// 	$linkJampbb = '';
-	// 	if($_FILES['jaminan_pbb'] != null){
-	// 		$uploadJampbb = $this->upload_file('uploads/jam_pbb/', 'jaminan_pbb');
-	// 		if($uploadJamSert['status'] == true){
-	// 			$linkJampbb = $uploadJampbb['link'];
-	// 		}
-	// 	}
-
-	// 	$linkJamakta = '';
-	// 	if($_FILES['jaminan_akta'] != null){
-	// 		$uploadJamakta = $this->upload_file('uploads/jam_akta/', 'jaminan_akta');
-	// 		if($uploadJamakta['status'] == true){
-	// 			$linkJamakta = $uploadJamakta['link'];
-	// 		}
-	// 	}
-
-	// 	$verifStore = array(
-	// 		'EMAIL_NAS' => $this->session->userdata('email'),
-	// 		'HARGAR_DJ' => $_POST['jaminan_harga'],
-	// 		'JALAN_DJ' => $_POST['jaminan_jalan'],
-	// 		'TOWER_DJ' => $_POST['jaminan_tower'],
-	// 		'SUNGAI_DJ' => $_POST['jaminan_sungai'],
-	// 		'SATE_DJ' => $_POST['jaminan_sate'],
-	// 		'MAKAM_DJ' => $_POST['jaminan_makam'],
-	// 		'LISTRIKAIR_DJ' => $_POST['jaminan_lisair']
-	// 	);
-
-	// 	$dokumenStore = array(
-	// 		'SERHHS_DJ' => $linkJamSert,
-	// 		'IMB_DJ' => $linkJamimb,
-	// 		'PBB_DJ' => $linkJampbb,
-	// 		'AJB_DJ' => $linkJamakta,
-	// 	);
-	// 	$this->Mjaminan->insert($dokumenStore);
-	// 	redirect('jaminan');
-	// }
 		
 	public function upload_file($path,$file){
 		$conf = array(

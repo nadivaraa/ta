@@ -24,6 +24,7 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->model('Mverifkemba');
 		$this->load->model('Mverifjaminan');
 		$this->load->model('Mnasabah');
+		$this->load->model('Mkriteriajaminan');
 	}
 	public function akeldok()
 	{
@@ -132,9 +133,52 @@ class Averberkascontroller extends CI_Controller {
 		$data['jaminans'] = $this->Mverifjaminan->getVDUser();
 		$this->load->view('ajaminan', $data);
 	}
+	
 	public function averifjaminan($idVJ){
 		$data['verifJaminan'] 	= $this->Mverifjaminan->get(['ID_VJ' => $idVJ]);
 		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $idVJ])->row();
+		$data['kriteria']		= $this->Mkriteriajaminan->getAll();
 		$this->load->view('averifjaminan', $data);
+	}
+	public function proses_penjaminan()
+	{
+		$data['ID_VJ']			= $_POST['idVJ'];
+		$data['KESDOK_VJ']		= $_POST['kondisi'];
+		$data['HARGRUM_VJ']		= $_POST['harrum'];
+		$data['JALAN_VJ']		= $_POST['depan'];
+		$data['TOWER_VJ']		= $_POST['tower'];
+		$data['SUNGAI_VJ']		= $_POST['sungai'];
+		$data['TUSUK_VJ']		= $_POST['sate'];
+		$data['MAKAM_VJ']		= $_POST['makam'];
+		$data['LISTRIKAIR_VJ']	= $_POST['listrik'];
+		
+		$this->Mverifjaminan->update($data);
+		$this->session->set_flashdata('succ_msg', 'Berhasil menyimpan dokumen penunjang jaminan!');
+		redirect('admin/averifjaminan/'.$_POST['idVJ']);
+	}
+	public function proses_verifjaminan(){
+		$dataUpdate = array(
+			'ID_VJ' => $_POST['idVJ'],
+			'STATUS_VJ' => $_POST['status'],
+			'KOMENTAR_VJ' => $_POST['komentar']
+		);
+
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KJ'] = $_POST['kriteria'];
+		}
+
+		// if($_POST['status'] == '4'){
+		// 	$dataUpdate['KESDOK_VJ']		= NULL;
+		// 	$dataUpdate['HARGRUM_VJ']		= NULL;
+		// 	$dataUpdate['JALAN_VJ']			= NULL;
+		// 	$dataUpdate['TOWER_VJ']			= NULL;
+		// 	$dataUpdate['SUNGAI_VJ']		= NULL;
+		// 	$dataUpdate['TUSUK_VJ']			= NULL;
+		// 	$dataUpdate['MAKAM_VJ']			= NULL;
+		// 	$dataUpdate['LISTRIKAIR_VJ']	= NULL;
+		// }
+
+		$this->Mverifjaminan->update($dataUpdate);
+		redirect('admin/jaminan');
 	}
 }

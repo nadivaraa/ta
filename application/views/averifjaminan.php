@@ -395,56 +395,205 @@
                                     <br>
                                     <h5>Dokumen Penunjang</h5>
                                     <hr>
-                                    <form action="">
+                                    <form action="<?= site_url('admin/proses_penjaminan')?>" method="POST">
                                         <ol>
                                             <li>
-                                                <p>Rumah terletak di tusuk sate?</p>
+                                                <p>
+                                                    Apakah kondisi rumah dan dokumen rumah sesuai?
+                                                    <?php
+                                                        if($verifJaminan[0]->KESDOK_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="tusuk" id="inlineRadio1" value="1">
-                                                        <label class="form-check-label" for="inlineRadio1">Layak</label>
+                                                        <input class="form-check-input" type="radio" name="kondisi" id="inlineRadio1" value="1" <?= $verifJaminan[0]->KESDOK_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio1">Sesuai</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="tusuk" id="inlineRadio2" value="0">
-                                                        <label class="form-check-label" for="inlineRadio2">Tidak Layak</label>
+                                                        <input class="form-check-input" type="radio" name="kondisi" id="inlineRadio2" value="0" <?= $verifJaminan[0]->KESDOK_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio2">Tidak Sesuai</label>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <p>Rumah dekat makam?</p>
+                                                <p>
+                                                    Apakah harga rumah sesuai?
+                                                    <?php
+                                                        if($verifJaminan[0]->HARGRUM_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio3" value="1">
-                                                        <label class="form-check-label" for="inlineRadio3">Layak</label>
+                                                        <input class="form-check-input" type="radio" name="harrum" id="inlineRadio3" value="1" <?= $verifJaminan[0]->HARGRUM_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio3">Sesuai</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio4" value="0">
-                                                        <label class="form-check-label" for="inlineRadio4">Tidak Layak</label>
+                                                        <input class="form-check-input" type="radio" name="harrum" id="inlineRadio4" value="0" <?= $verifJaminan[0]->HARGRUM_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio4">Tidak Sesuai</label>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
-                                                <p>Rumah dekat sungai?</p>
+                                                <p>
+                                                    Apakah jalan depan rumah bisa dilewati 2 mobil?
+                                                    <?php
+                                                        if($verifJaminan[0]->JALAN_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio5" value="1">
-                                                        <label class="form-check-label" for="inlineRadio5">Layak</label>
+                                                        <input class="form-check-input" type="radio" name="depan" id="inlineRadio5" value="1" <?= $verifJaminan[0]->JALAN_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio5">Bisa</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio6" value="0">
-                                                        <label class="form-check-label" for="inlineRadio6">Tidak Layak</label>
+                                                        <input class="form-check-input" type="radio" name="depan" id="inlineRadio6" value="0" <?= $verifJaminan[0]->JALAN_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio6">Tidak Bisa</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    Apakah rumah dibawah tower?
+                                                    <?php
+                                                        if($verifJaminan[0]->TOWER_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="tower" id="inlineRadio7" value="1" <?= $verifJaminan[0]->TOWER_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio7">Iya</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="tower" id="inlineRadio8" value="0" <?= $verifJaminan[0]->TOWER_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio8">Tidak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    Apakah rumah dekat sungai?
+                                                    <?php
+                                                        if($verifJaminan[0]->SUNGAI_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio9" value="1" <?= $verifJaminan[0]->SUNGAI_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio9">Iya</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio10" value="0" <?= $verifJaminan[0]->SUNGAI_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio10">Tidak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    Apakah rumah termasuk tusuk sate?
+                                                    <?php
+                                                        if($verifJaminan[0]->TUSUK_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="sate" id="inlineRadio11" value="1" <?= $verifJaminan[0]->TUSUK_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio11">Iya</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="sate" id="inlineRadio12" value="0" <?= $verifJaminan[0]->TUSUK_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio12">Tidak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    Apakah rumah dekat dengan makam?
+                                                    <?php
+                                                        if($verifJaminan[0]->MAKAM_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio13" value="1" <?= $verifJaminan[0]->MAKAM_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio13">Iya</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio14" value="0" <?= $verifJaminan[0]->MAKAM_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio14">Tidak</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    Apakah rumah belum dialiri listrik atau air?
+                                                    <?php
+                                                        if($verifJaminan[0]->LISTRIKAIR_VJ != null){
+                                                            echo '
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>    
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </p>
+                                                <div style="margin-top: 7px;margin-bottom: 7px;">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="listrik" id="inlineRadio15" value="1" <?= $verifJaminan[0]->LISTRIKAIR_VJ == '1'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio15">Iya</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="listrik" id="inlineRadio16" value="0" <?= $verifJaminan[0]->LISTRIKAIR_VJ == '0'? 'checked' : ''?> required>
+                                                        <label class="form-check-label" for="inlineRadio16">Tidak</label>
                                                     </div>
                                                 </div>
                                             </li>
                                         </ol>
-                                        <button type="submit" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Simpan dokumen penunjang</button>
+                                        <input type="hidden" name="idVJ" value="<?= $verifJaminan[0]->ID_VJ?>">
+                                        <?php
+                                            if($verifJaminan[0]->KESDOK_VJ == null){
+                                                echo '
+                                                    <button type="submit" style="float: right;" class="btn btn-sm btn-success"><i data-feather="check"></i>Simpan dokumen penunjang</button>
+                                                ';
+                                            }
+                                        ?>
                                     </form>
                                     <div class="row">
                                         <div class="col">
                                             <div class="" style="float: right;">
-                                            <!-- <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
-                                            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button> -->
-                                                
+                                            <?php
+                                                if($verifJaminan[0]->KESDOK_VJ != null){
+                                                    echo '
+                                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
+                                                        <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
+                                                    ';
+                                                }
+                                            ?>
                                             </div>
                                         </div>
                                     </div>
@@ -467,6 +616,19 @@
                 </div>
                 <div class="modal-body">
                     <form action="<?= site_url('admin/proses_verifjaminan')?>" method="post">
+                        <div class="form-group mb-1">
+                            <label for="">Atur Kriteria</label>
+                            <select name="kriteria" class="form-control" required>
+                                <option value="" disabled selected>Atur Kriteria</option>
+                                <?php
+                                    foreach ($kriteria as $item) {
+                                        echo '
+                                            <option value="'.$item->ID_KJ.'">'.$item->NAMA_KJ.'</option>
+                                        ';
+                                    }
+                                ?>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="">Catatan</label>
                             <textarea name="komentar" class="form-control"></textarea>
