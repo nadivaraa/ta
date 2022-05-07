@@ -16,11 +16,11 @@ class Mverifjaminan extends CI_Model{
     public function getVDUser(){
         return $this->db->query("
             SElECT
-                vd.*,
+                vj.*,
                 n.NAMA_NAS
             FROM verif_jaminan vj, nasabah n
-            WHERE vd.EMAIL_NAS = n.EMAIL_NAS
-            ORDER BY vj.STATUSVERIF_VJ ASC
+            WHERE vj.EMAIL_NAS = n.EMAIL_NAS
+            ORDER BY vj.STATUS_VJ ASC
         ")->result(); 
     }
     public function insert($param){

@@ -134,7 +134,9 @@ class Berkascontroller extends CI_Controller {
 
 	public function jaminan()
 	{
-		$this->load->view('jaminan');
+		$data['verifJaminan'] 	= $this->Mverifjaminan->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $data['verifJaminan'][0]->ID_VJ])->row();
+		$this->load->view('jaminan', $data);
 	}
 
 	public function proses_jaminan()
@@ -146,14 +148,14 @@ class Berkascontroller extends CI_Controller {
 		}
 
 		$verifJaminan 	= $this->Mverifjaminan->get(['EMAIL_NAS' => $this->session->userdata('email')]);
-		$jaminan 		= $this->db->get_where( ['ID_VJ' => $verifJaminan[0]->ID_VJ])->result();
+		$jaminan 		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $verifJaminan[0]->ID_VJ])->result();
 		if($jaminan == null){
-			$this->db->insert( ['ID_VJ' => $verifJaminan[0]->ID_VJ, $_POST['col'] => $uploadFile['link']]);
+			$this->db->insert('dokumen_jaminan', ['ID_VJ' => $verifJaminan[0]->ID_VJ, $_POST['col'] => $uploadFile['link']]);
 		}else{
-			$this->db->where('ID_VJ', $verifJaminan[0]->ID_VJ)->update( [$_POST['col'] => $uploadFile['link']]);
+			$this->db->where('ID_VJ', $verifJaminan[0]->ID_VJ)->update('dokumen_jaminan', [$_POST['col'] => $uploadFile['link']]);
 		}
 		
-		$this->Mverifjaminan->update(['ID_VJ' => $verifJaminan[0]->ID_VJ, 'STATUS_VJ' => '1', 'JENIS_VJ' => $_POST['pekerjaan']]);
+		$this->Mverifjaminan->update(['ID_VJ' => $verifJaminan[0]->ID_VJ, 'STATUS_VJ' => '1']);
 		$this->session->set_flashdata('succ_msg', 'Berhasil mengupload berkas!');
 		redirect('jaminan');
 	}
@@ -162,13 +164,7 @@ class Berkascontroller extends CI_Controller {
 		$verifJaminan = $this->Mverifjaminan->getById($_POST['idVJ']);
 
 		//cek jika di dalam tabel berkas dokumen ada salah satu yang kosong maka akan dikembalikan
-		if($verifJaminan->JENIS_VJ == "1"){
-			$dataJaminan = $this->db->get_where(['jaminan','ID_VJ' => $verifJaminan->ID_VJ])->row();
-		}else if($verifJaminan->JENIS_VJ == "0"){
-			$this->session->set_flashdata('err_msg', 'Lengkapi dokumen terlebih dahulu!');
-			redirect('jaminan');
-		}
-
+		$dataJaminan = $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $verifJaminan->ID_VJ])->row();
 		foreach ($dataJaminan as $key) {
 			if($key == null || $key == ''){
 				$this->session->set_flashdata('err_msg', 'Lengkapi dokumen terlebih dahulu!');

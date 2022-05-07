@@ -229,6 +229,38 @@
                                 </div>
                                 <div class="card-body">
                                     <?php
+                                        if ($this->session->flashdata('err_msg')) {
+                                            echo '
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <h4 class="alert-heading">Gagal</h4>
+                                                        <div class="alert-body">
+                                                            ' . $this->session->flashdata('err_msg') . '
+                                                        </div>
+                                                    </div>
+                                                ';
+                                        }
+                                        if ($this->session->flashdata('succ_msg')) {
+                                            echo '
+                                                    <div class="alert alert-success" role="alert">
+                                                        <h4 class="alert-heading">Sukses</h4>
+                                                        <div class="alert-body">
+                                                            ' . $this->session->flashdata('succ_msg') . '
+                                                        </div>
+                                                    </div>
+                                                ';
+                                        }
+                                        if ($verifKemba[0]->STATUS_VKB == "4") {
+                                            echo '
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <h4 class="alert-heading">Catatan Status Gagal</h4>
+                                                        <div class="alert-body">
+                                                            ' . $verifKemba[0]->KOMENTAR_VKB . '
+                                                        </div>
+                                                    </div>
+                                                ';
+                                        }
+                                    ?>
+                                    <?php
                                     if ($keldok[0]->STATUS_VD != "3") {
                                     ?>
                                         <div class="row">

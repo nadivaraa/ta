@@ -23,6 +23,7 @@ class Authcontroller extends CI_Controller {
 		$this->load->model('Mnasabah');
 		$this->load->model('Mverifdokumen');
 		$this->load->model('Mverifkemba');
+		$this->load->model('Mverifjaminan');
 	}
 	 public function register()
 	{
@@ -53,6 +54,7 @@ class Authcontroller extends CI_Controller {
 			'USIA_VKB' => date_diff(date_create($_POST['register_tgllhr']), date_create(date("Y-m-d")))->format('%y')
 		);
 		$this->Mverifkemba->insert($formKemba);
+		$this->Mverifjaminan->insert(['EMAIL_NAS' => $_POST['register_email']]);
 		redirect('/');
 	}
 	public function proses_logout(){
