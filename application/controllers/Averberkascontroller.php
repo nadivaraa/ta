@@ -24,6 +24,9 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->model('Mverifkemba');
 		$this->load->model('Mverifjaminan');
 		$this->load->model('Mnasabah');
+		$this->load->model('Mkriteriajaminan');
+		$this->load->model('Mkriteriakeldok');
+		$this->load->model('Mkriteriakemba');
 	}
 	public function akeldok()
 	{
@@ -36,6 +39,7 @@ class Averberkascontroller extends CI_Controller {
 		$data['dokProf'] 	  = $this->db->get_where('dokumen_profesional', ['ID_VD' => $idVD])->row();
 		$data['dokKary'] 	  = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $idVD])->row();
 		$data['dokWira'] 	  = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $idVD])->row();
+		$data['kriteria'] 	  = $this->Mkriteriakeldok->getAll();
 		$this->load->view('averifkeldok', $data);
 	}
 
@@ -45,6 +49,9 @@ class Averberkascontroller extends CI_Controller {
 			'STATUS_VD' => $_POST['status'],
 			'KOMENTAR_VD' => $_POST['komentar']
 		);
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KD'] = $_POST['kriteria'];
+		}
 		$this->Mverifdokumen->update($dataUpdate);
 
 		$emailNas = $this->Mverifdokumen->getById($_POST['idVD'])->EMAIL_NAS;
@@ -62,12 +69,13 @@ class Averberkascontroller extends CI_Controller {
 
 	public function akemba()
 	{
-		$data['kembas'] = $this->Mverifkemba->getVDUser();
+		$data['kembas'] 	= $this->Mverifkemba->getVDUser();
 		$this->load->view('akemba', $data);
 	}
 	public function averifkemba($idVKB){
 		$data['verifKemba'] = $this->Mverifkemba->get(['ID_VKB' => $idVKB]);
 		$data['nasabah'] 	= $this->Mnasabah->getById($data['verifKemba'][0]->EMAIL_NAS);
+		$data['kriteria']	= $this->Mkriteriakemba->getAll();
 
 		$data['statusVerif'] 	= true;
 		$data['statusVerifMsg'] = array();
@@ -118,6 +126,9 @@ class Averberkascontroller extends CI_Controller {
 			'ANGBUL_VKB' => $_POST['angsuran'],
 			'KOMENTAR_VKB' => $_POST['komentar']
 		);
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KMB'] = $_POST['kriteria'];
+		}
 		$this->Mverifkemba->update($dataUpdate);
 		redirect('admin/kemba');
 	}
@@ -132,9 +143,52 @@ class Averberkascontroller extends CI_Controller {
 		$data['jaminans'] = $this->Mverifjaminan->getVDUser();
 		$this->load->view('ajaminan', $data);
 	}
+	
 	public function averifjaminan($idVJ){
 		$data['verifJaminan'] 	= $this->Mverifjaminan->get(['ID_VJ' => $idVJ]);
 		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $idVJ])->row();
+		$data['kriteria']		= $this->Mkriteriajaminan->getAll();
 		$this->load->view('averifjaminan', $data);
+	}
+	public function proses_penjaminan()
+	{
+		$data['ID_VJ']			= $_POST['idVJ'];
+		$data['KESDOK_VJ']		= $_POST['kondisi'];
+		$data['HARGRUM_VJ']		= $_POST['harrum'];
+		$data['JALAN_VJ']		= $_POST['depan'];
+		$data['TOWER_VJ']		= $_POST['tower'];
+		$data['SUNGAI_VJ']		= $_POST['sungai'];
+		$data['TUSUK_VJ']		= $_POST['sate'];
+		$data['MAKAM_VJ']		= $_POST['makam'];
+		$data['LISTRIKAIR_VJ']	= $_POST['listrik'];
+		
+		$this->Mverifjaminan->update($data);
+		$this->session->set_flashdata('succ_msg', 'Berhasil menyimpan dokumen penunjang jaminan!');
+		redirect('admin/averifjaminan/'.$_POST['idVJ']);
+	}
+	public function proses_verifjaminan(){
+		$dataUpdate = array(
+			'ID_VJ' => $_POST['idVJ'],
+			'STATUS_VJ' => $_POST['status'],
+			'KOMENTAR_VJ' => $_POST['komentar']
+		);
+
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KJ'] = $_POST['kriteria'];
+		}
+
+		// if($_POST['status'] == '4'){
+		// 	$dataUpdate['KESDOK_VJ']		= NULL;
+		// 	$dataUpdate['HARGRUM_VJ']		= NULL;
+		// 	$dataUpdate['JALAN_VJ']			= NULL;
+		// 	$dataUpdate['TOWER_VJ']			= NULL;
+		// 	$dataUpdate['SUNGAI_VJ']		= NULL;
+		// 	$dataUpdate['TUSUK_VJ']			= NULL;
+		// 	$dataUpdate['MAKAM_VJ']			= NULL;
+		// 	$dataUpdate['LISTRIKAIR_VJ']	= NULL;
+		// }
+
+		$this->Mverifjaminan->update($dataUpdate);
+		redirect('admin/jaminan');
 	}
 }

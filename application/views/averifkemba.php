@@ -412,6 +412,19 @@
                 <div class="modal-body">
                     <form action="<?= site_url('admin/proses_verifkemba')?>" method="post">
                         <div class="form-group mb-1">
+                            <label for="">Atur Kriteria</label>
+                            <select name="kriteria" class="form-control" required>
+                                <option value="" disabled selected>Atur Kriteria</option>
+                                <?php
+                                    foreach ($kriteria as $item) {
+                                        echo '
+                                            <option value="'.$item->ID_KMB.'">'.$item->NAMA_KMB.'</option>
+                                        ';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group mb-1">
                             <label for="">Angsuran Perbulan</label>
                             <input  class="form-control" value="<?= number_format($angsuran)?>" required disabled>
                             <input  type="hidden" name="angsuran" class="form-control" value="<?= $angsuran?>" required>

@@ -24,6 +24,7 @@ class Authcontroller extends CI_Controller {
 		$this->load->model('Mverifdokumen');
 		$this->load->model('Mverifkemba');
 		$this->load->model('Mverifjaminan');
+		$this->load->model('Mverifslik');
 	}
 	 public function register()
 	{
@@ -55,6 +56,7 @@ class Authcontroller extends CI_Controller {
 		);
 		$this->Mverifkemba->insert($formKemba);
 		$this->Mverifjaminan->insert(['EMAIL_NAS' => $_POST['register_email']]);
+		$this->Mverifslik->insert(['EMAIL_NAS' => $_POST['register_email']]);
 		redirect('/');
 	}
 	public function proses_logout(){
