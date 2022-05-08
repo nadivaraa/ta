@@ -217,21 +217,76 @@
                                             <tr>
                                                 <th>Email</th>
                                                 <th>Nama</th>
+                                                <th class="cell-fit">Status Kelengkapan Dokumen</th>
                                                 <th class="cell-fit">Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>Nama</td>
-                                                <td>Status</td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-info"><i data-feather="info"></i></a>
-                                                    <a class="btn btn-sm btn-success"><i data-feather="check"></i></a>
-                                                    <a class="btn btn-sm btn-danger"><i data-feather="x"></i></a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                                foreach ($sliks as $item) {
+                                                    $statusDokumen = "";
+                                                    if ($item->STATUS_VD == '1') {
+                                                        $statusDokumen = '
+                                                                <span class="badge badge-light-info">Draft</span>
+                                                            ';
+                                                    } else if ($item->STATUS_VD == '2') {
+                                                        $statusDokumen = '
+                                                            <span class="badge badge-light-warning">Proses</span>
+                                                            ';
+                                                    } else if ($item->STATUS_VD == '3') {
+                                                        $statusDokumen = '
+                                                                <span class="badge badge-light-success">Terverifikasi</span>
+                                                            ';
+                                                    } else if ($item->STATUS_VD == '4') {
+                                                        $statusDokumen = '
+                                                                <span class="badge badge-light-danger">Gagal</span>
+                                                            ';
+                                                    } else if ($item->STATUS_VD == '0') {
+                                                        $statusDokumen = '
+                                                                <span class="badge badge-light-dark">Belum ada aksi</span>
+                                                            ';
+                                                    }
+
+                                                    $status = "";
+                                                    if($item->STATUS_VD != '3'){
+                                                        $status = '
+                                                            <span class="badge badge-light-dark">Keldok belum terverif</span>
+                                                        ';
+                                                    }else if($item->STATUS_VPS == '2'){
+                                                        $status = '
+                                                            <span class="badge badge-light-warning">Proses</span>
+                                                        ';
+                                                    }else if($item->STATUS_VPS == '3'){
+                                                        $status = '
+                                                            <span class="badge badge-light-success">Terverifikasi</span>
+                                                        ';
+                                                    }else if($item->STATUS_VPS == '4'){
+                                                        $status = '
+                                                            <span class="badge badge-light-danger">Gagal</span>
+                                                        ';
+                                                    }
+
+                                                    $aksiDetail = "";
+                                                    if ($item->STATUS_VPS == "2") {
+                                                        $aksiDetail = '
+                                                                <a class="btn btn-sm btn-info" href="' . site_url('admin/averifslik/' . $item->ID_VPS) . '"><i data-feather="info"></i></a>
+                                                            ';
+                                                    }
+
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.$statusDokumen.'</td>
+                                                            <td>'.$status.'</td>
+                                                            <td>
+                                                                '.$aksiDetail.'
+                                                            </td>
+                                                        </tr>        
+                                                    ';
+                                                }
+                                            ?>
                                     </table>
                                 </div>
                             </div>
