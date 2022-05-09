@@ -23,10 +23,12 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->model('Mverifdokumen');
 		$this->load->model('Mverifkemba');
 		$this->load->model('Mverifjaminan');
+		$this->load->model('Mverifslik');
 		$this->load->model('Mnasabah');
 		$this->load->model('Mkriteriajaminan');
 		$this->load->model('Mkriteriakeldok');
 		$this->load->model('Mkriteriakemba');
+		$this->load->model('Mkriteriaslik');
 	}
 	public function akeldok()
 	{
@@ -135,7 +137,25 @@ class Averberkascontroller extends CI_Controller {
 
 	public function aslik()
 	{
-		$this->load->view('aslik');
+		$data['sliks'] = $this->Mverifslik->getVDUser();
+		$this->load->view('aslik', $data);
+	}
+
+	public function averifslik($idSlik){
+		$data['verifSlik'] 		= $this->Mverifslik->get(['ID_VPS' => $idSlik]);
+		$data['kriteria']		= $this->Mkriteriaslik->getAll();
+
+		$verifDokumen = $this->Mverifdokumen->get(['EMAIL_NAS' => $data['verifSlik'][0]->EMAIL_NAS]);
+
+		if($verifDokumen[0]->JENIS_VD == '1'){
+			$data['keldok']	= $this->db->select('KTP_DP as ktp, NPWP_DP as npwp')->get_where('dokumen_profesional', ['ID_VD' => $verifDokumen[0]->ID_VD])->row();
+		}else if($verifDokumen[0]->JENIS_VD == '2'){
+			$data['keldok']	= $this->db->select('KTP_DK as ktp, NPWP_DK as npwp')->get_where('dokumen_karyawan', ['ID_VD' => $verifDokumen[0]->ID_VD])->row();
+		}else {
+			$data['keldok']	= $this->db->select('KTP_DW as ktp, NPWP_DW as npwp')->get_where('dokumen_wiraswasta', ['ID_VD' => $verifDokumen[0]->ID_VD])->row();
+		}
+
+		$this->load->view('averifslik', $data);
 	}
 
 	public function ajaminan()
@@ -149,6 +169,20 @@ class Averberkascontroller extends CI_Controller {
 		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $idVJ])->row();
 		$data['kriteria']		= $this->Mkriteriajaminan->getAll();
 		$this->load->view('averifjaminan', $data);
+	}
+	public function proses_verifslik(){
+		$dataUpdate = array(
+			'ID_VPS' => $_POST['idVPS'],
+			'STATUS_VPS' => $_POST['status'],
+			'KOMENTAR_VPS' => $_POST['komentar']
+		);
+
+		if($_POST['status'] == '3'){
+			$dataUpdate['ID_KPS'] = $_POST['kriteria'];
+		}
+
+		$this->Mverifslik->update($dataUpdate);
+		redirect('admin/slik');
 	}
 	public function proses_penjaminan()
 	{
