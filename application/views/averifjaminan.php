@@ -393,7 +393,7 @@
                                         }
                                     ?>
                                     <br>
-                                    <h5>Dokumen Penunjang</h5>
+                                    <h5>Hasil Survey Rumah</h5>
                                     <hr>
                                     <form action="<?= site_url('admin/proses_penjaminan')?>" method="POST">
                                         <ol>
@@ -421,7 +421,7 @@
                                             </li>
                                             <li>
                                                 <p>
-                                                    Apakah harga rumah sesuai?
+                                                    Apakah harga rumah sudah sesuai standar?
                                                     <?php
                                                         if($verifJaminan[0]->HARGRUM_VJ != null){
                                                             echo '
@@ -443,7 +443,7 @@
                                             </li>
                                             <li>
                                                 <p>
-                                                    Apakah jalan depan rumah bisa dilewati 2 mobil?
+                                                    Berapakah lebar akses jalan menuju rumah?
                                                     <?php
                                                         if($verifJaminan[0]->JALAN_VJ != null){
                                                             echo '
@@ -455,17 +455,17 @@
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="depan" id="inlineRadio5" value="1" <?= $verifJaminan[0]->JALAN_VJ == '1'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio5">Bisa</label>
+                                                        <label class="form-check-label" for="inlineRadio5"><= 300 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="depan" id="inlineRadio6" value="0" <?= $verifJaminan[0]->JALAN_VJ == '0'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio6">Tidak Bisa</label>
+                                                        <label class="form-check-label" for="inlineRadio6">> 300 meter</label>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <p>
-                                                    Apakah rumah dibawah tower?
+                                                    Berapakah jarak rumah ke tower terdekat?
                                                     <?php
                                                         if($verifJaminan[0]->TOWER_VJ != null){
                                                             echo '
@@ -477,17 +477,17 @@
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="tower" id="inlineRadio7" value="1" <?= $verifJaminan[0]->TOWER_VJ == '1'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio7">Iya</label>
+                                                        <label class="form-check-label" for="inlineRadio7"><= 20 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="tower" id="inlineRadio8" value="0" <?= $verifJaminan[0]->TOWER_VJ == '0'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio8">Tidak</label>
+                                                        <label class="form-check-label" for="inlineRadio8">> 20 meter</label>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <p>
-                                                    Apakah rumah dekat sungai?
+                                                    Berapakah jarak rumah ke sungai?
                                                     <?php
                                                         if($verifJaminan[0]->SUNGAI_VJ != null){
                                                             echo '
@@ -499,17 +499,17 @@
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="sungai" id="inlineRadio9" value="1" <?= $verifJaminan[0]->SUNGAI_VJ == '1'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio9">Iya</label>
+                                                        <label class="form-check-label" for="inlineRadio9"><= 10 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="sungai" id="inlineRadio10" value="0" <?= $verifJaminan[0]->SUNGAI_VJ == '0'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio10">Tidak</label>
+                                                        <label class="form-check-label" for="inlineRadio10">> 10 meter</label>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <p>
-                                                    Apakah rumah termasuk tusuk sate?
+                                                    Apakah kondisi rumah termasuk rumah tusuk sate?
                                                     <?php
                                                         if($verifJaminan[0]->TUSUK_VJ != null){
                                                             echo '
@@ -531,7 +531,7 @@
                                             </li>
                                             <li>
                                                 <p>
-                                                    Apakah rumah dekat dengan makam?
+                                                    Berapakah jarak rumah ke makam?
                                                     <?php
                                                         if($verifJaminan[0]->MAKAM_VJ != null){
                                                             echo '
@@ -543,11 +543,11 @@
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="makam" id="inlineRadio13" value="1" <?= $verifJaminan[0]->MAKAM_VJ == '1'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio13">Iya</label>
+                                                        <label class="form-check-label" for="inlineRadio13"><= 200 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="makam" id="inlineRadio14" value="0" <?= $verifJaminan[0]->MAKAM_VJ == '0'? 'checked' : ''?> required>
-                                                        <label class="form-check-label" for="inlineRadio14">Tidak</label>
+                                                        <label class="form-check-label" for="inlineRadio14">> 200 meter</label>
                                                     </div>
                                                 </div>
                                             </li>
