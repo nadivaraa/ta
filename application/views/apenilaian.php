@@ -209,10 +209,10 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header border-bottom">
-                                    <h4 class="card-title">Penilaian</h4>
+                                    <h4 class="card-title">Dataset</h4>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
-                                    <table id="tbl" class="dt-responsive table table-bordered">
+                                    <table class="tbl dt-responsive table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Email</th>
@@ -221,21 +221,75 @@
                                                 <th>Kemampuan bayar</th>
                                                 <th>Pengecekkan SLIK</th>
                                                 <th>Jaminan</th>
-                                                <th>Nilai</th>
+                                                <th class="cell-fit">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach ($datasets as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->email.'</td>
+                                                            <td>'.$item->nama.'</td>
+                                                            <td>'.$item->label_keldok.'</td>
+                                                            <td>'.$item->label_kemba.'</td>
+                                                            <td>'.$item->label_slik.'</td>
+                                                            <td>'.$item->label_jaminan.'</td>
+                                                            <td>
+                                                                <form action="'.site_url('admin/apenilaian/setready').'" method="POST">
+                                                                    <input type="hidden" name="email" value="'.$item->email.'" />
+                                                                    <input type="hidden" name="bobot_keldok" value="'.$item->bobot_keldok.'" />
+                                                                    <input type="hidden" name="bobot_kemba" value="'.$item->bobot_kemba.'" />
+                                                                    <input type="hidden" name="bobot_slik" value="'.$item->bobot_slik.'" />
+                                                                    <input type="hidden" name="bobot_jaminan" value="'.$item->bobot_jaminan.'" />
+                                                                    <button type="submit" href="#" class="btn btn-sm btn-primary">Kalkulasi</button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h4 class="card-title">Memangkatkan Nilai Tiap Atribut dengan Bobot Atribut</h4>
+                                </div>
+                                <div class="card-datatable" style="padding: 2rem;">
+                                    <table class="tbl dt-responsive table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Kelengkapan dokumen</th>
+                                                <th>Kemampuan bayar</th>
+                                                <th>Pengecekkan SLIK</th>
+                                                <th>Jaminan</th>
                                                 <th class="cell-fit">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>Nama</td>
-                                                <td>Kelengkapan dokumen</td>
-                                                <td>Kemampuan bayar</td>
-                                                <td>Pengecekkan SLIK</td>
-                                                <td>Jaminan</td>
-                                                <td>Nilai</td>
-                                                <td>Status</td>
-                                            </tr>
+                                            <?php
+                                                foreach ($penilaianReadys as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
+                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
+                                                            <td>Status</td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -290,7 +344,7 @@
             }
         })
         $(document).ready(function() {
-            $('#tbl').DataTable()
+            $('.tbl').DataTable()
         })
     </script>
 </body>
