@@ -253,6 +253,10 @@
                                                         $status = '
                                                             <span class="badge badge-light-dark">Keldok belum terverif</span>
                                                         ';
+                                                    }else if($item->STATUS_VPS == '0'){
+                                                        $status = '
+                                                            <span class="badge badge-light-warning">Belum ada aksi</span>
+                                                        ';
                                                     }else if($item->STATUS_VPS == '2'){
                                                         $status = '
                                                             <span class="badge badge-light-warning">Proses</span>
@@ -268,7 +272,7 @@
                                                     }
 
                                                     $aksiDetail = "";
-                                                    if ($item->STATUS_VPS == "2") {
+                                                    if ($item->STATUS_VPS == "2" || $item->STATUS_VPS == "0" ) {
                                                         $aksiDetail = '
                                                                 <a class="btn btn-sm btn-info" href="' . site_url('admin/averifslik/' . $item->ID_VPS) . '"><i data-feather="info"></i></a>
                                                             ';

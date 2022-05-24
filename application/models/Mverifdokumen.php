@@ -28,6 +28,8 @@ class Mverifdokumen extends CI_Model{
     }
     public function update($param){
         $this->db->where('ID_VD', $param['ID_VD'])->update('verif_dokumen', $param);
+        $param_slik['STATUS_VPS'] = $param['STATUS_VD'] == '3' ? '2' : '0'; 
+        $this->db->where('EMAIl_NAS', $param['EMAIL_NAS'])->update('verif_pengecekan_slik1', $param_slik);
     }
     public function delete($param){
         $this->db->delete('verif_dokumen', $param);

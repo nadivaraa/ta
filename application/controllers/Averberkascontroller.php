@@ -46,17 +46,18 @@ class Averberkascontroller extends CI_Controller {
 	}
 
 	public function proses_verifkeldok(){
+		$emailNas = $this->Mverifdokumen->getById($_POST['idVD'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VD' => $_POST['idVD'],
 			'STATUS_VD' => $_POST['status'],
-			'KOMENTAR_VD' => $_POST['komentar']
+			'KOMENTAR_VD' => $_POST['komentar'],
+			'EMAIL_NAS' => $emailNas
 		);
 		if($_POST['status'] == '3'){
 			$dataUpdate['ID_KD'] = $_POST['kriteria'];
 		}
 		$this->Mverifdokumen->update($dataUpdate);
 
-		$emailNas = $this->Mverifdokumen->getById($_POST['idVD'])->EMAIL_NAS;
 		$idVKB = $this->Mverifkemba->get(['EMAIL_NAS' => $emailNas])[0]->ID_VKB;
 		$harrum = str_replace(',','', $_POST['harrum']);
 		$dataUpdateVerifKemba = array(
