@@ -215,13 +215,12 @@
                                     <table class="tbl dt-responsive table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Email</th>
-                                                <th>Nama</th>
-                                                <th>Kelengkapan dokumen</th>
-                                                <th>Kemampuan bayar</th>
-                                                <th>Pengecekkan SLIK</th>
-                                                <th>Jaminan</th>
-                                                <th class="cell-fit">Aksi</th>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">Kelengkapan dokumen</th>
+                                                <th class="text-center">Kemampuan bayar</th>
+                                                <th class="text-center">Pengecekkan SLIK</th>
+                                                <th class="text-center">Jaminan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -235,6 +234,58 @@
                                                             <td>'.$item->label_kemba.'</td>
                                                             <td>'.$item->label_slik.'</td>
                                                             <td>'.$item->label_jaminan.'</td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h4 class="card-title">Melakukan Perbaikan Bobot</h4>
+                                </div>
+                                <div class="card-datatable" style="padding: 2rem;">
+                                    <table class="tbl dt-responsive table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th  class="text-center" rowspan="3">Email</th>
+                                                <th  class="text-center" rowspan="3">Nama</th>
+                                                <th class="text-center" >Kelengkapan dokumen</th>
+                                                <th class="text-center" >Kemampuan bayar</th>
+                                                <th class="text-center" >Pengecekkan SLIK</th>
+                                                <th class="text-center" >Jaminan</th>
+                                                <th class="text-center"  class="cell-fit" rowspan="3">Aksi</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center">BENEFIT (5)</th>
+                                                <th class="text-center">BENEFIT (5)</th>
+                                                <th class="text-center">BENEFIT (5)</th>
+                                                <th class="text-center">BENEFIT (5)</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center">0.25</th>
+                                                <th class="text-center">0.25</th>
+                                                <th class="text-center">0.25</th>
+                                                <th class="text-center">0.25</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach ($datasets as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->email.'</td>
+                                                            <td>'.$item->nama.'</td>
+                                                            <td>'.$item->bobot_keldok.'</td>
+                                                            <td>'.$item->bobot_kemba.'</td>
+                                                            <td>'.$item->bobot_slik.'</td>
+                                                            <td>'.$item->bobot_jaminan.'</td>
                                                             <td>
                                                                 <form action="'.site_url('admin/apenilaian/setready').'" method="POST">
                                                                     <input type="hidden" name="email" value="'.$item->email.'" />
@@ -271,7 +322,6 @@
                                                 <th>Kemampuan bayar</th>
                                                 <th>Pengecekkan SLIK</th>
                                                 <th>Jaminan</th>
-                                                <th class="cell-fit">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -285,7 +335,136 @@
                                                             <td>'.$item->PERHITUNGAN_KEMBA.'</td>
                                                             <td>'.$item->PERHITUNGAN_SLIK.'</td>
                                                             <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
-                                                            <td>Status</td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h4 class="card-title">Menentukan Nilai S</h4>
+                                    <a style="float: right;" href="<?= site_url('admin/apenilaian/sets')?>" class="btn btn-primary btn-sm">Proses</a>
+                                </div>
+                                <div class="card-datatable" style="padding: 2rem;">
+                                    <table class="tbl dt-responsive table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Kelengkapan dokumen</th>
+                                                <th>Kemampuan bayar</th>
+                                                <th>Pengecekkan SLIK</th>
+                                                <th>Jaminan</th>
+                                                <th>Nilai S</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach ($penilaianS as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
+                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
+                                                            <td>'.$item->PERHITUNGAN_S.'</td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h4 class="card-title">Menentukan Nilai V</h4>
+                                    <a style="float: right;" href="<?= site_url('admin/apenilaian/setv')?>" class="btn btn-primary btn-sm">Proses</a>
+                                </div>
+                                <div class="card-datatable" style="padding: 2rem;">
+                                    <table class="tbl dt-responsive table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Kelengkapan dokumen</th>
+                                                <th>Kemampuan bayar</th>
+                                                <th>Pengecekkan SLIK</th>
+                                                <th>Jaminan</th>
+                                                <th>Nilai S</th>
+                                                <th>Nilai V</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach ($penilaianV as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
+                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
+                                                            <td>'.$item->PERHITUNGAN_S.'</td>
+                                                            <td>'.$item->PERHITUNGAN_V.'</td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header border-bottom">
+                                    <h4 class="card-title">Ranking</h4>
+                                    <a style="float: right;" href="<?= site_url('admin/apenilaian/setv')?>" class="btn btn-primary btn-sm">Proses</a>
+                                </div>
+                                <div class="card-datatable" style="padding: 2rem;">
+                                    <table class="tbl-ranking dt-responsive table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Kelengkapan dokumen</th>
+                                                <th>Kemampuan bayar</th>
+                                                <th>Pengecekkan SLIK</th>
+                                                <th>Jaminan</th>
+                                                <th>Nilai S</th>
+                                                <th>Nilai V</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach ($ranking as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
+                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
+                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
+                                                            <td>'.$item->PERHITUNGAN_S.'</td>
+                                                            <td>'.$item->PERHITUNGAN_V.'</td>
                                                         </tr>
                                                     ';
                                                 }
@@ -345,6 +524,9 @@
         })
         $(document).ready(function() {
             $('.tbl').DataTable()
+            $('.tbl-ranking').DataTable({
+                ordering: false
+            })
         })
     </script>
 </body>

@@ -151,6 +151,8 @@ $route['admin/aproshapuskrijaminan'] = 'akriteriacontroller/aproshapuskrijaminan
 //APENILAIAN
 $route['admin/apenilaian'] = 'apenilaiancontroller/apenilaian';
 $route['admin/apenilaian/setready'] = 'apenilaiancontroller/setready';
+$route['admin/apenilaian/sets'] = 'apenilaiancontroller/sets';
+$route['admin/apenilaian/setv'] = 'apenilaiancontroller/setv';
 
 //AREKOMENDASI
 $route['admin/arekomendasi'] = 'arekomendasicontroller/arekomendasi';

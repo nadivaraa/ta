@@ -255,7 +255,7 @@
                                                         ';
                                                     }else if($item->STATUS_VPS == '0'){
                                                         $status = '
-                                                            <span class="badge badge-light-warning">Belum ada aksi</span>
+                                                            <span class="badge badge-light-warning">Proses</span>
                                                         ';
                                                     }else if($item->STATUS_VPS == '2'){
                                                         $status = '
