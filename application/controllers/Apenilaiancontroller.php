@@ -28,38 +28,46 @@ class Apenilaiancontroller extends CI_Controller {
 		$this->load->view('apenilaian', $data);
 	}
 	public function setready(){
-		$formData['EMAIL_NAS'] 				= $_POST['email'];
-		$formData['PERHITUNGAN_KELDOK'] 	= pow($_POST['bobot_keldok'], 0.25);
-		$formData['PERHITUNGAN_KEMBA'] 		= pow($_POST['bobot_kemba'], 0.25);
-		$formData['PERHITUNGAN_JAMINAN'] 	= pow($_POST['bobot_jaminan'], 0.25);
-		$formData['PERHITUNGAN_SLIK'] 		= pow($_POST['bobot_slik'], 0.25);
-		$formData['PERHITUNGAN_S'] 			= NULL;
-		$formData['PERHITUNGAN_V'] 			= NULL;
+		$this->db->empty_table('penilaian_ready');
 
-		$data = $this->db->get_where('penilaian_ready', ['EMAIL_NAS' => $_POST['email']])->result();
-		if($data == null){
-			$this->db->insert('penilaian_ready', $formData);
-		}else{
-			$this->db->where('EMAIL_NAS', $_POST['email'])->update('penilaian_ready', $formData);
+		$datasets 		= $this->vGetDataset();
+		$totalNilaiS	= 0;
+		$index			= 0;
+		$formData		= array();
+		foreach ($datasets as $dataset) {
+			$formData[$index]['EMAIL_NAS'] 				= $dataset->email;
+			$formData[$index]['PERHITUNGAN_KELDOK'] 	= pow($dataset->bobot_keldok, 0.25);
+			$formData[$index]['PERHITUNGAN_KEMBA'] 		= pow($dataset->bobot_kemba, 0.25);
+			$formData[$index]['PERHITUNGAN_JAMINAN'] 	= pow($dataset->bobot_jaminan, 0.25);
+			$formData[$index]['PERHITUNGAN_SLIK'] 		= pow($dataset->bobot_slik, 0.25);
+
+			$formData[$index]['PERHITUNGAN_S']	= $formData[$index]['PERHITUNGAN_KELDOK'];
+			$formData[$index]['PERHITUNGAN_S']	*= $formData[$index]['PERHITUNGAN_KEMBA'];
+			$formData[$index]['PERHITUNGAN_S']	*= $formData[$index]['PERHITUNGAN_JAMINAN'];
+			$formData[$index]['PERHITUNGAN_S']	*= $formData[$index]['PERHITUNGAN_SLIK'];
+			$totalNilaiS += $formData[$index]['PERHITUNGAN_S'];
+			$index++;
 		}
-		redirect('admin/apenilaian');
-	}
-	public function sets(){
-		$perhitungan = $this->perhitunganS();
-		if($perhitungan != null){
-			foreach ($perhitungan as $item) {
-				$this->db->where('EMAIL_NAS', $item->EMAIL_NAS)->update('penilaian_ready', $item);
-			}
+		
+		foreach ($formData as $item) {
+			$item['PERHITUNGAN_V'] = $item['PERHITUNGAN_S'] / $totalNilaiS;
+			$this->db->insert('penilaian_ready', $item);
 		}
-		redirect('admin/apenilaian');
-	}
-	public function setv(){
-		$perhitungan = $this->perhitunganV();
-		if($perhitungan != null){
-			foreach ($perhitungan as $item) {
-				$this->db->where('EMAIL_NAS', $item->EMAIL_NAS)->update('penilaian_ready', $item);
-			}
-		}
+
+		// $formData['EMAIL_NAS'] 				= $_POST['email'];
+		// $formData['PERHITUNGAN_KELDOK'] 	= pow($_POST['bobot_keldok'], 0.25);
+		// $formData['PERHITUNGAN_KEMBA'] 		= pow($_POST['bobot_kemba'], 0.25);
+		// $formData['PERHITUNGAN_JAMINAN'] 	= pow($_POST['bobot_jaminan'], 0.25);
+		// $formData['PERHITUNGAN_SLIK'] 		= pow($_POST['bobot_slik'], 0.25);
+		// $formData['PERHITUNGAN_S'] 			= NULL;
+		// $formData['PERHITUNGAN_V'] 			= NULL;
+
+		// $data = $this->db->get_where('penilaian_ready', ['EMAIL_NAS' => $_POST['email']])->result();
+		// if($data == null){
+		// 	$this->db->insert('penilaian_ready', $formData);
+		// }else{
+		// 	$this->db->where('EMAIL_NAS', $_POST['email'])->update('penilaian_ready', $formData);
+		// }
 		redirect('admin/apenilaian');
 	}
 	public function vGetDataset(){
