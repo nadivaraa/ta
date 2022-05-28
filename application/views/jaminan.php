@@ -273,7 +273,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                            if ($verifJaminan[0]->STATUS_VJ != "2" && $verifJaminan[0]->STATUS_VJ != "3") {
                                                 echo '
                                                     <div class="input-group mb-1 mt-1">
                                                         <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -303,7 +303,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                            if ($verifJaminan[0]->STATUS_VJ != "2" && $verifJaminan[0]->STATUS_VJ != "3") {
                                                 echo '
                                                     <div class="input-group mb-1 mt-1">
                                                         <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -333,7 +333,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                            if ($verifJaminan[0]->STATUS_VJ != "2" && $verifJaminan[0]->STATUS_VJ != "3") {
                                                 echo '
                                                     <div class="input-group mb-1 mt-1">
                                                         <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -363,7 +363,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifJaminan[0]->STATUS_VJ != "2") {
+                                            if ($verifJaminan[0]->STATUS_VJ != "2" && $verifJaminan[0]->STATUS_VJ != "3") {
                                                 echo '
                                                     <div class="input-group mb-1 mt-1">
                                                         <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />

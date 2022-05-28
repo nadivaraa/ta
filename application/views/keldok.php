@@ -340,7 +340,7 @@
                                             ?>
 
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -372,7 +372,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -403,7 +403,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -435,7 +435,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -467,7 +467,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -499,7 +499,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -531,7 +531,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -563,7 +563,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -595,7 +595,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -627,7 +627,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -659,7 +659,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -691,7 +691,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -738,7 +738,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -770,7 +770,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -802,7 +802,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -834,7 +834,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -866,7 +866,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -898,7 +898,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -930,7 +930,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -962,7 +962,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -994,7 +994,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1026,7 +1026,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1074,7 +1074,7 @@
                                             ?>
 
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1106,7 +1106,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1138,7 +1138,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1170,7 +1170,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1202,7 +1202,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1234,7 +1234,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1266,7 +1266,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1298,7 +1298,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1329,7 +1329,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1360,7 +1360,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1391,7 +1391,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1422,7 +1422,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1454,7 +1454,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
@@ -1486,7 +1486,7 @@
                                             }
                                             ?>
                                             <?php
-                                            if ($verifDokumen[0]->STATUS_VD != "2") {
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
                                                 echo '
                                                             <div class="input-group mb-1 mt-1">
                                                                 <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
