@@ -8,7 +8,7 @@ class Mverifdokumen extends CI_Model{
     return $this->db->get('verif_dokumen')->result();
     }
     public function get($param){
-        return $this->db->get_where('verif_dokumen', $param)->result();
+        return $this->db->order_by('FIELD(STATUS_VD, 2, 1, 4, 0, 3)')->get_where('verif_dokumen', $param)->result();
     }
     public function getById($id){
         return $this->db->where('ID_VD', $id)->get('verif_dokumen')->row();
@@ -20,7 +20,7 @@ class Mverifdokumen extends CI_Model{
                 n.NAMA_NAS
             FROM verif_dokumen vd, nasabah n
             WHERE vd.EMAIL_NAS = n.EMAIL_NAS
-            ORDER BY vd.STATUSVERIF_VD ASC
+            ORDER BY FIELD(STATUS_VD, 2, 1, 4, 0, 3)
         ")->result(); 
     }
     public function insert($param){
@@ -29,7 +29,7 @@ class Mverifdokumen extends CI_Model{
     public function update($param){
         $this->db->where('ID_VD', $param['ID_VD'])->update('verif_dokumen', $param);
         $param_slik['STATUS_VPS'] = $param['STATUS_VD'] == '3' ? '2' : '0'; 
-        $this->db->where('EMAIl_NAS', $param['EMAIL_NAS'])->update('verif_pengecekan_slik1', $param_slik);
+        $this->db->where('EMAIl_NAS', $param['EMAIL_NAS'])->update('verif_pengecekan_slik', $param_slik);
     }
     public function delete($param){
         $this->db->delete('verif_dokumen', $param);

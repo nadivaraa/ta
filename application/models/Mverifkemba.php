@@ -20,7 +20,7 @@ class Mverifkemba extends CI_Model{
                 n.NAMA_NAS
             FROM verif_kemampuan_bayar vkb, nasabah n
             WHERE vkb.EMAIL_NAS = n.EMAIL_NAS
-            ORDER BY vkb.STATUS_VKB ASC
+            ORDER BY FIELD(STATUS_VKB, 2, 1, 4, 0, 3)
         ")->result(); 
     }
     public function insert($param){

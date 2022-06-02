@@ -23,6 +23,7 @@ class Mverifslik extends CI_Model{
             WHERE 
                 vs.EMAIL_NAS = n.EMAIL_NAS
                 AND vd.EMAIL_NAS  = n.EMAIL_NAS 
+            ORDER BY FIELD(STATUS_VPS, 2, 1, 4, 0, 3)
         ")->result(); 
     }
     public function insert($param){

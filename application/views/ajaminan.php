@@ -324,7 +324,9 @@
             }
         })
         $(document).ready(function(){
-            $('#tbl').DataTable()
+            $('#tbl').DataTable({
+                ordering: false
+            })
         })
     </script>
 </body>

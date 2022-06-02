@@ -210,6 +210,7 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Dataset</h4>
+                                    <a href="<?= site_url('admin/apenilaian/setready')?>" class="btn btn-primary">Kalkulasi</a>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table class="tbl dt-responsive table table-bordered">
@@ -260,7 +261,6 @@
                                                 <th class="text-center" >Kemampuan bayar</th>
                                                 <th class="text-center" >Pengecekkan SLIK</th>
                                                 <th class="text-center" >Jaminan</th>
-                                                <th class="text-center"  class="cell-fit" rowspan="3">Aksi</th>
                                             </tr>
                                             <tr>
                                                 <th class="text-center">BENEFIT (5)</th>
@@ -286,16 +286,6 @@
                                                             <td>'.$item->bobot_kemba.'</td>
                                                             <td>'.$item->bobot_slik.'</td>
                                                             <td>'.$item->bobot_jaminan.'</td>
-                                                            <td>
-                                                                <form action="'.site_url('admin/apenilaian/setready').'" method="POST">
-                                                                    <input type="hidden" name="email" value="'.$item->email.'" />
-                                                                    <input type="hidden" name="bobot_keldok" value="'.$item->bobot_keldok.'" />
-                                                                    <input type="hidden" name="bobot_kemba" value="'.$item->bobot_kemba.'" />
-                                                                    <input type="hidden" name="bobot_slik" value="'.$item->bobot_slik.'" />
-                                                                    <input type="hidden" name="bobot_jaminan" value="'.$item->bobot_jaminan.'" />
-                                                                    <button type="submit" href="#" class="btn btn-sm btn-primary">Kalkulasi</button>
-                                                                </form>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
@@ -331,10 +321,10 @@
                                                         <tr>
                                                             <td>'.$item->EMAIL_NAS.'</td>
                                                             <td>'.$item->NAMA_NAS.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
-                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_KELDOK, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_KEMBA, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_SLIK, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_JAMINAN, 3, '.', '').'</td>
                                                         </tr>
                                                     ';
                                                 }
@@ -350,7 +340,6 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Menentukan Nilai S</h4>
-                                    <a style="float: right;" href="<?= site_url('admin/apenilaian/sets')?>" class="btn btn-primary btn-sm">Proses</a>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table class="tbl dt-responsive table table-bordered">
@@ -358,10 +347,6 @@
                                             <tr>
                                                 <th>Email</th>
                                                 <th>Nama</th>
-                                                <th>Kelengkapan dokumen</th>
-                                                <th>Kemampuan bayar</th>
-                                                <th>Pengecekkan SLIK</th>
-                                                <th>Jaminan</th>
                                                 <th>Nilai S</th>
                                             </tr>
                                         </thead>
@@ -372,11 +357,7 @@
                                                         <tr>
                                                             <td>'.$item->EMAIL_NAS.'</td>
                                                             <td>'.$item->NAMA_NAS.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
-                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
-                                                            <td>'.$item->PERHITUNGAN_S.'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_S, 3, '.', '').'</td>
                                                         </tr>
                                                     ';
                                                 }
@@ -392,7 +373,6 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Menentukan Nilai V</h4>
-                                    <a style="float: right;" href="<?= site_url('admin/apenilaian/setv')?>" class="btn btn-primary btn-sm">Proses</a>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table class="tbl dt-responsive table table-bordered">
@@ -400,10 +380,6 @@
                                             <tr>
                                                 <th>Email</th>
                                                 <th>Nama</th>
-                                                <th>Kelengkapan dokumen</th>
-                                                <th>Kemampuan bayar</th>
-                                                <th>Pengecekkan SLIK</th>
-                                                <th>Jaminan</th>
                                                 <th>Nilai S</th>
                                                 <th>Nilai V</th>
                                             </tr>
@@ -415,12 +391,8 @@
                                                         <tr>
                                                             <td>'.$item->EMAIL_NAS.'</td>
                                                             <td>'.$item->NAMA_NAS.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
-                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
-                                                            <td>'.$item->PERHITUNGAN_S.'</td>
-                                                            <td>'.$item->PERHITUNGAN_V.'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_S, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_V, 3, '.', '').'</td>
                                                         </tr>
                                                     ';
                                                 }
@@ -436,7 +408,6 @@
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Ranking</h4>
-                                    <a style="float: right;" href="<?= site_url('admin/apenilaian/setv')?>" class="btn btn-primary btn-sm">Proses</a>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table class="tbl-ranking dt-responsive table table-bordered">
@@ -459,12 +430,12 @@
                                                         <tr>
                                                             <td>'.$item->EMAIL_NAS.'</td>
                                                             <td>'.$item->NAMA_NAS.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KELDOK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_KEMBA.'</td>
-                                                            <td>'.$item->PERHITUNGAN_SLIK.'</td>
-                                                            <td>'.$item->PERHITUNGAN_JAMINAN.'</td>
-                                                            <td>'.$item->PERHITUNGAN_S.'</td>
-                                                            <td>'.$item->PERHITUNGAN_V.'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_KELDOK, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_KEMBA, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_SLIK, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_JAMINAN, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_S, 3, '.', '').'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_V, 3, '.', '').'</td>
                                                         </tr>
                                                     ';
                                                 }

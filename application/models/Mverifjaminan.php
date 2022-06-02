@@ -20,7 +20,7 @@ class Mverifjaminan extends CI_Model{
                 n.NAMA_NAS
             FROM verif_jaminan vj, nasabah n
             WHERE vj.EMAIL_NAS = n.EMAIL_NAS
-            ORDER BY vj.STATUS_VJ ASC
+            ORDER BY FIELD(STATUS_VJ, 2, 1, 4, 0, 3)
         ")->result(); 
     }
     public function insert($param){
