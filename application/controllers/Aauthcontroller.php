@@ -31,7 +31,10 @@ class Aauthcontroller extends CI_Controller {
 		}
 		$this->load->view('alogin');
 	}
-
+	public function proses_logout(){
+		$this->session->sess_destroy();
+		redirect('admin/login');
+	}
 	public function aproseslogin()
 	{
 		$data = array(

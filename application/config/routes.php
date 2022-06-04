@@ -61,6 +61,7 @@ $route['proses_register'] = 'authcontroller/proses_register';
 //LOGIN
 $route['proses_login'] = 'Authcontroller/proses_login';
 $route['proses_logout'] = 'Authcontroller/proses_logout';
+$route['aproses_logout'] = 'Aauthcontroller/proses_logout';
 
 //PROFILE
 $route['profile'] = 'profilecontroller/profile';
