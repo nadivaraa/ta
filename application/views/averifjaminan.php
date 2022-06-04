@@ -454,11 +454,11 @@
                                                 </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="depan" id="inlineRadio5" value="1" <?= $verifJaminan[0]->JALAN_VJ == '1'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="depan" id="inlineRadio5" value="0" <?= $verifJaminan[0]->JALAN_VJ == '0'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio5"><= 300 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="depan" id="inlineRadio6" value="0" <?= $verifJaminan[0]->JALAN_VJ == '0'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="depan" id="inlineRadio6" value="1" <?= $verifJaminan[0]->JALAN_VJ == '1'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio6">> 300 meter</label>
                                                     </div>
                                                 </div>
@@ -476,11 +476,11 @@
                                                 </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="tower" id="inlineRadio7" value="1" <?= $verifJaminan[0]->TOWER_VJ == '1'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="tower" id="inlineRadio7" value="0" <?= $verifJaminan[0]->TOWER_VJ == '0'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio7"><= 20 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="tower" id="inlineRadio8" value="0" <?= $verifJaminan[0]->TOWER_VJ == '0'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="tower" id="inlineRadio8" value="1" <?= $verifJaminan[0]->TOWER_VJ == '1'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio8">> 20 meter</label>
                                                     </div>
                                                 </div>
@@ -498,11 +498,11 @@
                                                 </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio9" value="1" <?= $verifJaminan[0]->SUNGAI_VJ == '1'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio9" value="0" <?= $verifJaminan[0]->SUNGAI_VJ == '0'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio9"><= 10 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio10" value="0" <?= $verifJaminan[0]->SUNGAI_VJ == '0'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="sungai" id="inlineRadio10" value="1" <?= $verifJaminan[0]->SUNGAI_VJ == '1'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio10">> 10 meter</label>
                                                     </div>
                                                 </div>
@@ -520,11 +520,11 @@
                                                 </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sate" id="inlineRadio11" value="1" <?= $verifJaminan[0]->TUSUK_VJ == '1'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="sate" id="inlineRadio11" value="0" <?= $verifJaminan[0]->TUSUK_VJ == '0'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio11">Iya</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="sate" id="inlineRadio12" value="0" <?= $verifJaminan[0]->TUSUK_VJ == '0'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="sate" id="inlineRadio12" value="1" <?= $verifJaminan[0]->TUSUK_VJ == '1'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio12">Tidak</label>
                                                     </div>
                                                 </div>
@@ -542,11 +542,11 @@
                                                 </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio13" value="1" <?= $verifJaminan[0]->MAKAM_VJ == '1'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio13" value="0" <?= $verifJaminan[0]->MAKAM_VJ == '0'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio13"><= 200 meter</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio14" value="0" <?= $verifJaminan[0]->MAKAM_VJ == '0'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="makam" id="inlineRadio14" value="1" <?= $verifJaminan[0]->MAKAM_VJ == '1'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio14">> 200 meter</label>
                                                     </div>
                                                 </div>
@@ -564,11 +564,11 @@
                                                 </p>
                                                 <div style="margin-top: 7px;margin-bottom: 7px;">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="listrik" id="inlineRadio15" value="1" <?= $verifJaminan[0]->LISTRIKAIR_VJ == '1'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="listrik" id="inlineRadio15" value="0" <?= $verifJaminan[0]->LISTRIKAIR_VJ == '0'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio15">Iya</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="listrik" id="inlineRadio16" value="0" <?= $verifJaminan[0]->LISTRIKAIR_VJ == '0'? 'checked' : ''?> required>
+                                                        <input class="form-check-input" type="radio" name="listrik" id="inlineRadio16" value="1" <?= $verifJaminan[0]->LISTRIKAIR_VJ == '1'? 'checked' : ''?> required>
                                                         <label class="form-check-label" for="inlineRadio16">Tidak</label>
                                                     </div>
                                                 </div>
@@ -589,7 +589,6 @@
                                             <?php
                                                 if($verifJaminan[0]->KESDOK_VJ != null){
                                                     echo '
-                                                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
                                                         <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
                                                     ';
                                                 }
@@ -619,11 +618,27 @@
                         <div class="form-group mb-1">
                             <label for="">Atur Kriteria</label>
                             <select name="kriteria" class="form-control" required>
-                                <option value="" disabled selected>Atur Kriteria</option>
                                 <?php
+                                    $isMampu = true;
+                                    if($verifJaminan[0]->KESDOK_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->HARGRUM_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->JALAN_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->TOWER_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->SUNGAI_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->TUSUK_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->MAKAM_VJ == 0) $isMampu = false;
+                                    if($verifJaminan[0]->LISTRIKAIR_VJ == 0) $isMampu = false;
+                                    
                                     foreach ($kriteria as $item) {
+                                        $selected = "";
+                                        if($isMampu == true && $item->NAMA_KJ == "Layak"){
+                                            $selected = "selected";
+                                        }else if($isMampu == false && $item->NAMA_KJ == "Tidak Layak"){
+                                            $selected = "selected";
+                                        }
+
                                         echo '
-                                            <option value="'.$item->ID_KJ.'">'.$item->NAMA_KJ.'</option>
+                                            <option value="'.$item->ID_KJ.'" '.$selected.'>'.$item->NAMA_KJ.'</option>
                                         ';
                                     }
                                 ?>

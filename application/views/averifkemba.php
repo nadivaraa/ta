@@ -412,7 +412,10 @@
                                         $selected = "";
                                         if($statusVerif == true && $item->NAMA_KMB == "Mampu"){
                                             $selected = "selected";
+                                        }else if($statusVerif == false && $item->NAMA_KMB == "Tidak Mampu"){
+                                            $selected = "selected";
                                         }
+                                        
                                         echo '
                                             <option value="'.$item->ID_KMB.'" '.$selected.'>'.$item->NAMA_KMB.'</option>
                                         ';
