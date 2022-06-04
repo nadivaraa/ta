@@ -381,14 +381,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="" style="float: right;">
-                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#mdlTolak"><i data-feather="x"></i> Tolak</button>    
-                                            <?php
-                                                if($statusVerif == true){
-                                                    echo '
-                                                        <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
-                                                    ';
-                                                }
-                                            ?>
+                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#mdlVerif" ><i data-feather="check"></i> Verif</button>
                                             </div>
                                         </div>
                                     </div>
@@ -414,11 +407,14 @@
                         <div class="form-group mb-1">
                             <label for="">Atur Kriteria</label>
                             <select name="kriteria" class="form-control" required>
-                                <option value="" disabled selected>Atur Kriteria</option>
                                 <?php
                                     foreach ($kriteria as $item) {
+                                        $selected = "";
+                                        if($statusVerif == true && $item->NAMA_KMB == "Mampu"){
+                                            $selected = "selected";
+                                        }
                                         echo '
-                                            <option value="'.$item->ID_KMB.'">'.$item->NAMA_KMB.'</option>
+                                            <option value="'.$item->ID_KMB.'" '.$selected.'>'.$item->NAMA_KMB.'</option>
                                         ';
                                     }
                                 ?>
