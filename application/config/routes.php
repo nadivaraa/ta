@@ -155,4 +155,4 @@ $route['admin/apenilaian/setready'] = 'apenilaiancontroller/setready';
 
 //AREKOMENDASI
 $route['admin/arekomendasi'] = 'arekomendasicontroller/arekomendasi';
-
+$route['admin/reportexcel'] = 'arekomendasicontroller/reportexcel';

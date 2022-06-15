@@ -211,6 +211,11 @@
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Rekomendasi</h4>
                                 </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="<?= site_url('admin/reportexcel')?>" style="float: right;" class="btn btn-success mt-3">Cetak Laporan</a>
+                                    </div>
+                                </div>
                                 <div class="card-datatable" style="padding: 2rem;">
                                     <table id="tbl" class="dt-responsive table table-bordered">
                                         <thead>
@@ -218,16 +223,22 @@
                                                 <th>Email</th>
                                                 <th>Nama</th>
                                                 <th>Nilai</th>
-                                                <th class="cell-fit">Status</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Email</td>
-                                                <td>Nama</td>
-                                                <td>Nilai</td>
-                                                <td>Status</td>
-                                            </tr>
+                                            <?php
+                                                foreach ($ranking as $item) {
+                                                    echo '
+                                                        <tr>
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_V, 3, '.', '').'</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -282,7 +293,9 @@
             }
         })
         $(document).ready(function() {
-            $('#tbl').DataTable()
+            $('#tbl').DataTable({
+                "ordering": false
+            })
         })
     </script>
 </body>
