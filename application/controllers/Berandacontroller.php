@@ -20,6 +20,7 @@ class Berandacontroller extends CI_Controller {
 	 */
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('Mnotifikasi');
 		if($this->session->userdata('is_login') == false){
 			if($this->session->userdata('role') != "2"){
 				redirect('/');
@@ -36,6 +37,7 @@ class Berandacontroller extends CI_Controller {
 	}
 	public function beranda()
 	{
-		$this->load->view('beranda');
+		$data['notifikasi'] = $this->Mnotifikasi->get(['EMAIL_NAS' => $this->session->userdata('email'), 'ADMIN_NOTIF' => '0', 'orderBy' => 'TGL_NOTIF DESC']);
+		$this->load->view('beranda', $data);
 	}
 }
