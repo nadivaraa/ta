@@ -22,6 +22,7 @@ class Aberandacontroller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Mnasabah');
+		$this->load->model('Mnotifikasi');
 
 		if($this->session->userdata('is_login') == false){
 			if($this->session->userdata('role') != "1"){
@@ -39,8 +40,8 @@ class Aberandacontroller extends CI_Controller {
 	}
 	
 	public function aberanda(){
-		
-		$this->load->view('aberanda');
+		$data['notifikasi'] = $this->Mnotifikasi->get(['ADMIN_NOTIF' => '1', 'orderBy' => 'TGL_NOTIF DESC']);
+		$this->load->view('aberanda', $data);
 	}
 
 

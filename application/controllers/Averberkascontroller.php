@@ -29,6 +29,7 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->model('Mkriteriakeldok');
 		$this->load->model('Mkriteriakemba');
 		$this->load->model('Mkriteriaslik');
+		$this->load->model('Mnotifikasi');
 	}
 	public function akeldok()
 	{
@@ -67,6 +68,25 @@ class Averberkascontroller extends CI_Controller {
 			'HARRUMBANK_VKB' => ((int)$harrum * 90) / 100
 		);
 		$this->Mverifkemba->update($dataUpdateVerifKemba);
+
+		if($_POST['status'] == '3'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Selamat, pengajuan kelengkapan dokumen anda telah diverifikasi!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '3',
+				'ADMIN_NOTIF'	=> '0'
+			]);
+		}else if($_POST['status'] == '4'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Pengajuan kelengkapan dokumen anda telah ditolak!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '4',
+				'ADMIN_NOTIF'	=> '0'
+			]);
+		}
+
 		redirect('admin/keldok');
 	}
 
@@ -123,6 +143,7 @@ class Averberkascontroller extends CI_Controller {
 	}
 
 	public function proses_verifkemba(){
+		$emailNas = $this->Mverifdokumen->getById($_POST['idVKB'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VKB' => $_POST['idVKB'],
 			'STATUS_VKB' => $_POST['status'],
@@ -132,6 +153,25 @@ class Averberkascontroller extends CI_Controller {
 		if($_POST['status'] == '3'){
 			$dataUpdate['ID_KMB'] = $_POST['kriteria'];
 		}
+
+		if($_POST['status'] == '3'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Selamat, pengajuan kemampuan bayar anda telah diverifikasi!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '3',
+				'ADMIN_NOTIF'	=> '0'
+			]);
+		}else if($_POST['status'] == '4'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Pengajuan kemampuan bayar anda telah ditolak!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '4',
+				'ADMIN_NOTIF'	=> '0'
+			]);
+		}
+
 		$this->Mverifkemba->update($dataUpdate);
 		redirect('admin/kemba');
 	}
@@ -172,6 +212,7 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->view('averifjaminan', $data);
 	}
 	public function proses_verifslik(){
+		$emailNas = $this->Mverifdokumen->getById($_POST['idVPS'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VPS' => $_POST['idVPS'],
 			'STATUS_VPS' => $_POST['status'],
@@ -180,6 +221,24 @@ class Averberkascontroller extends CI_Controller {
 
 		if($_POST['status'] == '3'){
 			$dataUpdate['ID_KPS'] = $_POST['kriteria'];
+		}
+
+		if($_POST['status'] == '3'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Selamat, Kelengkapan SLIK anda telah diverifikasi!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '3',
+				'ADMIN_NOTIF'	=> '0'
+			]);
+		}else if($_POST['status'] == '4'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Pengajuan kemampuan SLIK anda telah ditolak!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '4',
+				'ADMIN_NOTIF'	=> '0'
+			]);
 		}
 
 		$this->Mverifslik->update($dataUpdate);
@@ -199,9 +258,12 @@ class Averberkascontroller extends CI_Controller {
 		
 		$this->Mverifjaminan->update($data);
 		$this->session->set_flashdata('succ_msg', 'Berhasil menyimpan dokumen penunjang jaminan!');
+
+		
 		redirect('admin/averifjaminan/'.$_POST['idVJ']);
 	}
 	public function proses_verifjaminan(){
+		$emailNas = $this->Mverifdokumen->getById($_POST['idVJ'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VJ' => $_POST['idVJ'],
 			'STATUS_VJ' => $_POST['status'],
@@ -210,6 +272,24 @@ class Averberkascontroller extends CI_Controller {
 
 		if($_POST['status'] == '3'){
 			$dataUpdate['ID_KJ'] = $_POST['kriteria'];
+		}
+
+		if($_POST['status'] == '3'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Selamat, Dokumen jaminan anda telah diverifikasi!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '3',
+				'ADMIN_NOTIF'	=> '0'
+			]);
+		}else if($_POST['status'] == '4'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $emailNas,
+				'PESAN_NOTIF' 	=> 'Dokumen jaminan anda telah ditolak!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '4',
+				'ADMIN_NOTIF'	=> '0'
+			]);
 		}
 
 		// if($_POST['status'] == '4'){

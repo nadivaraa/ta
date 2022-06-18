@@ -279,7 +279,31 @@
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
-                                        
+                                        <table id="tbl" class="dt-responsive table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Email</th>
+                                                    <th>Pesan</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $no = 1;
+                                                    foreach ($notifikasi as $item) {
+                                                        echo '
+                                                            <tr>
+                                                                <td>'.$no++.'</td>
+                                                                <td>'.$item->EMAIL_NAS.'</td>
+                                                                <td>'.$item->PESAN_NOTIF.'</td>
+                                                                <td>'.date_format(date_create($item->TGL_NOTIF), 'j F Y H:i').'</td>
+                                                            </tr>   
+                                                        ';
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

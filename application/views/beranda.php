@@ -10,31 +10,35 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Dashboard</title>
-<link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg')?>" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="<?= base_url('assets/images/logo/logokpr.svg') ?>" sizes="any" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/charts/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/vendors/css/extensions/toastr.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/plugins/extensions/ext-component-toastr.css">
     <!-- END: Page CSS-->
-
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
     <!-- END: Custom CSS-->
@@ -283,7 +287,43 @@
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
-                                        
+                                        <table id="tbl" class="dt-responsive table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Pesan</th>
+                                                    <th>Status</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $no = 1;
+                                                    foreach ($notifikasi as $item) {
+                                                        $status = "";
+
+                                                        if ($item->STATUS_NOTIF == '3') {
+                                                            $status =  '
+                                                                    <span class="badge badge-light-success">Terverifikasi</span>
+                                                                ';
+                                                        } else if ($item->STATUS_NOTIF == '4') {
+                                                            $status =  '
+                                                                    <span class="badge badge-light-danger">Gagal</span>
+                                                                ';
+                                                        }
+
+                                                        echo '
+                                                            <tr>
+                                                                <td>'.$no++.'</td>
+                                                                <td>'.$item->PESAN_NOTIF.'</td>
+                                                                <td>'.date_format(date_create($item->TGL_NOTIF), 'j F Y H:i').'</td>
+                                                                <td>'.$status.'</td>
+                                                            </tr>   
+                                                        ';
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -316,22 +356,28 @@
     <div class="drag-target"></div>
 
     <!-- BEGIN: Vendor JS-->
-    <script src="<?= base_url()?>/assets/vendors/js/vendors.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/jszip.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <!-- <script src="<?= base_url()?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script> -->
+    <!-- <script src="<?= base_url()?>/assets/vendors/js/charts/apexcharts.min.js"></script> -->
     <script src="<?= base_url()?>/assets/vendors/js/extensions/toastr.min.js"></script>
-    <!-- END: Page Vendor JS-->
-
-    <!-- BEGIN: Theme JS-->
     <script src="<?= base_url()?>/assets/js/core/app-menu.js"></script>
     <script src="<?= base_url()?>/assets/js/core/app.js"></script>
-    <!-- END: Theme JS-->
-
-    <!-- BEGIN: Page JS-->
-    <script src="<?= base_url()?>/assets/js/scripts/pages/dashboard-ecommerce.js"></script>
-    <!-- END: Page JS-->
 
     <script>
         $(window).on('load', function() {
@@ -353,6 +399,9 @@
                 }
             );
         }, 2000);
+        $(document).ready(function() {
+            $('#tbl').DataTable()
+        })
     </script>
 </body>
 <!-- END: Body-->

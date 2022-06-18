@@ -28,6 +28,7 @@ class Berkascontroller extends CI_Controller {
 		$this->load->model('Mverifjaminan');
 		$this->load->model('Mverifkemba');
 		$this->load->model('Mnasabah');
+		$this->load->model('Mnotifikasi');
 		if (!$this->session->is_login){
 			redirect();
 		}
@@ -102,6 +103,13 @@ class Berkascontroller extends CI_Controller {
 		
 		$this->session->set_flashdata('succ_msg', 'Dokumen berhasil diunggah, silahkan tunggu verifikasi!');
 		$this->Mverifdokumen->update(['ID_VD' => $verifDokumen->ID_VD, 'STATUS_VD' => '2']);
+		$this->Mnotifikasi->insert([
+			'EMAIL_NAS' 	=> $this->session->userdata('email'),
+			'PESAN_NOTIF' 	=> 'Terdapat pengajuan kelengkapan dokumen baru!',
+			'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+			'STATUS_NOTIF'	=> '0',
+			'ADMIN_NOTIF'	=> '1'
+		]);
 		redirect('keldok');
 	}
 
@@ -123,6 +131,16 @@ class Berkascontroller extends CI_Controller {
 		$data['CICILLAIN_VKB']	= str_replace(',', '', $_POST['cicilan']);
 		$data['DURCIL_VKB']		= $_POST['angsuran'];
 		$data['STATUS_VKB']		= ($_POST['status'] == 'Simpan' ? 1 : 2);
+
+		if($_POST['status'] != 'Simpan'){
+			$this->Mnotifikasi->insert([
+				'EMAIL_NAS' 	=> $this->session->userdata('email'),
+				'PESAN_NOTIF' 	=> 'Terdapat pengajuan kemampuan bayar baru!',
+				'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+				'STATUS_NOTIF'	=> '0',
+				'ADMIN_NOTIF'	=> '1'
+			]);
+		}
 		$this->Mverifkemba->update($data);
 		redirect('kemba');
 	}
@@ -175,6 +193,15 @@ class Berkascontroller extends CI_Controller {
 		
 		$this->session->set_flashdata('succ_msg', 'Dokumen berhasil diunggah, silahkan tunggu verifikasi!');
 		$this->Mverifjaminan->update(['ID_VJ' => $verifJaminan->ID_VJ, 'STATUS_VJ' => '2']);
+
+		$this->Mnotifikasi->insert([
+			'EMAIL_NAS' 	=> $this->session->userdata('email'),
+			'PESAN_NOTIF' 	=> 'Terdapat pengajuan dokumen jaminan baru!',
+			'TGL_NOTIF' 	=> date('Y-m-d H:i:s'),
+			'STATUS_NOTIF'	=> '0',
+			'ADMIN_NOTIF'	=> '1'
+		]);
+
 		redirect('jaminan');
 	}
 		

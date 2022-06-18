@@ -134,7 +134,7 @@ $(window).on('load', function () {
       }
     }
   };
-  statisticsOrderChart = new ApexCharts($statisticsOrderChart, statisticsOrderChartOptions);
+  // statisticsOrderChart = new ApexCharts($statisticsOrderChart, statisticsOrderChartOptions);
   statisticsOrderChart.render();
 
   //------------ Statistics Line Chart ------------
