@@ -34,10 +34,19 @@ class Berandacontroller extends CI_Controller {
 		if ($this->session->role == '1'){
 			redirect('admin/beranda');
 		}
+
+		$this->load->model('Mverifdokumen');
+		$this->load->model('Mverifjaminan');
+		$this->load->model('Mverifkemba');
+		$this->load->model('Mverifslik');
 	}
 	public function beranda()
 	{
 		$data['notifikasi'] = $this->Mnotifikasi->get(['EMAIL_NAS' => $this->session->userdata('email'), 'ADMIN_NOTIF' => '0', 'orderBy' => 'TGL_NOTIF DESC']);
+		$data['keldok']		= $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['jaminan']	= $this->Mverifjaminan->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['kemba']		= $this->Mverifkemba->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['slik']		= $this->Mverifslik->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$this->load->view('beranda', $data);
 	}
 }
