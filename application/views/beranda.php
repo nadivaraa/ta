@@ -202,54 +202,146 @@
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">
+                                        <?php
+                                            if ($keldok[0]->STATUS_VD == '0') {
+                                                $status     = "Belum ada aksi";
+                                                $icon       = "alert-octagon";
+                                                $color      = "dark";
+                                            }else if ($keldok[0]->STATUS_VD == '1') {
+                                                $status     = "Draft";
+                                                $icon       = "pocket";
+                                                $color      = "info";
+                                            } else if ($keldok[0]->STATUS_VD == '2') {
+                                                $status     = "Proses";
+                                                $icon       = "clock";
+                                                $color      = "warning";
+                                            } else if ($keldok[0]->STATUS_VD == '3') {
+                                                $status     = "Terverifikasi";
+                                                $icon       = "check";
+                                                $color      = "success";
+                                            } else if ($keldok[0]->STATUS_VD == '4') {
+                                                $status     = "Gagal";
+                                                $icon       = "x";
+                                                $color      = "danger";
+                                            }
+                                        ?>
                                         <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-success me-2">
+                                                <div class="avatar bg-light-<?= $color?> me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="check" class="avatar-icon"></i>
+                                                        <i data-feather="<?= $icon?>" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Terverifikasi</h4>
+                                                    <h4 class="fw-bolder mb-0"><?= $status?></h4>
                                                     <p class="card-text font-small-3 mb-0">Kelengkapan Dokumen</p>
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php
+                                            if ($kemba[0]->STATUS_VKB == '0') {
+                                                $status     = "Belum ada aksi";
+                                                $icon       = "alert-octagon";
+                                                $color      = "dark";
+                                            }else if ($kemba[0]->STATUS_VKB == '1') {
+                                                $status     = "Draft";
+                                                $icon       = "pocket";
+                                                $color      = "info";
+                                            } else if ($kemba[0]->STATUS_VKB == '2') {
+                                                $status     = "Proses";
+                                                $icon       = "clock";
+                                                $color      = "warning";
+                                            } else if ($kemba[0]->STATUS_VKB == '3') {
+                                                $status     = "Terverifikasi";
+                                                $icon       = "check";
+                                                $color      = "success";
+                                            } else if ($kemba[0]->STATUS_VKB == '4') {
+                                                $status     = "Gagal";
+                                                $icon       = "x";
+                                                $color      = "danger";
+                                            }
+                                        ?>
                                         <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-warning me-2">
+                                                <div class="avatar bg-light-<?= $color?> me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="clock" class="avatar-icon"></i>
+                                                        <i data-feather="<?= $icon?>" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Proses</h4>
+                                                    <h4 class="fw-bolder mb-0"><?= $status?></h4>
                                                     <p class="card-text font-small-3 mb-0">Kemampuan Bayar</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                                        <?php
+                                            if ($slik[0]->STATUS_VPS == '0') {
+                                                $status     = "Belum ada aksi";
+                                                $icon       = "alert-octagon";
+                                                $color      = "dark";
+                                            }else if ($slik[0]->STATUS_VPS == '1') {
+                                                $status     = "Draft";
+                                                $icon       = "pocket";
+                                                $color      = "info";
+                                            } else if ($slik[0]->STATUS_VPS == '2') {
+                                                $status     = "Proses";
+                                                $icon       = "clock";
+                                                $color      = "warning";
+                                            } else if ($slik[0]->STATUS_VPS == '3') {
+                                                $status     = "Terverifikasi";
+                                                $icon       = "check";
+                                                $color      = "success";
+                                            } else if ($slik[0]->STATUS_VPS == '4') {
+                                                $status     = "Gagal";
+                                                $icon       = "x";
+                                                $color      = "danger";
+                                            }
+                                        ?>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-info me-2">
+                                                <div class="avatar bg-light-<?= $color?> me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="pocket" class="avatar-icon"></i>
+                                                        <i data-feather="<?= $icon?>" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Draft</h4>
-                                                    <p class="card-text font-small-3 mb-0">Pengecekkan SLIK</p>
+                                                    <h4 class="fw-bolder mb-0"><?= $status?></h4>
+                                                    <p class="card-text font-small-3 mb-0">Pengecekan SLIK</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3 col-sm-6 col-12">
+                                        <?php
+                                            if ($jaminan[0]->STATUS_VJ == '0') {
+                                                $status     = "Belum ada aksi";
+                                                $icon       = "alert-octagon";
+                                                $color      = "dark";
+                                            }else if ($jaminan[0]->STATUS_VJ == '1') {
+                                                $status     = "Draft";
+                                                $icon       = "pocket";
+                                                $color      = "info";
+                                            } else if ($jaminan[0]->STATUS_VJ == '2') {
+                                                $status     = "Proses";
+                                                $icon       = "clock";
+                                                $color      = "warning";
+                                            } else if ($jaminan[0]->STATUS_VJ == '3') {
+                                                $status     = "Terverifikasi";
+                                                $icon       = "check";
+                                                $color      = "success";
+                                            } else if ($jaminan[0]->STATUS_VJ == '4') {
+                                                $status     = "Gagal";
+                                                $icon       = "x";
+                                                $color      = "danger";
+                                            }
+                                        ?>
+                                        <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
                                             <div class="d-flex flex-row">
-                                                <div class="avatar bg-light-info me-2">
+                                                <div class="avatar bg-light-<?= $color?> me-2">
                                                     <div class="avatar-content">
-                                                        <i data-feather="pocket" class="avatar-icon"></i>
+                                                        <i data-feather="<?= $icon?>" class="avatar-icon"></i>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
-                                                    <h4 class="fw-bolder mb-0">Draft</h4>
+                                                    <h4 class="fw-bolder mb-0"><?= $status?></h4>
                                                     <p class="card-text font-small-3 mb-0">Jaminan</p>
                                                 </div>
                                             </div>

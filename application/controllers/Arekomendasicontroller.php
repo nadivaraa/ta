@@ -26,7 +26,27 @@ class Arekomendasicontroller extends CI_Controller {
 		$data['ranking'] = $this->vGetRanking();
 		$this->load->view('arekomendasi', $data);
 	}
-	public function vGetRanking(){
+	
+    public function hitunglayak(){
+        $ranking = $this->vGetRanking();
+
+        if($_POST['jmlLayak'] > count($ranking)){
+            $this->session->set_flashdata('err_msg', 'Set jumlah layak melebihi jumlah data ranking!');
+            redirect("admin/arekomendasi");
+        }
+
+        $this->db->update('penilaian_ready', ['PERHITUNGAN_STATUS' => '0']);
+        $no = 1;
+        foreach ($ranking as $item) {
+            if($no > $_POST['jmlLayak']) break;
+            $this->db->where('EMAIL_NAS', $item->EMAIL_NAS)->update('penilaian_ready', ['PERHITUNGAN_STATUS' => '1']);
+            $no++;
+        }
+
+        $this->session->set_flashdata('succ_msg', 'Berhasil atur jumlah layak!');
+        redirect("admin/arekomendasi");
+    }
+    public function vGetRanking(){
 		return $this->db->query("
 			select 
 				n.NAMA_NAS ,
