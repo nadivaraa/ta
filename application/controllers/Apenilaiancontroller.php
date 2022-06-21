@@ -49,19 +49,6 @@ class Apenilaiancontroller extends CI_Controller {
 			$index++;
 		}
 		
-		$nilMinimKeldok 	= 0.8;
-		$nilMinimJaminan 	= 0.8;
-		$nilMinimKemba 		= 0.8;
-		$nilMinimSlik 		= 0.8;
-		
-		$nilMinimKeldok 	= pow($nilMinimKeldok, 0.25);
-		$nilMinimJaminan 	= pow($nilMinimJaminan, 0.25);
-		$nilMinimKemba 		= pow($nilMinimKemba, 0.25);
-		$nilMinimSlik 		= pow($nilMinimSlik, 0.25);
-
-		$nilS = $nilMinimKeldok*$nilMinimJaminan*$nilMinimKemba*$nilMinimSlik;
-		// $nilV = $nilS
-		
 		foreach ($formData as $item) {
 			$item['PERHITUNGAN_V'] = $item['PERHITUNGAN_S'] / $totalNilaiS;
 			$this->db->insert('penilaian_ready', $item);

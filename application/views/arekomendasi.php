@@ -207,13 +207,46 @@
                 <section id="responsive-datatable">
                     <div class="row">
                         <div class="col-12">
+                            <?php
+                                if($this->session->flashdata('err_msg')){
+                                    echo '
+                                        <div class="alert alert-danger" role="alert">
+                                            <h4 class="alert-heading">Opps!</h4>
+                                            <div class="alert-body">
+                                                '.$this->session->flashdata('err_msg').'
+                                            </div>
+                                        </div>
+                                    ';
+                                }
+                            ?>
+                            <?php
+                                if($this->session->flashdata('succ_msg')){
+                                    echo '
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading">Success!</h4>
+                                            <div class="alert-body">
+                                                '.$this->session->flashdata('succ_msg').'
+                                            </div>
+                                        </div>
+                                    ';
+                                }
+                                
+                            ?>
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Rekomendasi</h4>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col">
-                                        <a href="<?= site_url('admin/reportexcel')?>" style="float: right;" class="btn btn-success mt-3">Cetak Laporan</a>
+                                        <form action="<?= site_url('admin/hitunglayak')?>" method="POST">
+                                            <div class="input-group ps-3">
+                                                <input type="text" class="form-control" name="jmlLayak" placeholder="Jumlah yang layak" aria-describedby="button-addon2">
+                                                <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">Hitung</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col pe-3">
+                                        <a href="<?= site_url('admin/reportexcel')?>" style="float: right;" class="btn btn-success">Cetak Laporan</a>
                                     </div>
                                 </div>
                                 <div class="card-datatable" style="padding: 2rem;">
@@ -230,11 +263,13 @@
                                             <?php
                                                 foreach ($ranking as $item) {
                                                     echo '
-                                                        <tr>
+                                                        <tr class="'.($item->PERHITUNGAN_STATUS == "1" ? "bg-success text-white" : "-").'">
                                                             <td>'.$item->EMAIL_NAS.'</td>
                                                             <td>'.$item->NAMA_NAS.'</td>
                                                             <td>'.number_format($item->PERHITUNGAN_V, 3, '.', '').'</td>
-                                                            <td>-</td>
+                                                            <td>
+                                                                '.($item->PERHITUNGAN_STATUS == "1" ? "<b>Layak</b>" : "-").'
+                                                            </td>
                                                         </tr>
                                                     ';
                                                 }

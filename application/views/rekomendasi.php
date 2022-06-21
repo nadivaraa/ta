@@ -192,6 +192,18 @@
                 <section id="responsive-datatable">
                     <div class="row">
                         <div class="col-12">
+                            <?php
+                                if($statusLayak != null){
+                                    echo '
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading">Success!</h4>
+                                            <div class="alert-body">
+                                                Selamat anda layak mendapatkan KPR!
+                                            </div>
+                                        </div>
+                                    ';
+                                }
+                            ?>
                             <div class="card">
                                 <div class="card-header border-bottom">
                                     <h4 class="card-title">Hasil</h4>
@@ -200,21 +212,27 @@
                                     <table id="tbl" class="dt-responsive table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Kelengkapan Dokumen</th>
-                                                <th>Kemampuan Bayar</th>
-                                                <th>Pengecekkan SLIK</th>
-                                                <th>Jaminan</th>
-                                                <th class="cell-fit">Status</th>
+                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Nilai</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Lengkap</td>
-                                                <td>Mampu</td>
-                                                <td>Kredit Lancar</td>
-                                                <td>Sangat Layak</td>
-                                                <td>Status</td>
-                                            </tr>
+                                            <?php
+                                                foreach ($ranking as $item) {
+                                                    echo '
+                                                        <tr class="'.($item->PERHITUNGAN_STATUS == "1" ? "bg-success text-white" : "-").'">
+                                                            <td>'.$item->EMAIL_NAS.'</td>
+                                                            <td>'.$item->NAMA_NAS.'</td>
+                                                            <td>'.number_format($item->PERHITUNGAN_V, 3, '.', '').'</td>
+                                                            <td>
+                                                                '.($item->PERHITUNGAN_STATUS == "1" ? "<b>Layak</b>" : "-").'
+                                                            </td>
+                                                        </tr>
+                                                    ';
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -269,7 +287,9 @@
             }
         })
         $(document).ready(function() {
-            $('#tbl').DataTable()
+            $('#tbl').DataTable({
+                "ordering": false
+            })
         })
     </script>
 </body>
