@@ -221,7 +221,7 @@
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-warning me-2">
                                                     <div class="avatar-content">
-                                                        10
+                                                        <?= $totalBaru ?>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
@@ -233,7 +233,7 @@
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-danger me-2">
                                                     <div class="avatar-content">
-                                                        10
+                                                        <?= $totalGagal ?>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
@@ -245,7 +245,7 @@
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-success me-2">
                                                     <div class="avatar-content">
-                                                        10
+                                                        <?= $totalVerif?>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">
@@ -257,7 +257,7 @@
                                             <div class="d-flex flex-row">
                                                 <div class="avatar bg-light-primary me-2">
                                                     <div class="avatar-content">
-                                                        30
+                                                        <?= $total?>
                                                     </div>
                                                 </div>
                                                 <div class="my-auto">

@@ -707,6 +707,37 @@
                                             }
                                             ?>
                                         </form>
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">BPJS</label>
+                                            <?php
+                                            if ($dokProf != null) {
+                                                if ($dokProf->BPJS_DP != null || $dokProf->BPJS_DP != '') {
+                                                    echo '
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                                    <br>
+                                                                    <a class="badge bg-primary" href="' . $dokProf->BPJS_DP . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
+                                                            ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
+                                                echo '
+                                                            <div class="input-group mb-1 mt-1">
+                                                                <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
+                                                                <input type="hidden" name="dir" value="dok_bpjs">
+                                                                <input type="hidden" name="col" value="BPJS_DP">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div>
+                                                        ';
+                                            }
+                                            ?>
+                                        </form>
                                         <?php
                                         if ($verifDokumen[0]->STATUS_VD == "0" || $verifDokumen[0]->STATUS_VD == '1' || $verifDokumen[0]->STATUS_VD == '4') {
                                             echo '
@@ -1042,7 +1073,37 @@
                                             }
                                             ?>
                                         </form>
-
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">BPJS</label>
+                                            <?php
+                                            if ($dokKary != null) {
+                                                if ($dokKary->BPJS_DK != null || $dokKary->BPJS_DK != '') {
+                                                    echo '
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                                    <br>
+                                                                    <a class="badge bg-primary" href="' . $dokKary->BPJS_DK . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
+                                                            ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
+                                                echo '
+                                                            <div class="input-group mb-1 mt-1">
+                                                                <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
+                                                                <input type="hidden" name="dir" value="dok_bpjs">
+                                                                <input type="hidden" name="col" value="BPJS_DK">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div>
+                                                        ';
+                                            }
+                                            ?>
+                                        </form>
                                         <?php
                                         if ($verifDokumen[0]->STATUS_VD == "0" || $verifDokumen[0]->STATUS_VD == '1' || $verifDokumen[0]->STATUS_VD == '4') {
                                             echo '
@@ -1493,6 +1554,37 @@
                                                                 <input type="hidden" name="pekerjaan" class="inptPekerjaan">
                                                                 <input type="hidden" name="dir" value="dok_bukti">
                                                                 <input type="hidden" name="col" value="BPEMBAYARAN_DW">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text" id="">Choose File</span>
+                                                                </div>
+                                                                <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                                            </div>
+                                                        ';
+                                            }
+                                            ?>
+                                        </form>
+                                        <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
+                                            <label for="customFile1" class="form-label">BPJS</label>
+                                            <?php
+                                            if ($dokWira != null) {
+                                                if ($dokWira->BPJS_DW != null || $dokWira->BPJS_DW != '') {
+                                                    echo '
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                                    <br>
+                                                                    <a class="badge bg-primary" href="' . $dokWira->BPJS_DW . '"." target="_blank">Lihat Dokumen</a><br>
+                                                                    
+                                                            ';
+                                                }
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($verifDokumen[0]->STATUS_VD != "2" && $verifDokumen[0]->STATUS_VD != "3") {
+                                                echo '
+                                                            <div class="input-group mb-1 mt-1">
+                                                                <input type="file" class="form-control" accept=".pdf,.png,.jpg,.jpeg" placeholder="Button on right" name="file" required aria-describedby="button-addon2"  />
+                                                                <input type="hidden" name="pekerjaan" class="inptPekerjaan">
+                                                                <input type="hidden" name="dir" value="dok_bpjs">
+                                                                <input type="hidden" name="col" value="BPJS_DW">
                                                                 <div class="input-group-append">
                                                                     <span class="input-group-text" id="">Choose File</span>
                                                                 </div>
