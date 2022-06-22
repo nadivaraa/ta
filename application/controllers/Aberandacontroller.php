@@ -23,6 +23,10 @@ class Aberandacontroller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Mnasabah');
 		$this->load->model('Mnotifikasi');
+		$this->load->model('Mverifdokumen');
+		$this->load->model('Mverifkemba');
+		$this->load->model('Mverifjaminan');
+		$this->load->model('Mverifslik');
 
 		if($this->session->userdata('is_login') == false){
 			if($this->session->userdata('role') != "1"){
@@ -40,7 +44,31 @@ class Aberandacontroller extends CI_Controller {
 	}
 	
 	public function aberanda(){
+		$keldokBaru 	= count($this->Mverifdokumen->get(['STATUS_VD' => '0']));
+		$kembaBaru 		= count($this->Mverifkemba->get(['STATUS_VKB' => '0']));
+		$jaminanBaru 	= count($this->Mverifjaminan->get(['STATUS_VJ' => '0']));
+		$slikBaru 		= count($this->Mverifslik->get(['STATUS_VPS' => '0']));
+		$totalBaru		= $keldokBaru + $kembaBaru + $jaminanBaru + $slikBaru;
+
+		$keldokVerif 	= count($this->Mverifdokumen->get(['STATUS_VD' => '3']));
+		$kembaVerif 	= count($this->Mverifkemba->get(['STATUS_VKB' => '3']));
+		$jaminanVerif 	= count($this->Mverifjaminan->get(['STATUS_VJ' => '3']));
+		$slikVerif 		= count($this->Mverifslik->get(['STATUS_VPS' => '3']));
+		$totalVerif		= $keldokVerif + $kembaVerif + $jaminanVerif + $slikVerif;
+
+		$keldokGagal 	= count($this->Mverifdokumen->get(['STATUS_VD' => '4']));
+		$kembaGagal 	= count($this->Mverifkemba->get(['STATUS_VKB' => '4']));
+		$jaminanGagal 	= count($this->Mverifjaminan->get(['STATUS_VJ' => '4']));
+		$slikGagal 		= count($this->Mverifslik->get(['STATUS_VPS' => '4']));
+		$totalGagal		= $keldokGagal + $kembaGagal + $jaminanGagal + $slikGagal;
+
+		$total = $totalBaru + $totalVerif + $totalGagal;
+
 		$data['notifikasi'] = $this->Mnotifikasi->get(['ADMIN_NOTIF' => '1', 'orderBy' => 'TGL_NOTIF DESC']);
+		$data['totalBaru'] 	= $totalBaru;
+		$data['totalVerif'] = $totalVerif;
+		$data['totalGagal'] = $totalGagal;
+		$data['total'] 		= $total;
 		$this->load->view('aberanda', $data);
 	}
 

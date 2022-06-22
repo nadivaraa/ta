@@ -143,7 +143,7 @@ class Averberkascontroller extends CI_Controller {
 	}
 
 	public function proses_verifkemba(){
-		$emailNas = $this->Mverifdokumen->getById($_POST['idVKB'])->EMAIL_NAS;
+		$emailNas = $this->Mverifkemba->getById($_POST['idVKB'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VKB' => $_POST['idVKB'],
 			'STATUS_VKB' => $_POST['status'],
@@ -212,7 +212,7 @@ class Averberkascontroller extends CI_Controller {
 		$this->load->view('averifjaminan', $data);
 	}
 	public function proses_verifslik(){
-		$emailNas = $this->Mverifdokumen->getById($_POST['idVPS'])->EMAIL_NAS;
+		$emailNas = $this->Mverifslik->getById($_POST['idVPS'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VPS' => $_POST['idVPS'],
 			'STATUS_VPS' => $_POST['status'],
@@ -263,7 +263,7 @@ class Averberkascontroller extends CI_Controller {
 		redirect('admin/averifjaminan/'.$_POST['idVJ']);
 	}
 	public function proses_verifjaminan(){
-		$emailNas = $this->Mverifdokumen->getById($_POST['idVJ'])->EMAIL_NAS;
+		$emailNas = $this->Mverifjaminan->getById($_POST['idVJ'])->EMAIL_NAS;
 		$dataUpdate = array(
 			'ID_VJ' => $_POST['idVJ'],
 			'STATUS_VJ' => $_POST['status'],
