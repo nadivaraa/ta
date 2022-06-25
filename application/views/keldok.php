@@ -1407,7 +1407,7 @@
                                             ?>
                                         </form>
                                         <form action="<?= site_url('proses_keldok') ?>" method="post" enctype="multipart/form-data">
-                                            <label for="customFile1" class="form-label">AKTA PENDIRIAN</label>
+                                            <label for="customFile1" class="form-label">AKTA PENDIRIAN USAHA</label>
                                             <?php
                                             if ($dokWira != null) {
                                                 if ($dokWira->AKTAPEND_DW != null || $dokWira->AKTAPEND_DW != '') {
