@@ -46,6 +46,9 @@ class Berkascontroller extends CI_Controller {
 		$data['dokKary'] 	  = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
 		$data['dokWira'] 	  = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $data['verifDokumen'][0]->ID_VD])->row();
 		
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'keldok';
+
 		$this->load->view('keldok', $data);
 	}
 
@@ -119,6 +122,9 @@ class Berkascontroller extends CI_Controller {
 		$data['nasabah'] = $this->Mnasabah->getById($this->session->userdata('email'));
 		$data['keldok'] = $this->Mverifdokumen->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$data['verifKemba'] = $this->Mverifkemba->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'kemba';
 		
 		$this->load->view('kemba', $data);
 	}
@@ -154,6 +160,8 @@ class Berkascontroller extends CI_Controller {
 	{
 		$data['verifJaminan'] 	= $this->Mverifjaminan->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $data['verifJaminan'][0]->ID_VJ])->row();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'jaminan';
 		$this->load->view('jaminan', $data);
 	}
 

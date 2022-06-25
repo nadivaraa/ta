@@ -160,26 +160,7 @@
             </ul>
         </div>
         <div class="shadow-bottom"></div>
-        <div class="main-menu-content">
-            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('beranda')?>"><i data-feather="home"></i><span class="menu-item text-truncate" data-i18n="Dashboard">Dashboard</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Berkas">Berkas</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="<?= site_url('keldok')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('kemba')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
-                        </li>
-                        <!-- <li><a class="d-flex align-items-center" href="<?= site_url('slik')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li> -->
-                        <li><a class="d-flex align-items-center" href="<?= site_url('jaminan')?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
-                        </li>  
-                    </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('rekomendasi')?>"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Hasil</span></a>
-                </li>
-                </li>
-            </ul>
-        </div>
+        <?php $this->load->view('sidebar', ['sidebar' => $sidebar, 'sidebar2' => $sidebar2]) ?>
     </div>
     <!-- END: Main Menu-->
 
@@ -383,9 +364,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
+                                                    <th>Tanggal</th>
                                                     <th>Pesan</th>
                                                     <th>Status</th>
-                                                    <th>Tanggal</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -407,8 +388,8 @@
                                                         echo '
                                                             <tr>
                                                                 <td>'.$no++.'</td>
-                                                                <td>'.$item->PESAN_NOTIF.'</td>
                                                                 <td>'.date_format(date_create($item->TGL_NOTIF), 'j F Y H:i').'</td>
+                                                                <td>'.$item->PESAN_NOTIF.'</td>
                                                                 <td>'.$status.'</td>
                                                             </tr>   
                                                         ';

@@ -22,6 +22,8 @@ class Rekomendasicontroller extends CI_Controller {
 	{
 		$data['ranking'] 		 = $this->vGetRanking();
 		$data['statusLayak']	 = $this->db->get_where('penilaian_ready', ['EMAIL_NAS' => $this->session->userdata('email'), 'PERHITUNGAN_STATUS' => '1'])->result(); 
+		$data['sidebar'] = 'rekomendasi';
+		$data['sidebar2'] = '';
 		$this->load->view('rekomendasi', $data);
 	}
 	public function vGetRanking(){

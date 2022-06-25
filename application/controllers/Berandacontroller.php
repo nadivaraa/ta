@@ -47,6 +47,8 @@ class Berandacontroller extends CI_Controller {
 		$data['jaminan']	= $this->Mverifjaminan->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$data['kemba']		= $this->Mverifkemba->get(['EMAIL_NAS' => $this->session->userdata('email')]);
 		$data['slik']		= $this->Mverifslik->get(['EMAIL_NAS' => $this->session->userdata('email')]);
+		$data['sidebar'] = 'beranda';
+		$data['sidebar2'] = '';
 		$this->load->view('beranda', $data);
 	}
 }
