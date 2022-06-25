@@ -24,6 +24,8 @@ class Arekomendasicontroller extends CI_Controller {
 	public function arekomendasi()
 	{
 		$data['ranking'] = $this->vGetRanking();
+        $data['sidebar'] = 'rekomendasi';
+		$data['sidebar2'] = '';
 		$this->load->view('arekomendasi', $data);
 	}
 	

@@ -37,12 +37,16 @@ class Akriteriacontroller extends CI_Controller {
 	public function akrikeldok()
 	{
 		$data['krikeldok'] = $this->Mkriteriakeldok->getAll();
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krikeldok';
 		$this->load->view('akrikeldok', $data);
 	}
 
 	public function atambahkrikeldok()
 	{
-		$this->load->view('atambahkrikeldok');
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krikeldok';
+		$this->load->view('atambahkrikeldok', $data);
 	}
 
 	public function aeditkrikeldok($id)
@@ -50,6 +54,10 @@ class Akriteriacontroller extends CI_Controller {
 		$data = array(
 			'krikeldok' => $this->Mkriteriakeldok->getById($id)
 		);
+
+		
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krikeldok';
 
 		$this->load->view('aeditkrikeldok', $data);
 	}
@@ -87,12 +95,16 @@ class Akriteriacontroller extends CI_Controller {
 	public function akrikemba()
 	{
 		$data['krikemba'] = $this->Mkriteriakemba->getAll();
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krikemba';
 		$this->load->view('akrikemba', $data);
 	}
 
 	public function atambahkrikemba()
 	{
-		$this->load->view('atambahkrikemba');
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krikemba';
+		$this->load->view('atambahkrikemba', $data);
 	}
 
 	public function aeditkrikemba($id)
@@ -100,6 +112,9 @@ class Akriteriacontroller extends CI_Controller {
 		$data = array(
 			'krikemba' => $this->Mkriteriakemba->getById($id)
 		);
+		
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krikemba';
 
 		$this->load->view('aeditkrikemba', $data);
 	}
@@ -137,12 +152,17 @@ class Akriteriacontroller extends CI_Controller {
 	public function akrislik()
 	{
 		$data['krislik'] = $this->Mkriteriaslik->getAll();
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krislik';
 		$this->load->view('akrislik', $data);
 	}
 
 	public function atambahkrislik()
 	{
-		$this->load->view('atambahkrislik');
+		
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krislik';
+		$this->load->view('atambahkrislik', $data);
 	}
 
 	public function aeditkrislik($id)
@@ -150,6 +170,10 @@ class Akriteriacontroller extends CI_Controller {
 		$data = array(
 			'krislik' => $this->Mkriteriaslik->getById($id)
 		);
+
+		
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krislik';
 
 		$this->load->view('aeditkrislik', $data);
 	}
@@ -187,12 +211,17 @@ class Akriteriacontroller extends CI_Controller {
 	public function akrijaminan()
 	{
 		$data['krijaminan'] = $this->Mkriteriajaminan->getAll();
+		
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krijaminan';
 		$this->load->view('akrijaminan',$data);
 	}
 
 	public function atambahkrijaminan()
 	{
-		$this->load->view('atambahkrijaminan');
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krijaminan';
+		$this->load->view('atambahkrijaminan', $data);
 	}
 
 	public function aeditkrijaminan($id)
@@ -200,6 +229,8 @@ class Akriteriacontroller extends CI_Controller {
 		$data = array(
 			'krijaminan' => $this->Mkriteriajaminan->getById($id)
 		);
+		$data['sidebar'] = 'kriteria';
+		$data['sidebar2'] = 'krijaminan';
 
 		$this->load->view('aeditkrijaminan', $data);
 	}

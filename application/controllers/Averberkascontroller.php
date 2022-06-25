@@ -34,6 +34,8 @@ class Averberkascontroller extends CI_Controller {
 	public function akeldok()
 	{
 		$data['keldoks'] = $this->Mverifdokumen->getVDUser();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verkeldok';
 		$this->load->view('akeldok', $data);
 	}
 
@@ -43,6 +45,8 @@ class Averberkascontroller extends CI_Controller {
 		$data['dokKary'] 	  = $this->db->get_where('dokumen_karyawan', ['ID_VD' => $idVD])->row();
 		$data['dokWira'] 	  = $this->db->get_where('dokumen_wiraswasta', ['ID_VD' => $idVD])->row();
 		$data['kriteria'] 	  = $this->Mkriteriakeldok->getAll();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verkeldok';
 		$this->load->view('averifkeldok', $data);
 	}
 
@@ -93,6 +97,8 @@ class Averberkascontroller extends CI_Controller {
 	public function akemba()
 	{
 		$data['kembas'] 	= $this->Mverifkemba->getVDUser();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verkemba';
 		$this->load->view('akemba', $data);
 	}
 	public function averifkemba($idVKB){
@@ -102,6 +108,9 @@ class Averberkascontroller extends CI_Controller {
 
 		$data['statusVerif'] 	= true;
 		$data['statusVerifMsg'] = array();
+
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verkemba';
 
 		// CEK USIA
 		$durcil = (int)$data['verifKemba'][0]->DURCIL_VKB;
@@ -179,12 +188,16 @@ class Averberkascontroller extends CI_Controller {
 	public function aslik()
 	{
 		$data['sliks'] = $this->Mverifslik->getVDUser();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verslik';
 		$this->load->view('aslik', $data);
 	}
 
 	public function averifslik($idSlik){
 		$data['verifSlik'] 		= $this->Mverifslik->get(['ID_VPS' => $idSlik]);
 		$data['kriteria']		= $this->Mkriteriaslik->getAll();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verslik';
 
 		$verifDokumen = $this->Mverifdokumen->get(['EMAIL_NAS' => $data['verifSlik'][0]->EMAIL_NAS]);
 
@@ -202,6 +215,8 @@ class Averberkascontroller extends CI_Controller {
 	public function ajaminan()
 	{
 		$data['jaminans'] = $this->Mverifjaminan->getVDUser();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verjaminan';
 		$this->load->view('ajaminan', $data);
 	}
 	
@@ -209,6 +224,8 @@ class Averberkascontroller extends CI_Controller {
 		$data['verifJaminan'] 	= $this->Mverifjaminan->get(['ID_VJ' => $idVJ]);
 		$data['dokJaminan']		= $this->db->get_where('dokumen_jaminan', ['ID_VJ' => $idVJ])->row();
 		$data['kriteria']		= $this->Mkriteriajaminan->getAll();
+		$data['sidebar'] = 'verifikasi';
+		$data['sidebar2'] = 'verjaminan';
 		$this->load->view('averifjaminan', $data);
 	}
 	public function proses_verifslik(){

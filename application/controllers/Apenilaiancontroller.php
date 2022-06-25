@@ -25,6 +25,8 @@ class Apenilaiancontroller extends CI_Controller {
 		$data['penilaianS'] = $this->vGetPenilaianS();
 		$data['penilaianV'] = $this->vGetPenilaianV();
 		$data['ranking'] = $this->vGetRanking();
+		$data['sidebar'] = 'penilaian';
+		$data['sidebar2'] = '';
 		$this->load->view('apenilaian', $data);
 	}
 	public function setready(){

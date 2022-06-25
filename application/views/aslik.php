@@ -158,41 +158,7 @@
             </ul>
         </div>
         <div class="shadow-bottom"></div>
-        <div class="main-menu-content">
-            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/beranda') ?>"><i data-feather="home"></i><span class="menu-item text-truncate" data-i18n="Dashboard">Dashboard</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="<?= site_url('admin/nasabah') ?>"><i data-feather="user"></i><span class="menu-item text-truncate" data-i18n="Nasabah">Nasabah</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="check-circle"></i><span class="menu-title text-truncate" data-i18n="VerifBerkas">Verifikasi Berkas</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/keldok') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/kemba') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/slik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/jaminan') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
-                        </li>
-                    </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file"></i><span class="menu-title text-truncate" data-i18n="Kriteria">Kriteria</span></a>
-                    <ul class="menu-content">
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikeldok') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kelengkapan dokumen">Kelengkapan dokumen</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krikemba') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Kemampuan bayar">Kemampuan bayar</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krislik') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Pengecekkan SLIK">Pengecekkan SLIK</span></a>
-                        </li>
-                        <li><a class="d-flex align-items-center" href="<?= site_url('admin/krijaminan') ?>"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Jaminan">Jaminan</span></a>
-                        </li>
-                    </ul>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="rekomendasi"><i data-feather="check-square"></i><span class="menu-title text-truncate" data-i18n="Penilaian">Penilaian</span></a>
-                </li>
-                <li class=" nav-item"><a class="d-flex align-items-center" href="rekomendasi"><i data-feather="award"></i><span class="menu-title text-truncate" data-i18n="Rekomendasi">Rekomendasi</span></a>
-                </li>
-                </li>
-            </ul>
-        </div>
+        <?php $this->load->view('sidebar_admin', ['sidebar' => $sidebar, 'sidebar2' => $sidebar2])?>
     </div>
     <!-- END: Main Menu-->
 
@@ -272,7 +238,7 @@
                                                     }
 
                                                     $aksiDetail = "";
-                                                    if ($item->STATUS_VPS == "2" || $item->STATUS_VPS == "0" ) {
+                                                    if ($item->STATUS_VD == '3' && ($item->STATUS_VPS == "2" || $item->STATUS_VPS == "0") ) {
                                                         $aksiDetail = '
                                                                 <a class="btn btn-sm btn-info" href="' . site_url('admin/averifslik/' . $item->ID_VPS) . '"><i data-feather="info"></i></a>
                                                             ';

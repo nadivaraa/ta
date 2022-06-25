@@ -36,6 +36,9 @@ class Anasabahcontroller extends CI_Controller {
 			'nasabah' => $this->Mnasabah->getAll()
 		);
 
+		$data['sidebar'] = 'nasabah';
+		$data['sidebar2'] = '';
+
 		$this->load->view('anasabah', $data);
 
 	}

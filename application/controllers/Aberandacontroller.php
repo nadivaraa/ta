@@ -69,6 +69,10 @@ class Aberandacontroller extends CI_Controller {
 		$data['totalVerif'] = $totalVerif;
 		$data['totalGagal'] = $totalGagal;
 		$data['total'] 		= $total;
+
+		$data['sidebar'] = 'beranda';
+		$data['sidebar2'] = '';
+
 		$this->load->view('aberanda', $data);
 	}
 
