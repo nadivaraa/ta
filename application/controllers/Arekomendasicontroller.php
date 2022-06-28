@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Arekomendasicontroller extends CI_Controller {
@@ -115,20 +115,24 @@ class Arekomendasicontroller extends CI_Controller {
 
         $no     = 1;
         $row    = 4;
-        // foreach ($rankings as $ranking) {
-        //     $sheet->setCellValue('A'.$row, $no++)->getStyle('A'.$row)->applyFromArray($styleContentCenter);
-        //     $sheet->setCellValue('B'.$row, $ranking->NAMA_NAS)->getStyle('B'.$row)->applyFromArray($styleContentCenter);
-        //     $sheet->setCellValue('C'.$row, $ranking->EMAIL_NAS)->getStyle('C'.$row)->applyFromArray($styleContentCenter);
-        //     $sheet->setCellValue('D'.$row, $ranking->PERHITUNGAN_V)->getStyle('D'.$row)->applyFromArray($styleContentCenter);
-        //     $sheet->setCellValue('E'.$row, "-")->getStyle('E'.$row++)->applyFromArray($styleContentCenter);
-        // }
+        foreach ($rankings as $ranking) {
+            $sheet->setCellValue('A'.$row, $no++)->getStyle('A'.$row)->applyFromArray($styleContentCenter);
+            $sheet->setCellValue('B'.$row, $ranking->NAMA_NAS)->getStyle('B'.$row)->applyFromArray($styleContentCenter);
+            $sheet->setCellValue('C'.$row, $ranking->EMAIL_NAS)->getStyle('C'.$row)->applyFromArray($styleContentCenter);
+            $sheet->setCellValue('D'.$row, $ranking->PERHITUNGAN_V)->getStyle('D'.$row)->applyFromArray($styleContentCenter);
+            
+            $status = $ranking->PERHITUNGAN_STATUS == '1' ? 'LAYAK' : '-';
+            $sheet->setCellValue('E'.$row, $status)->getStyle('E'.$row++)->applyFromArray($styleContentCenter);
+        }
 
 		$fileName = 'LAPORAN_KPR_'.date('j F Y');
         $writer = new Xlsx($spreadsheet);
         
+        ob_end_clean();
         header('Content-Type: application/vnd.ms-excel'); // generate excel file
         header('Content-Disposition: attachment;filename="'. $fileName .'.xlsx"'); 
         header('Cache-Control: max-age=0');
         $writer->save('php://output');
+        die;
 	}
 }
