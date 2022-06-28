@@ -115,13 +115,13 @@ class Arekomendasicontroller extends CI_Controller {
 
         $no     = 1;
         $row    = 4;
-        foreach ($rankings as $ranking) {
-            $sheet->setCellValue('A'.$row, $no++)->getStyle('A'.$row)->applyFromArray($styleContentCenter);
-            $sheet->setCellValue('B'.$row, $ranking->NAMA_NAS)->getStyle('B'.$row)->applyFromArray($styleContentCenter);
-            $sheet->setCellValue('C'.$row, $ranking->EMAIL_NAS)->getStyle('C'.$row)->applyFromArray($styleContentCenter);
-            $sheet->setCellValue('D'.$row, $ranking->PERHITUNGAN_V)->getStyle('D'.$row)->applyFromArray($styleContentCenter);
-            $sheet->setCellValue('E'.$row, "-")->getStyle('E'.$row++)->applyFromArray($styleContentCenter);
-        }
+        // foreach ($rankings as $ranking) {
+        //     $sheet->setCellValue('A'.$row, $no++)->getStyle('A'.$row)->applyFromArray($styleContentCenter);
+        //     $sheet->setCellValue('B'.$row, $ranking->NAMA_NAS)->getStyle('B'.$row)->applyFromArray($styleContentCenter);
+        //     $sheet->setCellValue('C'.$row, $ranking->EMAIL_NAS)->getStyle('C'.$row)->applyFromArray($styleContentCenter);
+        //     $sheet->setCellValue('D'.$row, $ranking->PERHITUNGAN_V)->getStyle('D'.$row)->applyFromArray($styleContentCenter);
+        //     $sheet->setCellValue('E'.$row, "-")->getStyle('E'.$row++)->applyFromArray($styleContentCenter);
+        // }
 
 		$fileName = 'LAPORAN_KPR_'.date('j F Y');
         $writer = new Xlsx($spreadsheet);
