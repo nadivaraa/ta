@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/extensions/ext-component-sweet-alerts.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>/assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -56,7 +57,7 @@
                 <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder"><?= $this->session->userdata('nama')?></span><span class="user-status">User</span></div><span class="avatar"><img class="round" src="<?= base_url()?>/assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="profile"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="<?= site_url('proses_logout')?>"><i class="me-50" data-feather="power"></i> Keluar</a>
                     </div>
                     </div>
                 </li>
@@ -212,27 +213,27 @@
                                 <!--/ header section -->
 
                                 <!-- form -->
-                                <form class="validate-form mt-2 pt-50">
+                                <form action="<?= site_url('profile/edit')?>" method="POST" class="validate-form mt-2 pt-50">
                                     <div class="row">
                                         <div class="col-12">
                                             <label class="form-label" for="accountFirstName">Email</label>
-                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                            <input type="text" class="form-control" id="accountFirstName" name="" placeholder="John" value="<?= $user->EMAIL_NAS?>" data-msg="Please enter first name" disabled />
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label" for="accountFirstName">Nama</label>
-                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
-                                        </div>
-                                        <div class="col-12">
-                                            <label class="form-label" for="accountFirstName">Tanggal Lahir</label>
-                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                            <input type="text" class="form-control" id="accountFirstName" name="nama" placeholder="" value="<?= $user->NAMA_NAS?>" data-msg="Please enter first name" />
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label" for="accountFirstName">No Telepon</label>
-                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                            <input type="text" class="form-control" id="accountFirstName" name="noTelp" placeholder="John" value="<?= $user->NOTLP_NAS?>" data-msg="Please enter first name" />
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label" for="accountFirstName">Pekerjaan</label>
-                                            <input type="text" class="form-control" id="accountFirstName" name="firstName" placeholder="John" value="John" data-msg="Please enter first name" />
+                                            <select class="form-control" name="pekerjaan" id="">
+                                                <option value="1" <?= $user->PEKERJAAN_NAS == '1' ? 'selected' : ''?> >Professioal</option>
+                                                <option value="2" <?= $user->PEKERJAAN_NAS == '2' ? 'selected' : ''?>>Karyawan</option>
+                                                <option value="3" <?= $user->PEKERJAAN_NAS == '3' ? 'selected' : ''?>>Wiraswasta</option>
+                                            </select>
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary mt-1 me-1">Save changes</button>
@@ -265,6 +266,7 @@
     <script src="<?= base_url()?>/assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <script src="<?= base_url()?>/assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <script src="<?= base_url()?>/assets/vendors/js/forms/cleave/cleave.min.js"></script>
+    <script src="<?= base_url() ?>/assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
     <script src="<?= base_url()?>/assets/vendors/js/forms/cleave/addons/cleave-phone.us.js"></script>
     <!-- END: Page Vendor JS-->
 
@@ -278,6 +280,11 @@
     <!-- END: Page JS-->
 
     <script>
+        $(document).ready(function() {
+            $('.flatpickr-basic').flatpickr({
+                dateFormat: "j F Y",
+            });
+        })
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({

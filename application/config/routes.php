@@ -64,7 +64,8 @@ $route['proses_logout'] = 'Authcontroller/proses_logout';
 $route['aproses_logout'] = 'Aauthcontroller/proses_logout';
 
 //PROFILE
-$route['profile'] = 'profilecontroller/profile';
+$route['profile']       = 'profilecontroller/profile';
+$route['profile/edit']  = 'profilecontroller/edit';
 
 // BERANDA
 $route['beranda'] = 'berandacontroller/beranda';
