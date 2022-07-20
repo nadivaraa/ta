@@ -22,8 +22,8 @@ class Apenilaiancontroller extends CI_Controller {
 	{
 		$data['datasets'] = $this->vGetDataset();
 		$data['penilaianReadys'] = $this->vGetPenilaianReady();
-		$data['penilaianS'] = $this->vGetPenilaianS();
-		$data['penilaianV'] = $this->vGetPenilaianV();
+		$data['penilaianS'] = $this->vGetPenilaianReady();
+		$data['penilaianV'] = $this->vGetPenilaianReady();
 		$data['ranking'] = $this->vGetRanking();
 		$data['sidebar'] = 'penilaian';
 		$data['sidebar2'] = '';
@@ -35,7 +35,7 @@ class Apenilaiancontroller extends CI_Controller {
 		$datasets 		= $this->vGetDataset();
 		$totalNilaiS	= 0;
 		$index			= 0;
-		$formData		= array();
+		$formData		= array();	
 		foreach ($datasets as $dataset) {
 			$formData[$index]['EMAIL_NAS'] 				= $dataset->email;
 			$formData[$index]['PERHITUNGAN_KELDOK'] 	= pow($dataset->bobot_keldok, 0.25);
@@ -55,23 +55,6 @@ class Apenilaiancontroller extends CI_Controller {
 			$item['PERHITUNGAN_V'] = $item['PERHITUNGAN_S'] / $totalNilaiS;
 			$this->db->insert('penilaian_ready', $item);
 		}
-
-
-
-		// $formData['EMAIL_NAS'] 				= $_POST['email'];
-		// $formData['PERHITUNGAN_KELDOK'] 	= pow($_POST['bobot_keldok'], 0.25);
-		// $formData['PERHITUNGAN_KEMBA'] 		= pow($_POST['bobot_kemba'], 0.25);
-		// $formData['PERHITUNGAN_JAMINAN'] 	= pow($_POST['bobot_jaminan'], 0.25);
-		// $formData['PERHITUNGAN_SLIK'] 		= pow($_POST['bobot_slik'], 0.25);
-		// $formData['PERHITUNGAN_S'] 			= NULL;
-		// $formData['PERHITUNGAN_V'] 			= NULL;
-
-		// $data = $this->db->get_where('penilaian_ready', ['EMAIL_NAS' => $_POST['email']])->result();
-		// if($data == null){
-		// 	$this->db->insert('penilaian_ready', $formData);
-		// }else{
-		// 	$this->db->where('EMAIL_NAS', $_POST['email'])->update('penilaian_ready', $formData);
-		// }
 		redirect('admin/apenilaian');
 	}
 	public function vGetDataset(){
@@ -120,61 +103,6 @@ class Apenilaiancontroller extends CI_Controller {
 				n.EMAIL_NAS = pr.EMAIL_NAS 
 		")->result();
 	}
-	public function perhitunganS(){
-		return $this->db->query("
-			SELECT 
-				pr.*,
-				(pr.PERHITUNGAN_KELDOK * pr.PERHITUNGAN_KEMBA * pr.PERHITUNGAN_JAMINAN * pr.PERHITUNGAN_SLIK) as PERHITUNGAN_S
-			FROM penilaian_ready pr 
-		")->result();
-	}
-	public function vGetPenilaianS(){
-		return $this->db->query("
-			select 
-				n.NAMA_NAS ,
-				pr.*
-			from 
-				nasabah n ,
-				penilaian_ready pr
-			where 
-				pr.PERHITUNGAN_S IS NOT NULL 
-				AND n.EMAIL_NAS = pr.EMAIL_NAS 
-		")->result();
-	}
-	public function perhitunganV(){
-		$sumS = $this->db->query("
-			SELECT 
-				SUM(pr.PERHITUNGAN_S) as TOTAL_S
-			FROM penilaian_ready pr  
-			WHERE pr.PERHITUNGAN_S IS NOT NULL
-		")->row();
-
-		return $this->db->query("
-			SELECT 
-				pr.EMAIL_NAS,
-				pr.PERHITUNGAN_KELDOK,
-				pr.PERHITUNGAN_KEMBA,
-				pr.PERHITUNGAN_JAMINAN,
-				pr.PERHITUNGAN_SLIK,
-				pr.PERHITUNGAN_S,
-				(pr.PERHITUNGAN_S / ".$sumS->TOTAL_S.") as PERHITUNGAN_V
-			FROM penilaian_ready pr 
-			WHERE pr.PERHITUNGAN_S IS NOT NULL
-		")->result();
-	}
-	public function vGetPenilaianV(){
-		return $this->db->query("
-			select 
-				n.NAMA_NAS ,
-				pr.*
-			from 
-				nasabah n ,
-				penilaian_ready pr
-			where 
-				pr.PERHITUNGAN_V IS NOT NULL 
-				AND n.EMAIL_NAS = pr.EMAIL_NAS 
-		")->result();
-	}
 	public function vGetRanking(){
 		return $this->db->query("
 			select 
@@ -184,8 +112,7 @@ class Apenilaiancontroller extends CI_Controller {
 				nasabah n ,
 				penilaian_ready pr
 			where 
-				pr.PERHITUNGAN_V IS NOT NULL 
-				AND n.EMAIL_NAS = pr.EMAIL_NAS 
+				n.EMAIL_NAS = pr.EMAIL_NAS 
 			order by pr.PERHITUNGAN_V DESC
 		")->result();
 	}

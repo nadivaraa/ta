@@ -40,7 +40,9 @@ class Arekomendasicontroller extends CI_Controller {
         $this->db->update('penilaian_ready', ['PERHITUNGAN_STATUS' => '0']);
         $no = 1;
         foreach ($ranking as $item) {
-            if($no > $_POST['jmlLayak']) break;
+            if($no > $_POST['jmlLayak']){
+                break;
+            };
             $this->db->where('EMAIL_NAS', $item->EMAIL_NAS)->update('penilaian_ready', ['PERHITUNGAN_STATUS' => '1']);
             $no++;
         }
@@ -57,8 +59,7 @@ class Arekomendasicontroller extends CI_Controller {
 				nasabah n ,
 				penilaian_ready pr
 			where 
-				pr.PERHITUNGAN_V IS NOT NULL 
-				AND n.EMAIL_NAS = pr.EMAIL_NAS 
+				n.EMAIL_NAS = pr.EMAIL_NAS 
 			order by pr.PERHITUNGAN_V DESC
 		")->result();
 	}
